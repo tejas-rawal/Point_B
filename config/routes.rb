@@ -7,6 +7,8 @@ PointB::Application.routes.draw do
 
   resources :users
 
-  root 'users#index'
+  devise_scope :user do
+    get "/" => "devise/sessions#new"
+  end
 
 end

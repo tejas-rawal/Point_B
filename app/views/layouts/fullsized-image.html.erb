@@ -12,14 +12,8 @@
   </head>
 
   <body>
-    <% if notice || alert %>
-      <div class="row large-12 columns">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
+    <%= render 'layouts/homepage' %>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+   
   </body>
 </html>

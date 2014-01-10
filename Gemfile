@@ -16,6 +16,7 @@ group :development do
   gem 'pry'
   gem 'haml'
   gem 'haml-rails'
+  gem 'html2haml'
 end
 
 gem 'rails_12factor', group: :production
