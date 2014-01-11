@@ -21,9 +21,12 @@
 </p>
 
 <div class="row trip-index">
-  <div class="small-1 medium-2 large-4 small-centered columns">
+  <div class="small-1 medium-2 large-4 columns">
     <% @user.trips.each do |trip| %>
-      <h4>Test <%= "#{trip.destination.name}" %></h4>
+      <div class="trip-individual">
+        <h5><%= "#{trip.destination.city}, #{trip.destination.country}" %></h5>
+      <p><%= "#{trip.destination.description}" %></p>
+      </div>
    <% end %>
   </div>
 </div>
