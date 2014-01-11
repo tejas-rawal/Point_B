@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   mount_uploader :profile_pic, ImageUploader
 
-  has_many :trips
-  has_many :destinations, through: :trips
+  has_many :destinations
   has_many :posts
 
   devise :database_authenticatable, :registerable,
