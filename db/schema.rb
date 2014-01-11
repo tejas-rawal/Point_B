@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140110215456) do
+ActiveRecord::Schema.define(version: 20140111191333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140110215456) do
     t.string   "city"
     t.string   "country"
     t.text     "description"
-    t.string   "album"
+    t.text     "album"
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140110215456) do
     t.string   "event"
     t.text     "description"
     t.string   "external_links"
-    t.string   "images"
+    t.text     "images"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140110215456) do
     t.string   "name"
     t.integer  "age"
     t.string   "location"
-    t.string   "profile_pic"
+    t.text     "profile_pic"
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
