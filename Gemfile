@@ -9,6 +9,8 @@ gem 'pg'
 gem 'devise'
 
 gem 'foundation-rails'
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development do
   gem "better_errors"
