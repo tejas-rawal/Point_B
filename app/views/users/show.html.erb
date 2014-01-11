@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag(@user.profile_pic) %>
+</p>
+<p>
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
@@ -15,10 +18,7 @@
   <%= @user.location %>
 </p>
 
-<p>
-  <strong>Profile pic:</strong>
-  <%= @user.profile_pic %>
-</p>
+
 
 <p>
   <strong>Bio:</strong>
