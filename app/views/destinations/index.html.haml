@@ -19,9 +19,8 @@
       %td= destination.album
       %td= destination.category
       %td= link_to 'Show', destination
-      %td= link_to 'Edit', edit_destination_path(destination)
+      %td= link_to 'Edit', '#'
       %td= link_to 'Destroy', destination, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Destination', new_destination_path

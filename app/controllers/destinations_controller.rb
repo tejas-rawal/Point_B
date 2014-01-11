@@ -4,7 +4,8 @@ class DestinationsController < ApplicationController
   # GET /destinations
   # GET /destinations.json
   def index
-    @destinations = Destination.all
+    @user = User.find(params[:user_id])
+    @destinations = @user.destinations
   end
 
   # GET /destinations/1
@@ -24,12 +25,13 @@ class DestinationsController < ApplicationController
   # POST /destinations
   # POST /destinations.json
   def create
+    @user = User.find(params[:user_id])
     @destination = Destination.new(destination_params)
 
     respond_to do |format|
       if @destination.save
-        format.html { redirect_to @destination, notice: 'Destination was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @destination }
+        format.html { redirect_to user_destination_path(@destination.id), notice: 'Destination was successfully created.' }
+        format.json { render action: 'show', status: :created, location: user_destination_path }
       else
         format.html { render action: 'new' }
         format.json { render json: @destination.errors, status: :unprocessable_entity }
