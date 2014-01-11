@@ -1,11 +1,10 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
-  # GET /destinations
-  # GET /destinations.json
+  # GET /trips
+  # GET /trips.json
   def index
-    @user = User.find(params[:user_id])
-    @destinations = @user.destinations
+    @destinations = Destination.all
   end
 
   # GET /destinations/1
@@ -16,6 +15,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/new
   def new
     @destination = Destination.new
+    @user = User.find(params[:user_id])
   end
 
   # GET /destinations/1/edit
@@ -25,17 +25,12 @@ class DestinationsController < ApplicationController
   # POST /destinations
   # POST /destinations.json
   def create
-    @user = User.find(params[:user_id])
     @destination = Destination.new(destination_params)
-
-    respond_to do |format|
-      if @destination.save
-        format.html { redirect_to user_destination_path(@destination.id), notice: 'Destination was successfully created.' }
-        format.json { render action: 'show', status: :created, location: user_destination_path }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @destination.errors, status: :unprocessable_entity }
-      end
+    @destination.user_id = params[:user_id]
+    if @destination.save
+      redirect_to @destination
+    else
+      redirect_to root_path
     end
   end
 
@@ -44,7 +39,7 @@ class DestinationsController < ApplicationController
   def update
     respond_to do |format|
       if @destination.update(destination_params)
-        format.html { redirect_to @destination, notice: 'Destination was successfully updated.' }
+        format.html { redirect_to @destination, notice: 'destination was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,6 +66,6 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:city, :country, :description, :album, :category)
+      params.require(:destination).permit(:city, :country, :description, :album, :category, :user_id)
     end
 end
