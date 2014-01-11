@@ -2,7 +2,7 @@
 <h2><%= @user.name %></h2>
 
 <p>
-  <%= image_tag(src: @user.profile_pic.url(:large)) %>
+  <img src="<%= @user.profile_pic.url(:large) %>">
 </p>
 
 <p>
@@ -28,7 +28,7 @@
     <% @user.trips.each do |trip| %>
       <div class="trip-individual">
         <h5><%= "#{trip.destination.city}, #{trip.destination.country}" %></h5>
-        <%= image_tag(src: trip.destination.album.url(:thumb)) %>
+        <img src="<%= trip.destination.album%>">
         <p><%= "#{trip.destination.snippet}" %></p>
       </div>
    <% end %>
