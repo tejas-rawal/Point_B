@@ -13,3 +13,7 @@
 
  *= require_tree .
  */
+
+.sign-in-block .small-4 {
+  border: 5px outset #333333;
+}
