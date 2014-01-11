@@ -28,7 +28,8 @@
     <% @user.trips.each do |trip| %>
       <div class="trip-individual">
         <h5><%= "#{trip.destination.city}, #{trip.destination.country}" %></h5>
-      <p><%= "#{trip.destination.snippet}" %></p>
+        <%= image_tag(src: trip.destination.album.url(:thumb)) %>
+        <p><%= "#{trip.destination.snippet}" %></p>
       </div>
    <% end %>
   </div>
