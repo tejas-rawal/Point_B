@@ -5,15 +5,12 @@
 %h3
   = "#{@destination.city}, #{@destination.country}"
 %p
-  %b Description:
   = @destination.description
 
 %p
-  %b Category:
+  %b Tags:
   = @destination.category
 
 = link_to 'Edit', '#'
 \|
 = link_to 'Back', '#'
-\|
-= link_to 'My Profile', user_path
