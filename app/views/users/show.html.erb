@@ -20,5 +20,13 @@
   <%= @user.bio %>
 </p>
 
+<div class="row trip-index">
+  <div class="small-1 medium-2 large-4 small-centered columns">
+    <% @user.trips.each do |trip| %>
+      <h4>Test <%= "#{trip.destination.name}" %></h4>
+   <% end %>
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Add Trip', edit_user_path(@user) %>

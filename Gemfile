@@ -11,6 +11,7 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'hirb'
 
 group :development do
   gem "better_errors"
