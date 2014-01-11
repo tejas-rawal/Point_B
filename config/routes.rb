@@ -7,8 +7,9 @@ PointB::Application.routes.draw do
 
   resources :users
 
-  devise_scope :user do
-    get "/" => "devise/sessions#new"
-  end
+  # devise_scope :user do
+  #   get "/" => "devise/sessions#new"
+  # end
+  root "static_pages#home"
 
 end
