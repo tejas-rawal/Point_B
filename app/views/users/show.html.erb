@@ -30,7 +30,8 @@
       <div class="destination-individual">
         <h5><%= "#{dest.city}, #{dest.country}" %></h5>
         <img src="<%= dest.album%>">
-        <p><%= "#{dest.snippet}" %></p>
+        <p><%= dest.snippet %>
+        <%= link_to 'Read More', dest %></p>
       </div>
    <% end %>
   </div>
