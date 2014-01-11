@@ -1,11 +1,8 @@
 <p id="notice"><%= notice %></p>
+<h2><%= @user.name %></h2>
 
 <p>
   <%= image_tag(src: @user.profile_pic.url(:large)) %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
 </p>
 
 <p>
@@ -24,3 +21,4 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
+<%= link_to 'Add Trip', edit_user_path(@user) %>

@@ -1,5 +1,5 @@
 PointB::Application.routes.draw do
-  resources :trips
+  
 
   resources :destinations, only: :show
 
