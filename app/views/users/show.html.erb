@@ -1,12 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<h2><%= @user.name %></h2>
 <p>
   <%= image_tag(src: @user.profile_pic.url(:large)) %>
 </p>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+
 
 <p>
   <strong>Age:</strong>
@@ -22,5 +19,13 @@
   <strong>Bio:</strong>
   <%= @user.bio %>
 </p>
+
+<div class="row trip-index">
+  <div class="small-1 medium-2 large-4 small-centered columns">
+    <% @user.trips.each do |trip| %>
+      <h4>Test <%= "#{trip.destination.name}" %></h4>
+   <% end %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_user_path(@user) %>
