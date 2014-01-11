@@ -16,7 +16,8 @@
       %td= destination.city
       %td= destination.country
       %td= destination.description
-      %td= destination.album
+      %td
+        %img{src: destination.album}
       %td= destination.category
       %td= link_to 'Show', destination
       %td= link_to 'Edit', '#'

@@ -1,17 +1,13 @@
 %p#notice= notice
 
 %p
-  %b City:
-  = @destination.city
-%p
-  %b Country:
-  = @destination.country
+  %img{src: @destination.album}
+%h3
+  = "#{@destination.city}, #{@destination.country}"
 %p
   %b Description:
   = @destination.description
-%p
-  %b Album:
-  = @destination.album
+
 %p
   %b Category:
   = @destination.category
@@ -20,4 +16,4 @@
 \|
 = link_to 'Back', '#'
 \|
-= link_to 'My Profile', @user_path
+= link_to 'My Profile', '#'
