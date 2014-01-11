@@ -31,7 +31,7 @@
           <h5><%= "#{dest.city}, #{dest.country}" %></h5>
           <img src="<%= dest.album%>">
           <p><%= dest.snippet %>
-          <%= link_to 'Read More', dest %></p>
+          <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
         </div>
      <% end %>
     </div>
