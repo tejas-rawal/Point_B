@@ -7,14 +7,31 @@
 }
 
 .post-wall {
-  text-align: justify;
   margin: 5px 20px;
 }
+
+.info {
+  text-align: justify;
+}
+
+.album {
+ margin: 5px 10px;
+}
+
+.post-form {
+  width: 75%;
+  margin-top: 10px;
+  position: relative;
+}
+
 form.new-post {
-display: inline-block;
 border: 2px solid #333333;
-width: 150%;
-margin-top: 10px;
+opacity: 0.9;
+display: inline-block;
+}
+
+form.new-post textarea {
+display: inline-block;
 }
 
 .button-bar {
