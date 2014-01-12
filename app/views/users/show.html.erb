@@ -12,14 +12,14 @@
   <%= link_to 'Edit Profile', edit_user_path(@user) %><br />
 </div>
 <div class="row destination">
-    <%= link_to 'Add Destination', new_user_destination_path(@user) %><br />
-    <% end %>
+  <%= link_to 'Add Destination', new_user_destination_path(@user) %>
+<% end %>
 
-  <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+  <ul class="dest-grid small-block-grid-1 medium-block-grid-3 large-block-grid-3">
     <% @user.destinations.each do |dest| %>  
       <li>
         <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-        <img src="<%= dest.album%>">
+        <img src="<%= dest.album.url(:large) %>">
         <p><%= dest.snippet %>
         <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
       </li>
