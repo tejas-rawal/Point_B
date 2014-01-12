@@ -1,15 +1,10 @@
-<div class="user small-12 medium-10 large-6 columns">
+<div>
   <h2><%= @user.name %></h2>
   
   <%= image_tag @user.profile_pic_url(:large) %>
 </div>
-<div class="side">
-  <h3>My Destinations</h3>
-    <div class="map"><%= image_tag "map.png" %>
-    </div>
-    <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
-</div>
-<div class="user small-12 medium-10 large-6 columns">
+
+<div>
   <h5>Home Base: <%= @user.location %></h5>
   
   <h4>About</h4>
@@ -17,23 +12,31 @@
 
 <% if @user == current_user %>
   <%= link_to 'Edit Profile', edit_user_path(@user) %><br />
-</div>
-<div class="destination small-12 medium-10 large-6 columns">
+
   <%= link_to 'Add Destination', new_user_destination_path(@user) %>
 <% end %>
-
-  <ul class="dest-grid small-block-grid-1 medium-block-grid-3 large-block-grid-3">
-    <% @user.destinations.reverse_each do |dest| %>  
-      <li>
-        <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-        <%= image_tag dest.album_url(:large) %>
-        <p><%= dest.snippet %>
-        <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
-      </li>
-    <% end %>
-  </ul>
-  
 </div>
+
+<% content_for :sidebar do %>
+<div class="user side-nav">
+  <h3>My Destinations</h3>
+    <div class="map"><%= image_tag "map.png" %>
+    </div>
+    <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
+</div>
+<% end %>
+
+<ul class="destination-grid small-block-grid-1 medium-block-grid-2 large-block-grid-2">
+  <% @user.destinations.reverse_each do |dest| %>  
+    <li>
+      <h5><%= "#{dest.city}, #{dest.country}" %></h5>
+      <%= image_tag dest.album_url(:large) %>
+      <p><%= dest.snippet %>
+      <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+    </li>
+  <% end %>
+</ul>
+  
 
 
 
