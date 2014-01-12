@@ -10,8 +10,10 @@
     %b Tags:
     = @destination.category
 
+.post-wall
+
 .row
-  .small-4.large-6.small-centered.columns
+  .small-3.large-6.small-centered.columns
     %form.new-post
       %fieldset
         %legend
@@ -34,13 +36,11 @@
 
             %input{type: "submit", value: "Add Post"}
 
-.post-wall
-
 #templates
   %script{type: "text/template", class: "post"}
-    .small-3.medium-4.large-6.columns
-      = image_tag "{images}(:large)"
-    .small-9.medium-8.large-6.columns
+    .small-3.medium-3.large-3.columns
+      = image_tag "{images}(:medium)"
+    .small-9.medium-9.large-9.columns
       %label {activity}
       %p {description}
       = link_to '{external_links}', '{external_links'
@@ -48,11 +48,11 @@
 - if @user == current_user
   .button-bar
     %ul.button-group
-      %li.small.button
+      %li.tiny.button
         = link_to 'Edit Destination', edit_user_destination_path(@user.id, @destination)
-      %li.small.button
+      %li.tiny.button
         = link_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
-      %li.small.button
+      %li.tiny.button
         = link_to 'My Profile', user_path(@user)
 
 
