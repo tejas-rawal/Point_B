@@ -13,6 +13,11 @@ class DestinationsController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def post
+    new_post = @destination.posts.create(post_params)
+    render :json => new_post.to_json, :status => 200
+  end
+
   # GET /destinations/new
   def new
     @destination = Destination.new
@@ -72,4 +77,7 @@ class DestinationsController < ApplicationController
     def destination_params
       params.require(:destination).permit(:city, :country, :description, :album, :category, :user_id)
     end
+
+    def post_params
+      params.permit(:event, :description, :external_links, :images, :destination_id)
 end

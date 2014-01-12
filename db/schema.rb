@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111204112) do
+ActiveRecord::Schema.define(version: 20140112010328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,22 +24,29 @@ ActiveRecord::Schema.define(version: 20140111204112) do
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
-  add_index "destinations", ["user_id"], name: "index_destinations_on_user_id", using: :btree
-
   create_table "posts", force: true do |t|
-    t.integer  "user_id"
     t.string   "event"
     t.text     "description"
     t.string   "external_links"
     t.text     "images"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "destination_id"
   end
 
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+  add_index "posts", ["destination_id"], name: "index_posts_on_destination_id", using: :btree
+
+  create_table "trips", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "destination_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trips", ["destination_id"], name: "index_trips_on_destination_id", using: :btree
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
