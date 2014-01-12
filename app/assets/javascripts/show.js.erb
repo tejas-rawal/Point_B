@@ -1,6 +1,6 @@
 (function () {
   var destinationPosts = new Post();
-  
+
   var formPresenter = new PostFrom({
     root: $('form.new-post'),
     posts: destinationPosts
@@ -10,5 +10,7 @@
     root: $('.post-wall'),
     posts: destinationPosts
   });
+
+  var serverPosts = <% raw @destination.posts.to_json %>;
 })();
 

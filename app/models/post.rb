@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
-  mount_uploader :images, ImageUploader
-
   belongs_to :destination
+
+  mount_uploader :images, ImageUploader
 
   def as_json(options={})
     {

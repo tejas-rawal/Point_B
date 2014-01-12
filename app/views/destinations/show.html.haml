@@ -67,5 +67,7 @@
     var wallPresenter = new PostWall ({root: $('.post-wall'), posts: destinationPosts});
     })();
 
+    var serverPosts = #{raw @destination.posts.to_json};
+
 
 
