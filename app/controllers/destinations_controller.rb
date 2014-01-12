@@ -14,7 +14,7 @@ class DestinationsController < ApplicationController
   end
 
   def post
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id])
     @destination = @user.destinations.find(params[:id])
     new_post = @destination.posts.create(post_params)
     new_post.destination_id = params[:id]

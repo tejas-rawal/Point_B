@@ -43,6 +43,8 @@
         %label Images
         %input.images{type: "text"}
 
+        %input.id{type: "hidden"}
+
         %input{type: "submit", value: "Add Post"}
 
 .post-wall
@@ -52,7 +54,7 @@
     :cdata
       .row.comment
         .small-3.medium-4.large-6.columns
-          %img {images}
+          %img{src: {images} }
         .small-9.medium-8.large-6.columns
           %label {event_type}
           %p {description}
