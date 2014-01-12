@@ -2,16 +2,21 @@
   <h2><%= @user.name %></h2>
   
   <img src="<%= @user.profile_pic.url(:large) %>">
-  <%= image_tag "map.png" %>
-  
+</div>
+<div class="side">
+  <h3>My Destinations</h3>
+    <div class="map"><%= image_tag "map.png" %>
+    </div>
+    <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
+</div>
+<div class="user small-12 medium-10 large-6 columns">
   <h5>Home Base: <%= @user.location %></h5>
   
   <h4>About</h4>
     <p><%= @user.bio %></p>
-  
+
 <% if @user == current_user %>
   <%= link_to 'Edit Profile', edit_user_path(@user) %><br />
-
 </div>
 <div class="destination small-12 medium-10 large-6 columns">
   <%= link_to 'Add Destination', new_user_destination_path(@user) %>
