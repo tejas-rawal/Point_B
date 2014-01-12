@@ -4,6 +4,7 @@ PointB::Application.routes.draw do
 
   scope :api do
     post 'destinations/:id/posts' => 'destinations#posts', :as => :destination_post_api
+  end
     
   resources :users do 
     resources :destinations
