@@ -1,3 +1,23 @@
 // Place all the styles related to the Destinations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.destination {
+  text-align: justify;
+  margin: 5px 20px;
+}
+
+form.new-post {
+display: inline-block;
+border: 2px solid #333333;
+width: 150%;
+}
+
+.sub-nav .link {
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+.button-bar {
+  margin: 5px 20px;
+}
+

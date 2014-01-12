@@ -15,8 +15,6 @@
       };
 
       posts.create(newPost);
-
-      // $root.find('').val('');
     });
   };
 })();

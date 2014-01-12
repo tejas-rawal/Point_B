@@ -12,27 +12,30 @@
 
 .row
   .small-4.large-6.small-centered.columns
-    .panel
-      %h3 Add A Post
-      %form.new-post
-        %label Activity
-        %textarea.activity{rows: "10", cols: "30"}
+    %form.new-post
+      %fieldset
+        %legend
+          %h4 Add A Post
+        .row
+          .small-2.medium-3.large-4.columns
+            %label Activity
+            %textarea.activity{rows: "10", cols: "30"}
+          .small-2.medium-3.large-4.columns
+            %label Description
+            %textarea.description{rows: "10", cols: "30"}
+          .small-2.medium-3.large-4.columns
+            %label External Links
+            %textarea.external_links{rows: "10", cols: "30"}
 
-        %label Description
-        %textarea.description{rows: "10", cols: "30"}
+            %label Images
+            %input.images{type: "file"}
 
-        %label External Links
-        %textarea.external_links{rows: "10", cols: "30"}
+            %input.id{type: "hidden"}
 
-        %label Images
-        %input.images{type: "file"}
-
-        %input.id{type: "hidden"}
-
-        %input{type: "submit", value: "Add Post"}
+            %input{type: "submit", value: "Add Post"}
 
 .post-wall
-      
+
 #templates
   %script{type: "text/template", class: "post"}
     .small-3.medium-4.large-6.columns
@@ -40,19 +43,22 @@
     .small-9.medium-8.large-6.columns
       %label {activity}
       %p {description}
+      = link_to '{external_links}', '{external_links'
 
 - if @user == current_user
-  = link_to 'Edit Destination', edit_user_destination_path(@user.id, @destination)
-  \|
-  = link_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
-  \|
-  = link_to 'My Profile', user_path(@user)
-  \|
+  .button-bar
+    %ul.button-group
+      %li.small.button
+        = link_to 'Edit Destination', edit_user_destination_path(@user.id, @destination)
+      %li.small.button
+        = link_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
+      %li.small.button
+        = link_to 'My Profile', user_path(@user)
 
-  
+
 
 - content_for :javascript do
-  
+
 
   :javascript
     (function () {
@@ -66,10 +72,10 @@
 
     destinationPosts.initializeWith(serverPosts);
     })();
-    
+
     window.g = {};
     g.destinationPostsUrl = "#{destination_post_api_path(destination_id: @destination)}";
-  
+
 
 
 
