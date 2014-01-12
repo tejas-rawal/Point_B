@@ -26,10 +26,11 @@ class DestinationsController < ApplicationController
   # POST /destinations
   # POST /destinations.json
   def create
+    @user = User.find(params[:user_id])
     @destination = Destination.new(destination_params)
     @destination.user_id = params[:user_id]
     if @destination.save
-      redirect_to @destination
+      redirect_to user_destination_path(@user.id, @destination.id)
     else
       redirect_to root_path
     end
@@ -54,8 +55,9 @@ class DestinationsController < ApplicationController
   # DELETE /destinations/1.json
   def destroy
     @destination.destroy
+    @user = User.find(params[:user_id])
     respond_to do |format|
-      format.html { redirect_to destinations_url }
+      format.html { redirect_to user_path(@user) }
       format.json { head :no_content }
     end
   end
