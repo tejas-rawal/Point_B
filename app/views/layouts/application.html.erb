@@ -25,10 +25,10 @@
                <!-- Right Nav Section -->
                <ul class="right">
                 <%= user_content do %>
-                  <li class="active"><a href="#">Log Out</a></li>
+                  <li class="active"><%= link_to 'Log Out', destroy_user_session_path %></li>
                 <% end %>
                 <%= non_user do %>
-                 <li class="active"><a href="#">Sign In</a></li>
+                 <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
                 <% end %>
                </ul>
              </section>
