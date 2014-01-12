@@ -16,7 +16,7 @@
 
       posts.create(newPost);
 
-      $root.find('').val('');
+      // $root.find('').val('');
     });
   };
 }) ();
