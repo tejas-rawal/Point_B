@@ -17,4 +17,26 @@
   \|
   = link_to 'My Profile', user_path(@user)
   \|
-  = link_to 'Add Posts'
+
+.panel
+  %h3 Add A Post  
+  %form.new-post
+    %label Event
+    %input.event{type: "text"}
+
+    %label Description
+    %textarea.description{rows: "10", cols: "30"}
+
+    %label External Links
+    %textarea.external_links{rows: "10", cols: "30"}
+
+    %label Images
+    %input.images{type: "text"}
+
+    %input{type: "submit", value: "Add Post"}
+
+.post-wall   
+
+#templates
+  %script.post{type: "text/template"}
+
