@@ -1,0 +1,23 @@
+= form_for [@user, @destination], :url => user_destination_path do |f|
+  - if @destination.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@destination.errors.count, "error")} prohibited this destination from being saved:"
+      %ul
+        - @destination.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.text_field :city, :placeholder => "City"
+  .field
+    = f.text_field :country, :placeholder => "Country"
+  .field
+    = f.text_area :description, :placeholder => "Description"
+  .field
+    = f.text_field :category, :placeholder => "Category"
+  .field
+    = f.file_field :album, :placeholder => "Destination Image"
+  .field
+    =f.hidden_field :user_id
+  
+  .actions
+    = f.submit 'Save'

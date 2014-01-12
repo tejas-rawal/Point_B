@@ -10,7 +10,5 @@
 %p
   %b Tags:
   = @destination.category
-
-= link_to 'Edit', edit_destination_path(@destination)
-\|
-= link_to 'Back', '#'
+- if @user == current_user
+  = link_to 'Edit', edit_user_destination_path(@user.id, @destination)

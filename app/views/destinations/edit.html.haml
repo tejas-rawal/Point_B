@@ -1,7 +1,8 @@
 %h1= "Edit Destination: #{@destination.city}" 
--if @user == current_user
-  = render 'form'
 
-  = link_to 'Show', @destination
-  \|
-  = link_to 'Back', destinations_path
+= render 'edit'
+
+
+
+
+

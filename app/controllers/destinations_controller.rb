@@ -10,6 +10,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/1
   # GET /destinations/1.json
   def show
+    @user = User.find(params[:user_id])
   end
 
   # GET /destinations/new
@@ -37,9 +38,10 @@ class DestinationsController < ApplicationController
   # PATCH/PUT /destinations/1
   # PATCH/PUT /destinations/1.json
   def update
+    @user = User.find(params[:user_id])
     respond_to do |format|
       if @destination.update(destination_params)
-        format.html { redirect_to @destination, notice: 'destination was successfully updated.' }
+        format.html { redirect_to user_destination_path(@user.id, @destination.id), notice: 'destination was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
