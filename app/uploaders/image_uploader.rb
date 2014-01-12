@@ -22,7 +22,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   
     # "/images/fallback/" + [version_name, "map.png"].compact.join('_')
-    'map.png'
+    # 'map.png'
+    @images  = ["Sydney.jpg", "Phuket.jpg", "Quito.jpg", "Amsterdam.jpg"]
+    @random_no = rand(4)
+    @random_image = @images[@random_no]
+    @random_image
   end
 
   # Process files as they are uploaded:

@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
 Destination.destroy_all
@@ -13,9 +6,9 @@ puts "Destroyed all Users, Destinations and Posts."
 
 I18n.enforce_available_locales = false
 
-lesley = User.create({name: "Lesley Martin del Campo", email: 'lesley@test.com', profile_pic: "/uploads/user/profile_pic/1/IMG_1217.JPG", location: "Austin, TX", age: 32, bio: "Chew iPad power cord intently stare at the same spot and flop over hate dog. Stretch intrigued by the shower for chase mice so why must they do that. Why must they do that use lap as chair intently sniff hand rub face on everything yet stare at ceiling attack feet so attack feet. Intently sniff hand. Need to chase tail rub face on everything yet make muffins chew foot.", password: 'password'})
+lesley = User.create({name: "Lesley Martin del Campo", email: 'lesley@test.com', location: "Austin, TX", age: 32, bio: "Chew iPad power cord intently stare at the same spot and flop over hate dog. Stretch intrigued by the shower for chase mice so why must they do that. Why must they do that use lap as chair intently sniff hand rub face on everything yet stare at ceiling attack feet so attack feet. Intently sniff hand. Need to chase tail rub face on everything yet make muffins chew foot.", password: 'password'})
 
-tejas = User.create({name: "Tejas Rawal", email: 'tejas@test.com', profile_pic: "/uploads/user/profile_pic/2/tejas.jpeg", location: "Chicago, IL", age: 23, bio: "A long time ago, in a galaxy far, far away.... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.During the battle, Rebel spies managedto steal secret plans to the Empire's ultimate weapon, the Death Star, an armored space station with enough power to destroy an entire planet.", password: 'password1'})
+tejas = User.create({name: "Tejas Rawal", email: 'tejas@test.com', location: "Chicago, IL", age: 23, bio: "A long time ago, in a galaxy far, far away.... It is a period of civil war. Rebel spaceships, striking from a hidden base, have won their first victory against the evil Galactic Empire.During the battle, Rebel spies managedto steal secret plans to the Empire's ultimate weapon, the Death Star, an armored space station with enough power to destroy an entire planet.", password: 'password1'})
 
 puts "Created two users."
 
