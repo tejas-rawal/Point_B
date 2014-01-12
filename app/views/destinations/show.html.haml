@@ -10,7 +10,9 @@
 %p
   %b Tags:
   = @destination.category
-
-= link_to 'Edit', '#'
-\|
-= link_to 'Back', '#'
+- if @user == current_user
+  = link_to 'Edit Destination', edit_user_destination_path(@user.id, @destination)
+  \|
+  = link_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
+  \|
+  = link_to 'My Profile', user_path(@user)
