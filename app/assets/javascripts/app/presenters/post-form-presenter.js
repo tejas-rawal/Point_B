@@ -9,7 +9,7 @@
       e.preventDefault();
 
       var newPost = {
-        event_type: $('.event', $root).val(),
+        activity: $('.activity', $root).val(),
         description: $('.description', $root).val(),
         images: $('images', $root).val()
       };

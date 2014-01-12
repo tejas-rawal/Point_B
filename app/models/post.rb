@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
     {
       id: self.id,
       destination_id: self.destination_id,
-      event: self.event,
+      activity: self.activity,
       description: self.description,
       external_links: self.external_links,
       images: self.images

@@ -31,8 +31,8 @@
     .panel
       %h3 Add A Post
       %form.new-post
-        %label Event
-        %input.event{type: "text"}
+        %label Activity
+        %textarea.activity{rows: "10", cols: "30"}
 
         %label Description
         %textarea.description{rows: "10", cols: "30"}
@@ -55,7 +55,7 @@
       .small-3.medium-4.large-6.columns
         %img(src="{images}")
       .small-9.medium-8.large-6.columns
-        %label {event_type}
+        %label {activity}
         %p {description}
 
   
