@@ -15,9 +15,15 @@
     <%=yield :homepage%>
     <%=render 'layouts/navbar' %>
     </div>
-    <aside class="side-nav"><%= yield :sidebar %></aside>
-    <%= yield %>
-  
+    <div class="row">
+      <div class="large-4 columns side-nav">
+        <aside><%= yield :sidebar %>
+        </aside>
+      </div>
+      <div class="large-8 columns">
+        <%= yield %>
+      </div>
+    </div>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>
   </body>
