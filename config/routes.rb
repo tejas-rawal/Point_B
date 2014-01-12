@@ -6,8 +6,8 @@ PointB::Application.routes.draw do
     resources :destinations
   end
 
-  scope :api do
-    post 'destinations/:id/posts' => 'destinations#post', :as => :destination_post_api
+  scope :destinations do
+    post ':id/posts' => 'destinations#post', :as => :destination_post_api
   end
 
   root 'static_pages#home'

@@ -17,7 +17,7 @@ class DestinationsController < ApplicationController
     @user = User.find(params[:user_id])
     @destination = @user.destinations.find(params[:id])
     @post = @destination.posts.create(post_params)
-    @post.destination_id = params([:id])
+    @post.destination_id = params[:id]
     render :json => @post.to_json, :status => 200
   end
 
