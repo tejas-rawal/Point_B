@@ -41,16 +41,6 @@ ActiveRecord::Schema.define(version: 20140112180129) do
 
   add_index "posts", ["destination_id"], name: "index_posts_on_destination_id", using: :btree
 
-  create_table "trips", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "destination_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "trips", ["destination_id"], name: "index_trips_on_destination_id", using: :btree
-  add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "name"
     t.integer  "age"

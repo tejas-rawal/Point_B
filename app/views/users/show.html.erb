@@ -23,7 +23,7 @@
 <% end %>
 
   <ul class="dest-grid small-block-grid-1 medium-block-grid-3 large-block-grid-3">
-    <% @user.destinations.each do |dest| %>  
+    <% @user.destinations.reverse_each do |dest| %>  
       <li>
         <h5><%= "#{dest.city}, #{dest.country}" %></h5>
         <img src="<%= dest.album.url(:large) %>">

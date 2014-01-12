@@ -3,6 +3,9 @@ class Post < ActiveRecord::Base
 
   mount_uploader :images, ImageUploader
 
+  validates :activity, :description, 
+    presence: true
+
   def as_json(options={})
     {
       id: self.id,
