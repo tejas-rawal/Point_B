@@ -1,7 +1,7 @@
 %p#notice= notice
 .destination.small-12.medium-10.large-6.columns
   %p
-    %img{src: @destination.album.url(:large)}
+    = image_tag @destination.album_url(:large)
   %h3
     = "#{@destination.city}, #{@destination.country}"
   %p
@@ -25,7 +25,7 @@
         %textarea.external_links{rows: "10", cols: "30"}
 
         %label Images
-        %input.images{type: "text"}
+        %input.images{type: "file"}
 
         %input.id{type: "hidden"}
 

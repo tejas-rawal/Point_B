@@ -1,7 +1,7 @@
 <div class="user small-12 medium-10 large-6 columns">
   <h2><%= @user.name %></h2>
   
-  <img src="<%= @user.profile_pic.url(:large) %>">
+  <%= image_tag @user.profile_pic_url(:large) %>
 </div>
 <div class="side">
   <h3>My Destinations</h3>
@@ -26,7 +26,7 @@
     <% @user.destinations.reverse_each do |dest| %>  
       <li>
         <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-        <img src="<%= dest.album.url(:large) %>">
+        <%= image_tag dest.album_url(:large) %>
         <p><%= dest.snippet %>
         <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
       </li>
