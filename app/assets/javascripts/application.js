@@ -17,7 +17,12 @@
 //= require_tree ./app/models
 //= require_tree ./app/presenters
 
-$(function(){ $(document).foundation(); 
-
-
+$(function(){ 
+  $(document).foundation(); 
+  $(".static-landing .top-bar").remove();
 });
+
+
+
+
+

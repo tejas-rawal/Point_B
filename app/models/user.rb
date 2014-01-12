@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   mount_uploader :profile_pic, ImageUploader
 
   has_many :destinations
-  has_many :posts
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
