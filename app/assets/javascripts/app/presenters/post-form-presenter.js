@@ -9,7 +9,9 @@
       e.preventDefault();
 
       var newPost = {
-
+        event_type: $('.event', $root).val(),
+        description: $('.description', $root).val(),
+        images: $('images', $root).val()
       };
 
       posts.create(newPost);
