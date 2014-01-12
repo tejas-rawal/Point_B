@@ -14,10 +14,10 @@ class DestinationsController < ApplicationController
   end
 
   def post
-    @user = User.find(session[:user_id])
-    @destination = @user.destinations.find(params[:id])
+    current_user
+    @destination = current_user.destinations.find(params[:destination_id])
     new_post = @destination.posts.create(post_params)
-    new_post.destination_id = params[:id]
+    new_post.destination_id = params[:destination_id]
     render :json => new_post.to_json, :status => 200
   end
 

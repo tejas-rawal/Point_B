@@ -59,7 +59,11 @@
           %label {event_type}
           %p {description}
 
+  
+
 - content_for :javascript do
+  
+
   :javascript
     (function () {
     var destinationPosts = new Post();
@@ -70,6 +74,10 @@
     })();
 
     var serverPosts = #{raw @destination.posts.to_json};
+    
+    window.g = {};
+    g.destinationPostsUrl = "#{destination_post_api_path(destination_id: @destination)}";
+  
 
 
 

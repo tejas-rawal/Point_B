@@ -8,9 +8,10 @@
     this.create = function(newPost) {
       var self = this;
 
-      $.post(g.destinationPostsUrl, newPost, function () {
+      $.post(g.destinationPostsUrl, newPost, function (data) {
         posts.push(newPost);
         self.trigger('create', newPost);
+        console.log(data);
       });
     };
   };
