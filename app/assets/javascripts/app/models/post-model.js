@@ -11,8 +11,15 @@
       $.post(g.destinationPostsUrl, newPost, function (data) {
         posts.push(newPost);
         self.trigger('create', newPost);
-        console.log(data);
       });
     };
+
+    this.initializeWith = function (initialPosts) {
+      for (var i = 0; i < initialPosts.length; i += 1) {
+        var c = initialPosts[i];
+        posts.push(c);
+        this.trigger('create', c);
+      }
+    }
   };
 })();

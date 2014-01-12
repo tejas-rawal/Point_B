@@ -14,8 +14,6 @@
         images: $('images', $root).val()
       };
 
-      console.log(newPost);
-
       posts.create(newPost);
 
       // $root.find('').val('');
