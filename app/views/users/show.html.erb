@@ -1,42 +1,40 @@
-<p id="notice"><%= notice %></p>
-<div class="user">
+<div class="user small-12 medium-10 large-6 columns">
   <h2><%= @user.name %></h2>
   
-  <p>
-    <img src="<%= @user.profile_pic.url(:large) %>">
-  </p>
+  <img src="<%= @user.profile_pic.url(:large) %>">
+</div>
+<div class="side">
+  <h3>My Destinations</h3>
+    <div class="map"><%= image_tag "map.png" %>
+    </div>
+    <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
+</div>
+<div class="user small-12 medium-10 large-6 columns">
+  <h5>Home Base: <%= @user.location %></h5>
   
-  <p>
-    <strong>Age:</strong>
-    <%= @user.age %>
-  </p>
-  
-  <p>
-    <strong>Location:</strong>
-    <%= @user.location %>
-  </p>
-  
-  <p>
-    <strong>Bio:</strong>
-    <%= @user.bio %>
-  </p>
+  <h4>About</h4>
+    <p><%= @user.bio %></p>
+
 <% if @user == current_user %>
   <%= link_to 'Edit Profile', edit_user_path(@user) %><br />
 </div>
-  <div class="row destination-index">
-    <%= link_to 'Add Destination', new_user_destination_path(@user) %><br />
+<div class="destination small-12 medium-10 large-6 columns">
+  <%= link_to 'Add Destination', new_user_destination_path(@user) %>
 <% end %>
-    <div class="small-1 medium-4 large-6 columns">
-      <% @user.destinations.each do |dest| %>
-        <div class="destination-individual">
-          <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-          <img src="<%= dest.album%>">
-          <p><%= dest.snippet %>
-          <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
-        </div>
-     <% end %>
-    </div>
+
+  <ul class="dest-grid small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+    <% @user.destinations.each do |dest| %>  
+      <li>
+        <h5><%= "#{dest.city}, #{dest.country}" %></h5>
+        <img src="<%= dest.album.url(:large) %>">
+        <p><%= dest.snippet %>
+        <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+      </li>
+    <% end %>
+  </ul>
+  
 </div>
+
 
 
 
