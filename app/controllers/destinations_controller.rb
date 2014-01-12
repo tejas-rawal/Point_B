@@ -80,4 +80,5 @@ class DestinationsController < ApplicationController
 
     def post_params
       params.permit(:event, :description, :external_links, :images, :destination_id)
+    end
 end
