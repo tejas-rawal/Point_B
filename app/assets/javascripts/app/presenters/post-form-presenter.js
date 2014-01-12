@@ -11,12 +11,10 @@
       var newPost = {
         activity: $('.activity', $root).val(),
         description: $('.description', $root).val(),
-        images: $('images', $root).val()
+        images: $('.images', $root).val()
       };
-
+      console.log(newPost);
       posts.create(newPost);
-
-      // $root.find('').val('');
     });
   };
 })();
