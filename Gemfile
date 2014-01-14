@@ -13,6 +13,7 @@ gem 'carrierwave'
 # gem 'rmagick'
 gem 'hirb'
 gem 'unirest'
+gem 'figaro'
 
 group :development do
   gem "better_errors"

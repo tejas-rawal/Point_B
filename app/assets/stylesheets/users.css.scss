@@ -10,8 +10,10 @@
 .user.side-nav {
 }
 
-.map {
+#map-canvas {
   border-radius: 5px;
+  height: 300px;
+  width: 300px;
 }
 
 .pins img {

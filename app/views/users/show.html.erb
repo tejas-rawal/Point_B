@@ -1,12 +1,12 @@
 <div>
   <h2><%= @user.name %></h2>
-  
+
   <%= image_tag @user.profile_pic_url(:large) %>
 </div>
 
 <div>
   <h5>Home Base: <%= @user.location %></h5>
-  
+
   <h4>About</h4>
     <p><%= @user.bio %></p>
 
@@ -20,14 +20,14 @@
 <% content_for :sidebar do %>
 <div class="user side-nav">
   <h3>My Destinations</h3>
-    <div class="map"><%= image_tag "map.png" %>
+    <div id="map-canvas">
     </div>
     <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
 </div>
 <% end %>
 
 <ul class="destination-grid small-block-grid-1 medium-block-grid-2 large-block-grid-2">
-  <% @user.destinations.reverse_each do |dest| %>  
+  <% @user.destinations.reverse_each do |dest| %>
     <li>
       <h5><%= "#{dest.city}, #{dest.country}" %></h5>
       <%= image_tag dest.album_url(:large) %>
@@ -36,7 +36,7 @@
     </li>
   <% end %>
 </ul>
-  
+
 
 
 
