@@ -10,7 +10,7 @@
     posts.on('create', function (newPost) {
       var newHtml = $.render(postTemplate, newPost);
       console.log(newPost);
-      $root.append(newHtml).slideDown(newHtml);
+      $root.append(newHtml);
     });
   };
 })();

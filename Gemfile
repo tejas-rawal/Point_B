@@ -12,6 +12,7 @@ gem 'foundation-rails'
 gem 'carrierwave'
 # gem 'rmagick'
 gem 'hirb'
+gem 'unirest'
 
 group :development do
   gem "better_errors"
