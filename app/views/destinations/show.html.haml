@@ -54,7 +54,8 @@
         .small-9.medium-8.large-6.columns
           %h5= p.activity
           %p= p.description
-          = link_to p.external_links, p.external_links
+          - if p.external_links 
+            = link_to p.external_links, p.external_links
           = form_for p.comments.build do |f|
 
             .field
