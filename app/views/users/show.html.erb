@@ -20,8 +20,7 @@
 <% content_for :sidebar do %>
 <div class="user side-nav">
   <h3>My Destinations</h3>
-    <div id="map-canvas">
-    </div>
+    <div id="map"></div>
     <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
 </div>
 <% end %>
@@ -37,6 +36,22 @@
   <% end %>
 </ul>
 
+<% content_for :javascript do %>
+  <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API_KEY"] %>&amp;sensor=false">
+  </script>
+  <script>
+    function initialize() {
+      var mapOptions = {
+      center: new google.maps.LatLng(51.4791, 0.0000),
+      zoom: 2
+      };
+      var map = new google.maps.Map(document.getElementById("map"),
+      mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+<% end %>
 
 
 
