@@ -11,7 +11,8 @@ class DestinationsController < ApplicationController
   # GET /destinations/1.json
   def show
     @user = User.find(params[:user_id])
-    @post = @destination.posts(@post)
+    @post = @destination.posts(post_params)
+    @comment = Comment.new
   end
 
   def post

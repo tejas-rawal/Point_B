@@ -1,11 +1,7 @@
 = form_for @comment do |f|
-  - if @comment.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
-      %ul
-        - @comment.errors.full_messages.each do |msg|
-          %li= msg
-  = f.textarea 'Comment'
+  
+  .field
+    = f.text_field :text, :placeholder => "Add a Comment"
 
   .actions
     = f.submit 'Save'

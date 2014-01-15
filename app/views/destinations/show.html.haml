@@ -56,9 +56,11 @@
           %h5 {activity}
           %p {description}
           = link_to "{external_links}", "{external_links}"
-        - @destination.posts.each do |p|
-          -p.comments.each do |c|
-            = render 'layouts/comments/form'
+          = render 'comments/form'
+          - @destination.posts.each do |c|
+            - c.comments.each do |c|
+              = c.text
+
   .post-wall
 
 - content_for :javascript do
