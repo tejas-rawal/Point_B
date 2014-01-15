@@ -25,19 +25,13 @@ class CommentsController < ApplicationController
   # comment /comments
   # comment /comments.json
   def create
-    @comment = Comment.new(comment_params)
-    @comment.phase_id = Phase.find_by_name(params[:comment][:phase_id]).id
-    respond_to do |format|
-      if @comment.save
-        @comment.project.subscriptions.each do |sub|
-          Notifier.new_comment(@comment, sub.user).deliver
-        end
-        format.html { redirect_to project_url(@comment.project_id, phase: @comment.phase.name), notice: 'comment was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @destination }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new(post_params)
+    @post.user_id = params[:user_id]
+    if @comment.save
+      redirect_to user_destination_path
+    else
+      redirect_to root_path
     end
   end
 

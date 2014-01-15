@@ -11,6 +11,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/1.json
   def show
     @user = User.find(params[:user_id])
+    @post = @destination.posts(@post)
   end
 
   def post
@@ -78,7 +79,7 @@ class DestinationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def destination_params
-      params.require(:destination).permit(:city, :country, :description, :album, :category, :user_id)
+      params.require(:destination).permit(:city, :country, :description, :album, :category, :user_id, :post_id)
     end
 
     def post_params
