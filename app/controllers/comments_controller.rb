@@ -26,13 +26,13 @@ class CommentsController < ApplicationController
   # comment /comments
   # comment /comments.json
   def create
-    @post = Post.find(params[:post_id])
-    @comment = Comment.new(post_params)
+    @comment = Comment.new
+    @post = Post.find(@post.id)
     @post.user_id = params[:user_id]
     if @comment.save
       redirect_to user_destination_path
     else
-      redirect_to root_path
+      redirect_to user_destination_path
     end
   end
 
