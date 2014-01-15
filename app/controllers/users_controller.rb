@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @destinations = @user.destinations
+    @lat_lngs = @destinations.map {|d| d.lat_lng}
   end
 
   # GET /users/new
