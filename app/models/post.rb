@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :destination
+  has_many :comments
 
   mount_uploader :images, ImageUploader
 
