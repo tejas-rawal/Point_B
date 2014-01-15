@@ -32,10 +32,14 @@ class CommentsController < ApplicationController
 
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save!
-      redirect_to user_destination_path user, destination
-    else
-      redirect_to user_destination_path user, destination
+    respond_to do |format|
+      if @comment.save!
+        format.html { redirect_to user_destination_path user, destination, notice: 'Comment successfully created.' }
+        format.js { render layout: false }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to user_destination_path user, destination, notice: 'Sorry, comment was not created.' }
+      end
     end
   end
 

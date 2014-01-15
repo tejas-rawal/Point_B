@@ -3,7 +3,6 @@
   window.PostWall = function (options) {
 
     var postTemplate = $('#templates .post').html();
-    console.log(postTemplate);
     var $root = options.root;
     var posts = options.posts;
 
