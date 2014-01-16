@@ -1,7 +1,9 @@
 <div class="hero-wrapper small-12 medium-12 large-12 columns">
+  <div class="row">
   <h3>My Destinations</h3>
     <div id="map"></div>
     <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
+  </div>
 </div>
 
 <div class="row">
@@ -19,18 +21,20 @@
 </div>
 
 <div class="gridler">
-  <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
-    <% @user.destinations.reverse_each do |dest| %>
-      <li class="destination-grid">
-        <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-        <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
-        <p><%= dest.snippet %>
-        <p>Activity: <%= dest.posts.first.activity %></p>
-        <p><%= dest.posts.first.description %></p>
-        <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
-      </li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
+      <% @user.destinations.reverse_each do |dest| %>
+        <li class="destination-grid">
+          <h5><%= "#{dest.city}, #{dest.country}" %></h5>
+          <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
+          <p><%= dest.snippet %>
+          <p>Activity: <%= dest.posts.first.activity %></p>
+          <p><%= dest.posts.first.description %></p>
+          <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
 
 <% content_for :javascript do %>
