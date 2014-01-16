@@ -36,13 +36,16 @@ class DestinationsController < ApplicationController
   # POST /destinations
   # POST /destinations.json
   def create
-    @user = User.find(params[:user_id])
-    @destination = Destination.new(destination_params)
-    @destination.user_id = params[:user_id]
-    if @destination.save
-      redirect_to user_destination_path(@user.id, @destination.id)
+    post = Post.find(params[:comment][:post_id])
+    destination = post.destination
+    user = destination.user
+
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
+    if @comment.save!
+      redirect_to user_destination_path user, destination
     else
-      redirect_to root_path
+      redirect_to user_destination_path user, destination
     end
   end
 
