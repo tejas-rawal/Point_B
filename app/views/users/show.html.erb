@@ -43,7 +43,7 @@
     function initialize() {
       var mapOptions = {
       center: new google.maps.LatLng(51.4791, 0.0000),
-      zoom: 1
+      zoom: 2
       };
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
@@ -55,7 +55,9 @@
 
         var marker = new google.maps.Marker({
           position: myLatlng,
-          map: map
+          map: map,
+          animation: google.maps.Animation.DROP,
+          draggable: false
         });
       }
     };
