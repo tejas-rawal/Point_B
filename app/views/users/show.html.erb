@@ -18,8 +18,8 @@
   </div>
 </div>
 
-<div>
-  <ul class="grid small-block-grid-1 medium-block-grid-4 large-block-grid-5">
+<div class="grid">
+  <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
     <% @user.destinations.reverse_each do |dest| %>
       <li class="destination-grid">
         <h5><%= "#{dest.city}, #{dest.country}" %></h5>
