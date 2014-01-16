@@ -6,7 +6,7 @@ class Destination < ActiveRecord::Base
   has_many :posts
 
   def snippet
-    description.truncate 100
+    description.truncate 200
   end
 
   def country_code

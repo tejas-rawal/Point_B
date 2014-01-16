@@ -27,6 +27,8 @@
       <h5><%= "#{dest.city}, #{dest.country}" %></h5>
       <%= image_tag dest.album_url(:large) %>
       <p><%= dest.snippet %>
+      <p>Activity: <%= dest.posts.first.activity %></p>
+      <p><%= dest.posts.first.description %></p>
       <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
     </li>
   <% end %>
