@@ -20,19 +20,20 @@
 
 
 </div>
-
-<ul class="destination-grid small-block-grid-1 medium-block-grid-2 large-block-grid-2">
-  <% @user.destinations.reverse_each do |dest| %>
-    <li>
-      <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-      <%= image_tag dest.album_url(:large) %>
-      <p><%= dest.snippet %>
-      <p>Activity: <%= dest.posts.first.activity %></p>
-      <p><%= dest.posts.first.description %></p>
-      <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
-    </li>
-  <% end %>
-</ul>
+<div>
+  <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
+    <% @user.destinations.reverse_each do |dest| %>
+      <li class="destination-grid">
+        <h5><%= "#{dest.city}, #{dest.country}" %></h5>
+        <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
+        <p><%= dest.snippet %>
+        <p>Activity: <%= dest.posts.first.activity %></p>
+        <p><%= dest.posts.first.description %></p>
+        <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <% content_for :javascript do %>
   <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API_KEY"] %>&amp;sensor=false">
