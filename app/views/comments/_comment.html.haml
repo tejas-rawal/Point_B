@@ -6,7 +6,7 @@
   .actions
     = f.submit 'Save'
 
-%ul.comments
+%ul.comments{data: { post_id: p.id }}
   - if p.comments == nil
     <no comments>
   - else

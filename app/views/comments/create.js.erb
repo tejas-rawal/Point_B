@@ -1,4 +1,5 @@
 (function () {
   var commentHtml = "<li><%= j @comment.text %></li>";
-  $('.comments').prepend(commentHtml);
+  var id = $('ul.comments').data('post-id');
+  $('[data-post-id=' + id + ']').prepend(commentHtml);
 })(); 
