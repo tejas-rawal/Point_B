@@ -1,6 +1,4 @@
 (function () {
-  
-  var commentHtml = "<%= j render(user_destination_path)";
-  $('.comments, .post-wall').prepend(commentHtml);
-
-});
+  var commentHtml = "<li><%= j @comment.text %></li>";
+  $('.comments').prepend(commentHtml);
+})(); 
