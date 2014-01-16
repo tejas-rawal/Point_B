@@ -9,12 +9,14 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-       <%= user_content do %>
-         <li class="active"><%= link_to 'Log Out', destroy_user_session_path %></li>
-       <% end %>
-       <%= non_user do %>
+      <%= user_content do %>
+        <li><%= link_to  "#{@user.name}", user_path(@user) %></li>
+        <li><%= link_to 'Add Destination', new_user_destination_path(@user) %></li>
+        <li class="active"><%= link_to 'Log Out', destroy_user_session_path %></li>
+      <% end %>
+      <%= non_user do %>
         <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
-       <% end %>
+      <% end %>
       </ul>
     </section>
   </nav>

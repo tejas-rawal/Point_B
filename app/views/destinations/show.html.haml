@@ -10,7 +10,7 @@
     = @destination.category
 
   .row
-    - if @user == current_user
+    - if @destination.user == current_user
       .button-bar
         %ul.button-group
           %li.tiny.button

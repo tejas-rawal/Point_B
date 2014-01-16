@@ -10,7 +10,7 @@ gem 'devise'
 
 gem 'foundation-rails'
 gem 'carrierwave'
-# gem 'rmagick'
+gem 'rmagick'
 gem 'hirb'
 gem 'unirest'
 gem 'figaro'
@@ -23,6 +23,7 @@ group :development do
   gem 'haml'
   gem 'haml-rails'
   gem 'html2haml'
+  gem 'shotgun'
 end
 
 gem 'rails_12factor', group: :production
