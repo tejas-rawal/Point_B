@@ -7,9 +7,6 @@
   margin: 5px 20px;
 }
 
-.user.side-nav {
-}
-
 #map {
   border-radius: 5px;
   height: 300px;
@@ -20,4 +17,8 @@
   max-width: 20px;
   height: auto;
   margin-top: 5px;
+}
+
+* {
+  border: 1px solid red;
 }
