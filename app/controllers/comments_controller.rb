@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @user = User.find(@comment.user_id)
   end
 
   # GET /comments/new
