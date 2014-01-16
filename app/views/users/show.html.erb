@@ -5,23 +5,20 @@
 </div>
 
 <div>
-  <h2><%= @user.name %></h2>
-  <div class="thumb">
+  
+  <div class="thumb profile_pic">
   <%= image_tag @user.profile_pic_url(:thumb) %>
   </div>
+  <h4><%= @user.name %></h4>
 </div>
 
 <div>
   <h5>Home Base: <%= @user.location %></h5>
 
-  <h4>About</h4>
+  <h5>About</h5>
     <p><%= @user.bio %></p>
 
-<% if @user == current_user %>
-  <%= link_to 'Edit Profile', edit_user_path(@user) %><br />
 
-  <%= link_to 'Add Destination', new_user_destination_path(@user) %>
-<% end %>
 </div>
 
 <ul class="destination-grid small-block-grid-1 medium-block-grid-2 large-block-grid-2">
