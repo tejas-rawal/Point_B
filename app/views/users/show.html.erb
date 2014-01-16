@@ -1,27 +1,25 @@
-<div class="small-12 medium-12 large-12 columns">
+<div class="hero-wrapper small-12 medium-12 large-12 columns">
   <h3>My Destinations</h3>
     <div id="map"></div>
     <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
 </div>
 
-<div>
-  
-  <div class="thumb profile_pic">
-  <%= image_tag @user.profile_pic_url(:thumb) %>
+<div class="row">
+  <div class="user small-12 medium-5 large-5 columns">
+    <div class="thumb profile_pic">
+    <%= image_tag @user.profile_pic_url(:thumb) %>
+    </div>
+    <h4><%= @user.name %></h4>
+    <h5>Home Base: <%= @user.location %></h5>
   </div>
-  <h4><%= @user.name %></h4>
+  <div class="user small-12 medium-6 large-5 columns">
+    <h5>About</h5>
+      <p><%= @user.bio %></p>
+  </div>
 </div>
 
 <div>
-  <h5>Home Base: <%= @user.location %></h5>
-
-  <h5>About</h5>
-    <p><%= @user.bio %></p>
-
-
-</div>
-<div>
-  <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
+  <ul class="grid small-block-grid-1 medium-block-grid-4 large-block-grid-5">
     <% @user.destinations.reverse_each do |dest| %>
       <li class="destination-grid">
         <h5><%= "#{dest.city}, #{dest.country}" %></h5>
