@@ -12,6 +12,9 @@ gem 'foundation-rails'
 gem 'carrierwave'
 # gem 'rmagick'
 gem 'hirb'
+gem 'unirest'
+gem 'figaro'
+gem 'i18n_data'
 
 group :development do
   gem "better_errors"

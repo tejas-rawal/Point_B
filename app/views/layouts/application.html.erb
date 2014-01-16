@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 
     <title>Point B</title>
 
-    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
     <%= csrf_meta_tags %>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
@@ -17,7 +18,7 @@
     </div>
     <aside class="side-nav"><%= yield :sidebar %></aside>
     <%= yield %>
-  
+
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>
   </body>
