@@ -1,0 +1,14 @@
+= form_for Comment.new(:post_id => p.id), remote: true do |f|
+  .field
+    = f.text_field :text, :placeholder => "Add a Comment"
+
+    = f.hidden_field :post_id
+  .actions
+    = f.submit 'Save'
+
+%ul.comments{data: { post_id: p.id }}
+  - if p.comments == nil
+    <no comments>
+  - else
+    - p.comments.reverse_each do |c|
+      %li= c.text

@@ -2,7 +2,7 @@ class Destination < ActiveRecord::Base
 
   mount_uploader :album, ImageUploader
 
-  belongs_to :users
+  belongs_to :user
   has_many :posts
 
   def snippet
