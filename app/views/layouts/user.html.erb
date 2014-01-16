@@ -15,9 +15,9 @@
     <%=yield :homepage%>
     <%=render 'layouts/navbar' %>
     </div>
-      <div class="row">
-          <%= yield %>
-      </div>
+
+       <%= yield %>
+
     </div>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>
