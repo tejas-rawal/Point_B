@@ -1,7 +1,12 @@
+<div class="small-1 medium-12 large-12 columns">
+  <h3>My Destinations</h3>
+    <div id="map"></div>
+    <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
+</div>
+
 <div>
   <h2><%= @user.name %></h2>
-
-  <%= image_tag @user.profile_pic_url(:large) %>
+  <%= image_tag @user.profile_pic_url(:medium) %>
 </div>
 
 <div>
@@ -18,11 +23,7 @@
 </div>
 
 <% content_for :sidebar do %>
-<div class="user side-nav">
-  <h3>My Destinations</h3>
-    <div id="map"></div>
-    <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
-</div>
+
 <% end %>
 
 <ul class="destination-grid small-block-grid-1 medium-block-grid-2 large-block-grid-2">
