@@ -1,40 +1,42 @@
-<div>
-  <h2><%= @user.name %></h2>
-
-  <%= image_tag @user.profile_pic_url(:large) %>
-</div>
-
-<div>
-  <h5>Home Base: <%= @user.location %></h5>
-
-  <h4>About</h4>
-    <p><%= @user.bio %></p>
-
-<% if @user == current_user %>
-  <%= link_to 'Edit Profile', edit_user_path(@user) %><br />
-
-  <%= link_to 'Add Destination', new_user_destination_path(@user) %>
-<% end %>
-</div>
-
-<% content_for :sidebar do %>
-<div class="user side-nav">
+<div class="hero-wrapper small-12 medium-12 large-12 columns">
+  <div class="row">
   <h3>My Destinations</h3>
     <div id="map"></div>
     <div class="pins"><%= image_tag "map-pin-red.svg" %> Places I've Been | <%= image_tag "blue-map-pin.svg" %> Places To Go To </div>
+  </div>
 </div>
-<% end %>
 
-<ul class="destination-grid small-block-grid-1 medium-block-grid-2 large-block-grid-2">
-  <% @user.destinations.reverse_each do |dest| %>
-    <li>
-      <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-      <%= image_tag dest.album_url(:large) %>
-      <p><%= dest.snippet %>
-      <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="user small-12 medium-5 large-5 columns">
+    <div class="thumb profile_pic">
+    <%= image_tag @user.profile_pic_url(:thumb) %>
+    </div>
+    <h4><%= @user.name %></h4>
+    <h5>Home Base: <%= @user.location %></h5>
+  </div>
+  <div class="user small-12 medium-6 large-5 columns">
+    <h5>About</h5>
+      <p><%= @user.bio %></p>
+  </div>
+</div>
+
+<div class="gridler">
+  <div class="row">
+    <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
+      <% @user.destinations.reverse_each do |dest| %>
+        <li class="destination-grid">
+          <h5><%= "#{dest.city}, #{dest.country}" %></h5>
+          <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
+          <p><%= dest.snippet %>
+          <p>Activity: <%= dest.posts.first.activity %></p>
+          <p><%= dest.posts.first.description %></p>
+          <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
 <% content_for :javascript do %>
   <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API_KEY"] %>&amp;sensor=false">

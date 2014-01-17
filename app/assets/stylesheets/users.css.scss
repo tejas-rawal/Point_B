@@ -4,10 +4,7 @@
 /****************USER****************/
 .user {
   text-align: justify;
-  margin: 5px 20px;
-}
-
-.user.side-nav {
+  // margin: 5px 10px;
 }
 
 #map {
@@ -21,3 +18,22 @@
   height: auto;
   margin-top: 5px;
 }
+
+* {
+  border: 1px solid red;
+}
+
+.destination-grid {
+  margin: 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.gridler {
+  background-color: #f0f0f0;
+}
+
+.hero-wrapper {
+  background-color: #333333;
+}
+
