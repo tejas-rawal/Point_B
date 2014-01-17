@@ -49,6 +49,10 @@
       };
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+      var listener1 = google.maps.event.addListener(map, 'mousewheel');
+
+      google.maps.event.removeListener(listener1);
+
       var latlng = <%= raw @lat_lngs.to_json %>;
       for(var i = 0; i < latlng.length; i++) {
         var coord = latlng[i];
