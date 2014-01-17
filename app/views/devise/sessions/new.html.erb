@@ -7,6 +7,7 @@
 <div class="static-landing">  
   <div class="sign-in-block small-12 medium-4 large-4 columns">
     <div>
+      <%= image_tag('textures/land_ocean_ice_cloud_2048.jpg') %>
       <h2>Point B </h2>
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
         <div><p>Sign In</p></div>
@@ -60,7 +61,7 @@
       // earth
 
       var loader = new THREE.TextureLoader();
-      loader.load( '../../../assets/textures/land_ocean_ice_cloud_2048.jpg', function ( texture ) {
+      loader.load( 'http://res.cloudinary.com/dljyjkavz/image/upload/v1389981725/land_ocean_ice_cloud_2048_ktjbpi.jpg', function ( texture ) {
 
         var geometry = new THREE.SphereGeometry( 200, 20, 20 );
 

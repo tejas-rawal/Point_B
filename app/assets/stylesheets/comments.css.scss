@@ -5,3 +5,19 @@
 .comments {
   list-style: none;
 }
+
+.comment-one, .comment-user {
+   // border: 1px solid red;
+   padding: 2px;
+}
+
+.comment-one {
+}
+
+.comment-user {
+  font-weight: bold;
+  img {
+    max-width: 15px;
+    height: auto;
+  }
+}
