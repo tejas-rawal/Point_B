@@ -32,7 +32,6 @@ gem "threejs-rails", "~> 0.0.2"
 group :development do
   gem "better_errors"
   gem 'binding_of_caller'
-  gem 'html2haml'
   gem 'pry'
   gem 'shotgun'
 end
