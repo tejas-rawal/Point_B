@@ -30,22 +30,19 @@ puts "Created two destinations for each user."
 merced = quito.posts.create(
   activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
-puts "Created one post on Quito for Tejas."
 
 merced2 = amsterdam.posts.create(
   activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
-puts "Created one post on Quito for Tejas."
 
 merced3 = sydney.posts.create(
   activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
-puts "Created one post on Quito for Tejas."
 
 merced4 = phuket.posts.create(
   activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
-puts "Created one post on Quito for Tejas."
+puts "Created one post for each destination."
 
 
 

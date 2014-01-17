@@ -11,5 +11,5 @@
     <no comments>
   - else
     - p.comments.reverse_each do |c|
-      %li= c.text
-      %li= "- #{c.user.name}"
+      %li.comment-one= c.text
+      %li.comment-user= "#{c.user.name}"
