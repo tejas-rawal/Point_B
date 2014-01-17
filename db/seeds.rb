@@ -27,7 +27,7 @@ quito = tejas.destinations.create(
 new_york = tejas.destinations.create(
   city: "New York", country: "United States", category: "adventure", description: "New York is the most populous city in the United States and the center of the New York metropolitan area, one of the most populous urban agglomerations in the world. The city is referred to as New York City or the City of New York to distinguish it from the State of New York, of which it is a part. A global power city, New York exerts a significant impact upon commerce, finance, media, art, fashion, research, technology, education, and entertainment. The home of the United Nations Headquarters, New York is an important center for international diplomacy and has been described as the cultural capital of the world.")
 
-new_york = tejas.destinations.create(
+san_francisco = tejas.destinations.create(
   city: "San Francisco", country: "United States", category: "volunteer", description: "San Francisco encompasses a land area of about 46.9 square miles (121 km2) on the northern end of the San Francisco Peninsula, giving it a density of about 17,620 people per square mile (6,803 people per km2). It is the most densely settled large city (population greater than 200,000) in the state of California and the second-most densely populated major city in the United States after New York City. San Francisco is the fourth most populous city in California, after Los Angeles, San Diego and San Jose, and the 14th most populous city in the United States—with a Census-estimated 2012 population of 825,863. The city is also the financial and cultural hub of the larger San Jose-San Francisco-Oakland metropolitan area, with a population of 8.4 million.")
 
 new_delhi = lesley.destinations.create(
@@ -54,6 +54,18 @@ merced3 = sydney.posts.create(
 
 
 merced4 = phuket.posts.create(
+  activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
+
+merced5 = new_york.posts.create(
+  activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
+
+merced6 = san_francisco.posts.create(
+  activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
+
+merced7 = new_delhi.posts.create(
+  activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
+
+merced8 = cinque_terra.posts.create(
   activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
 puts "Created one post for each destination."
