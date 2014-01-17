@@ -28,8 +28,12 @@
           <h5><%= "#{dest.city}, #{dest.country}" %></h5>
           <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
           <p><%= dest.snippet %>
+          <% if dest.posts.first %>
           <p>Activity: <%= dest.posts.first.activity %></p>
-          <p><%= dest.posts.first.description %></p>
+            <p><%= dest.posts.first.description %></p>
+          <% else %>
+            <no content>
+          <% end %>
           <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
         </li>
       <% end %>
