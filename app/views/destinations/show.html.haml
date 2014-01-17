@@ -10,7 +10,7 @@
     = @destination.category
 
   .row
-    - if @destination.user == current_user
+    - if @user == current_user
       .button-bar
         %ul.button-group
           %li.tiny.button
@@ -93,7 +93,3 @@
 
     window.g = {};
     g.destinationPostsUrl = "#{destination_post_api_path(destination_id: @destination)}";
-
-
-
-
