@@ -3,7 +3,6 @@
 <% end %></div>
 <div id="globe" class="small-12 medium-8 large-9 columns">
   <div id="container"></div>
-    <p>three.js</p>
 </div>
 
 
@@ -59,7 +58,7 @@
       // earth
 
       var loader = new THREE.TextureLoader();
-      loader.load( 'textures/land_ocean_ice_cloud_2048.jpg', function ( texture ) {
+      loader.load( '../../../assets/textures/land_ocean_ice_cloud_2048.jpg', function ( texture ) {
 
         var geometry = new THREE.SphereGeometry( 200, 20, 20 );
 
@@ -107,9 +106,7 @@
       container.appendChild( renderer.domElement );
 
       stats = new Stats();
-      stats.domElement.style.position = 'absolute';
-      stats.domElement.style.top = '0px';
-      container.appendChild( stats.domElement );
+      
 
       document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
