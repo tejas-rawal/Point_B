@@ -9,19 +9,31 @@ gem 'pg'
 gem 'devise'
 
 gem 'foundation-rails'
+
 gem 'carrierwave'
+
 # gem 'rmagick'
 gem 'hirb'
+
 gem 'unirest'
+
 gem 'figaro'
+
 gem 'i18n_data'
+
 gem 'haml'
 gem 'haml-rails'
+
+gem 'html2haml'
+
+gem "threejs-rails", "~> 0.0.2"
+
 
 group :development do
   gem "better_errors"
   gem 'binding_of_caller'
   gem 'html2haml'
+  gem 'pry'
   gem 'shotgun'
 end
 
