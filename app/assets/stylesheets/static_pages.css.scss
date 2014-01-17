@@ -14,5 +14,12 @@
 #globe {
   width: 66%;
   height: auto;
-  margin-top: -200px;
+  #container {
+    margin-top: -200px;
+    margin-left: -200px;
+  }
+}
+
+.sign-in-block {
+  float: right;
 }
