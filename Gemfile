@@ -15,14 +15,14 @@ gem 'hirb'
 gem 'unirest'
 gem 'figaro'
 gem 'i18n_data'
+gem 'haml'
+gem 'haml-rails'
+gem 'html2haml'
 
 group :development do
   gem "better_errors"
   gem 'binding_of_caller'
   gem 'pry'
-  gem 'haml'
-  gem 'haml-rails'
-  gem 'html2haml'
   gem 'shotgun'
 end
 
