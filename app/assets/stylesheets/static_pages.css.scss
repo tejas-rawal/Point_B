@@ -15,8 +15,8 @@
   width: 66%;
   height: auto;
   #container {
-    margin-top: -150px;
-    margin-left: -200px;
+    margin-top: -75px;
+    margin-left: -100px;
   }
 }
 
@@ -26,4 +26,9 @@
 
 .static-landing {
   background-color: #333333;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
 }
