@@ -15,7 +15,7 @@ class Destination < ActiveRecord::Base
 
   def lat_lng
     code = country_code
-    city.gsub(" ", "+")
+    city.gsub(/\s/, "+")
     response = Unirest.get("http://maps.googleapis.com/maps/api/geocode/json?address=#{city}&sensor=false&region=#{code}")
     @lat = response.body['results'][0]['geometry']['location']['lat']
     @lng = response.body['results'][0]['geometry']['location']['lng']
