@@ -44,14 +44,10 @@
   <script>
     function initialize() {
       var mapOptions = {
-      center: new google.maps.LatLng(51.4791, 0.0000),
+      center: new google.maps.LatLng(30.0000, 40.0000),
       zoom: 2
       };
       var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-      var listener1 = google.maps.event.addListener(map, 'mousewheel');
-
-      google.maps.event.removeListener(listener1);
 
       var latlng = <%= raw @lat_lngs.to_json %>;
       for(var i = 0; i < latlng.length; i++) {

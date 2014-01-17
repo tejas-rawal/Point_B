@@ -10,21 +10,25 @@ gem 'devise'
 
 gem 'foundation-rails'
 gem 'carrierwave'
-gem 'rmagick'
+# gem 'rmagick'
 gem 'hirb'
 gem 'unirest'
 gem 'figaro'
 gem 'i18n_data'
+gem 'haml'
+gem 'haml-rails'
 
 group :development do
   gem "better_errors"
   gem 'binding_of_caller'
-  gem 'pry'
-  gem 'haml'
-  gem 'haml-rails'
   gem 'html2haml'
   gem 'shotgun'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.14.0'
+end
+
 
 gem 'rails_12factor', group: :production
 
