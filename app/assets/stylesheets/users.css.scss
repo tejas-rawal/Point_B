@@ -8,9 +8,9 @@
 }
 
 #map {
-  border-radius: 5px;
   height: 300px;
   width: 100%;
+  box-shadow: 5px 5px 3px #333333;
 }
 
 .pins img {
@@ -19,22 +19,13 @@
   margin-top: 5px;
 }
 
-
-// * {
-//   border: 1px solid red;
-// }
-
-* {
-  // border: 1px solid red;
-}
-
-
 .destination-grid {
   margin: 10px;
   background-color: white;
   border-radius: 5px;
+  box-shadow: 7px 7px 3px #07599B;
   &:hover {
-    box-shadow: 10px 10px 5px #333333;
+    box-shadow: 7px 7px 3px #333333;
   }
 }
 
@@ -43,7 +34,11 @@
 }
 
 .hero-wrapper {
-  background-color: #333333;
+  background-color: #07599B;
+  color: #fff;
+    h3 {
+      color: #fff;
+    }
 }
 canvas {
     display: block;
