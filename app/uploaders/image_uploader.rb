@@ -3,7 +3,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  include CarrierWave::RMagick
+  # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  
+
     # "/images/fallback/" + [version_name, "map.png"].compact.join('_')
     # 'map.png'
     @images  = ["Sydney.jpg", "Phuket.jpg", "Quito.jpg", "Amsterdam.jpg", "Lesley.jpg", "Tejas.jpg"]
