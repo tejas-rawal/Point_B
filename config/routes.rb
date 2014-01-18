@@ -8,7 +8,7 @@ PointB::Application.routes.draw do
     get "/" => "devise/sessions#new"
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :users do
     resources :destinations
