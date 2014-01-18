@@ -2,7 +2,11 @@ PointB::Application.routes.draw do
 
   resources :comments
 
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+  devise_scope :user do
+    get "/" => "devise/sessions#new"
+  end
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   resources :users do
     resources :destinations
@@ -13,8 +17,6 @@ PointB::Application.routes.draw do
   end
 
 
-  devise_scope :user do
-    get "/" => "devise/sessions#new"
-  end
+  
 
 end
