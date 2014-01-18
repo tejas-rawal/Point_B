@@ -43,3 +43,12 @@
 canvas {
     display: block;
 }
+
+.user-list {
+  margin-left: 10px;
+  img {
+    max-width: 75px;
+    height: auto;
+    border-radius: 2px;
+  }
+}

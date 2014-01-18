@@ -18,5 +18,10 @@
         <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
       <% end %>
       </ul>
+      <ul class="left">
+      <% if @user == current_user %>
+        <li><%= link_to  "Users", users_path %></li>
+      <% end %>
+      </ul>
     </section>
   </nav>
