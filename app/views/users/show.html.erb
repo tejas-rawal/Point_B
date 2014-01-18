@@ -17,16 +17,25 @@
   <div class="user small-12 medium-6 large-5 columns">
     <h5>About</h5>
       <p><%= @user.bio %></p>
-      <h5><%= link_to 'Following', users_path %></h5>
-        <% @user.friendships.each do |f| %>
-          <% if @user.friendships.length != 0 %>  
-            <p><%= link_to "#{f.friend.name}", f %>
-              <% if @user == current_user %>|
-              <%= link_to 'Stop Following', f, :method => :delete %></p>
-              <% end %>
+      <div class="user small-12 medium-6 large-5 columns">
+        <h5><%= link_to 'Following', users_path %></h5>
+          <% @user.friendships.each do |f| %>
+            <% if @user.friendships.length != 0 %>  
+              <%= link_to "#{f.friend.name}", f %>
+                <% if @user == current_user %>|
+                <%= link_to 'Stop Following', f, :method => :delete %>
+                <% end %>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </div>
+        <div class="user small-12 medium-6 large-5 columns">
+          <h5>Followers</h5>
+          <% @user.inverse_friends.each do |inverse_friend| %>
+            <% if @user.inverse_friends.length != 0 %>
+              <%= link_to "#{inverse_friend.name}", inverse_friend %>
+            <% end %>
+          <% end  %>
+      </div>
   </div>
 
 </div>
