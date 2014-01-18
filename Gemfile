@@ -36,6 +36,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry'
   gem 'shotgun'
+  gem "nifty-generators"
 end
 
 group :development, :test do
@@ -82,3 +83,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "mocha", group: :test

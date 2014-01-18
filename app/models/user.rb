@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :friendships
+  has_many :friends, :through => :friendships
+
   mount_uploader :profile_pic, ImageUploader
 
   has_many :destinations

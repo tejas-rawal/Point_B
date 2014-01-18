@@ -1,5 +1,6 @@
 PointB::Application.routes.draw do
 
+  resources :friendships
   resources :comments
 
   devise_scope :user do
