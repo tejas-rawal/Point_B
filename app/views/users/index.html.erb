@@ -2,15 +2,13 @@
 
 <table>
   <thead>
-    <tr>
-    </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <td class="user-list"><%= image_tag user.profile_pic %>
-        <td><%= user.name %></td>
+        <td><%= link_to "#{user.name}", user_path(user.id) %></td>
         <td><%= user.location %></td>
         <td><%= user.bio %></td>
         <% if current_user != nil %>
