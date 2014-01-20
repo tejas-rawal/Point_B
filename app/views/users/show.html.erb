@@ -29,7 +29,7 @@
           <% end %>
         </div>
         <div class="user small-12 medium-6 large-5 columns">
-          <h5>Followers</h5>
+          <h5><%= link_to 'Followers', users_path %></h5>
           <% @user.inverse_friends.each do |inverse_friend| %>
             <% if @user.inverse_friends.length != 0 %>
               <%= link_to "#{inverse_friend.name}", inverse_friend %>
