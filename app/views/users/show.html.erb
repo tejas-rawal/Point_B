@@ -26,7 +26,7 @@
           <% end  %>
         </div>
         <div class="user small-12 medium-6 large-5 columns">
-          <h5><%= link_to 'Following', users_path %>: <%= @user.friendships.length %></h5>
+          <h5><%= link_to 'Following', activities_path %>: <%= @user.friendships.length %></h5>
             <% @user.friendships.each do |f| %>
               <% if @user.friendships.length != 0 %>  
                 <%= link_to "#{f.friend.name}", f %>
