@@ -1,7 +1,6 @@
 class Comment < ActiveRecord::Base
 
-  include PublicActivity::Model
-  tracked owner: ->(controller, model) { controller && controller.current_user }
+  include PublicActivity::Common
 
   belongs_to :post
   belongs_to :user
