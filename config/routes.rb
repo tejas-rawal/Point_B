@@ -1,5 +1,6 @@
 PointB::Application.routes.draw do
 
+  get "activities/index"
   resources :friendships
   resources :comments
 

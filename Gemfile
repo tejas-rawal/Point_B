@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'public_activity'
 
 gem 'foundation-rails'
 
