@@ -9,7 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'public_activity'
+gem 'public_activity', github: 'pokonski/public_activity'
 
 gem 'foundation-rails'
 
