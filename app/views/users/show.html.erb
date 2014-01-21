@@ -49,7 +49,7 @@
           <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
           <p><%= dest.snippet %>
           <% if dest.posts.first %>
-          <p>Activity: <%= dest.posts.first.activity %></p>
+          <p>Activity: <%= dest.posts.first.thing %></p>
             <p><%= dest.posts.first.description %></p>
           <% else %>
             <no content>
