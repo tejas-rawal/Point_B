@@ -1,4 +1,3 @@
-
 User.destroy_all
 Destination.destroy_all
 Post.destroy_all
@@ -69,13 +68,6 @@ merced8 = cinque_terra.posts.create(
   activity: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
 puts "Created one post for each destination."
-
-
-
-
-
-
-
 
 
 
