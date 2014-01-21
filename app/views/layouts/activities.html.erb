@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <title>Point B</title>
+
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= csrf_meta_tags %>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Molengo" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <%=yield :homepage %>
+    <%=render 'layouts/navbar' %>
+    </div>
+    <div class ="row">
+      <div class="medium-3 large-4 columns">
+        <aside class="panel"><%= yield :sidebar %></aside> 
+      </div>
+      <div class="medium-9 large-8 columns">
+      <%= yield %>
+      </div>
+    </div>
+    <%= javascript_include_tag "application" %>
+    <%= yield :javascript %>
+  </body>
+</html>
