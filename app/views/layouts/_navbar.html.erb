@@ -7,7 +7,6 @@
     </ul>
 
     <section class="top-bar-section">
-      <!-- Right Nav Section -->
       <ul class="right">
         <li><%= link_to  "#{@user.name}", user_path(@user) %></li>
         <li><%= link_to 'Add Destination', new_user_destination_path(@user) %></li>
@@ -15,6 +14,16 @@
       </ul>
       <ul class="left">
         <li><%= link_to  "Users", users_path %></li>
+        <li class="has-form">
+          <div class="row">
+            <div class="large-10 small-10 columns">
+              <input type="text" class="search" placeholder="Search Destinations">
+            </div>
+            <div class="large-2 small-2 columns">
+              <li class="active"><%= link_to "Search", "#" %></li>
+            </div>
+          </div>
+        </li>
       </ul>
     </section>
   </nav>
