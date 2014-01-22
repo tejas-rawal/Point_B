@@ -5,6 +5,7 @@ class DestinationsController < ApplicationController
   # GET /trips.json
   def index
      @destinations = Destination.search(params[:search])
+     @user = current_user
   end
 
   # GET /destinations/1
@@ -32,6 +33,7 @@ class DestinationsController < ApplicationController
 
   # GET /destinations/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /destinations
