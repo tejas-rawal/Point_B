@@ -13,6 +13,9 @@
     </div>
     <h4><%= @user.name %></h4>
     <h5>Home Base: <%= @user.location %></h5>
+    <% if @user == current_user %>
+    <%= link_to 'Edit Profile', edit_user_path %>
+    <% end %>
   </div>
   <div class="user small-12 medium-6 large-5 columns">
     <h5>About</h5>
