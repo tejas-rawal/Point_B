@@ -10,7 +10,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/1
   # GET /destinations/1.json
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = @destination.posts(post_params)
     @comment = Comment.new
     @coord = @destination.lat_lng
