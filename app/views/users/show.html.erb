@@ -17,7 +17,6 @@
   <div class="user small-12 medium-6 large-5 columns">
     <h5>About</h5>
       <p><%= @user.bio %></p>
-<<<<<<< HEAD
       <div class="user small-12 medium-6 large-5 columns">
         <h5><%= link_to 'Following', users_path %></h5>
           <% @user.friendships.each do |f| %>
@@ -28,10 +27,8 @@
                 <% end %>
             <% end %>
           <% end %>
-=======
         <div class="user small-12 medium-6 large-5 columns">
           <h5><%= link_to 'Followers', users_path %>: <%= @user.inverse_friends.length %> </h5>
->>>>>>> master
         </div>
         <div class="user small-12 medium-6 large-5 columns">
           <h5><%= link_to 'Following', activities_path %>: <%= @user.friendships.length %></h5>
