@@ -27,7 +27,7 @@ class Destination < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['city LIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['city LIKE ?', "%#{search.split.map(&:capitalize).join(' ')}%"])
     else
       find(:all)
     end

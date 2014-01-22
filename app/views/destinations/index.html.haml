@@ -9,6 +9,7 @@
 - if @destinations != nil
   %table
     %thead.dests
+      %th.dests Traveller
       %th.dests City
       %th.dests Country
       %th.dests Description
@@ -17,6 +18,7 @@
     %tbody
     - @destinations.each do |destination|
       %tr
+        %td= link_to destination.user.name,user_path(destination.user_id)
         %td= link_to destination.city, user_destination_path(destination.user_id, destination)
         %td= destination.country
         %td= destination.snippet
