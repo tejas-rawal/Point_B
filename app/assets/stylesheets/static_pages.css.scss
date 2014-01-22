@@ -2,14 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// #globe {
-//   background-image: url(sky.jpg) no-repeat;
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-//   overflow: hidden;
-// }
+* {
+  border: 1px solid red;
+}
 
 #globe {
   width: 66%;
@@ -17,6 +12,9 @@
   #container {
     margin-top: -75px;
     margin-left: -100px;
+    canvas {
+     
+    } 
   }
 }
 
@@ -25,7 +23,12 @@
 }
 
 .static-landing {
-  background-color: #333333;
+  background-color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
 }
 
 canvas {
