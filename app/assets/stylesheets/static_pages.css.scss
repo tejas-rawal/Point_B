@@ -2,33 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// #globe {
-//   background-image: url(sky.jpg) no-repeat;
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-//   overflow: hidden;
+// * {
+//   border: 1px solid red;
 // }
 
 #globe {
-  width: 66%;
+  width: 100%;
   height: auto;
-  #container {
-    margin-top: -75px;
-    margin-left: -100px;
-  }
-}
-
-.sign-in-block {
-  float: right;
 }
 
 .static-landing {
-  background-color: #333333;
+  background-color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
 }
 
 canvas {
   width: 100%;
   height: auto;
+}
+
+.homepage-footer {
+  background: #303030;
+  color: #fff;
+  padding-top: 15px;
+  height: 45px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
