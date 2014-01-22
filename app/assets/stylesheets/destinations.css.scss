@@ -5,6 +5,7 @@
   text-align: justify;
   margin: 10px;
   background-color: white;
+  border-left: 1px solid #07599B;
   border-radius: 5px;
   box-shadow: 7px 7px 3px #07599B;
 }
@@ -37,7 +38,7 @@ form.new-post {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 750px;
+  max-width: 75%;
 }
 
 .navi {
