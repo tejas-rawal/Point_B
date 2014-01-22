@@ -224,6 +224,9 @@ comment24 = merced24.comments.create(
 
 puts "Creates one comment (24 total) for each post."
 
-
+Friendship.create(user_id: User.last.id, friend_id: User.first.id)
+Friendship.create(user_id: User.first.id, friend_id: User.last.id)
+ 
+puts "Creates a follower for first and last user."
 
 
