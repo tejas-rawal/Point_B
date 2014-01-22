@@ -35,6 +35,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     respond_to do |format|
       if @comment.save!
+        @comment.create_activity :create, owner: current_user
         format.html { redirect_to user_destination_path user, destination, notice: 'Comment successfully created.' }
         format.js { render layout: false }
         format.json { head :no_content }
@@ -62,6 +63,7 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
+    @comment.create_activity :destroy, owner: current_user
     respond_to do |format|
       format.html { redirect_to destination_url }
       format.json { head :no_content }

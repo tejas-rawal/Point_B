@@ -9,7 +9,7 @@
       e.preventDefault();
 
       var newPost = {
-        activity: $('.activity', $root).val(),
+        thing: $('.thing', $root).val(),
         description: $('.description', $root).val(),
         images: $('.images', $root).val()
       };

@@ -17,25 +17,12 @@
   <div class="user small-12 medium-6 large-5 columns">
     <h5>About</h5>
       <p><%= @user.bio %></p>
-      <div class="user small-12 medium-6 large-5 columns">
-        <h5><%= link_to 'Following', users_path %></h5>
-          <% @user.friendships.each do |f| %>
-            <% if @user.friendships.length != 0 %>  
-              <%= link_to "#{f.friend.name}", f %>
-                <% if @user == current_user %>|
-                <%= link_to 'Stop Following', f, :method => :delete %>
-                <% end %>
-            <% end %>
-          <% end %>
+        <div class="user small-12 medium-6 large-5 columns">
+          <h5><%= link_to 'Followers', users_path %>: <%= @user.inverse_friends.length %> </h5>
         </div>
         <div class="user small-12 medium-6 large-5 columns">
-          <h5><%= link_to 'Followers', users_path %></h5>
-          <% @user.inverse_friends.each do |inverse_friend| %>
-            <% if @user.inverse_friends.length != 0 %>
-              <%= link_to "#{inverse_friend.name}", inverse_friend %>
-            <% end %>
-          <% end  %>
-      </div>
+          <h5><%= link_to 'Following', activities_path %>: <%= @user.friendships.length %></h5>
+        </div>
   </div>
 
 </div>
@@ -49,7 +36,7 @@
           <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
           <p><%= dest.snippet %>
           <% if dest.posts.first %>
-          <p>Activity: <%= dest.posts.first.activity %></p>
+          <p>Activity: <%= dest.posts.first.thing %></p>
             <p><%= dest.posts.first.description %></p>
           <% else %>
             <no content>

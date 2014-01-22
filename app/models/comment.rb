@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
 
+  include PublicActivity::Common
+
   belongs_to :post
   belongs_to :user
   # has_one :destination, through: :post
