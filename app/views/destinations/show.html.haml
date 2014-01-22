@@ -4,8 +4,8 @@
       .navi.large-6.medium-4.small-2.medium-centered.large-centered.small-centered.columns
         .row.content
           .small-12.large-6.columns.image
-            %p
-              = image_tag @destination.album_url(:large)
+            %center
+              = image_tag @destination.album_url(:medium) if @destination.album.url
             %h3
               = "#{@destination.city}, #{@destination.country}"
           .small-12.large-6.columns.description
