@@ -18,15 +18,6 @@
     <h5>About</h5>
       <p><%= @user.bio %></p>
       <div class="user small-12 medium-6 large-5 columns">
-        <h5><%= link_to 'Following', users_path %></h5>
-          <% @user.friendships.each do |f| %>
-            <% if @user.friendships.length != 0 %>
-              <%= link_to "#{f.friend.name}", f %>
-                <% if @user == current_user %>|
-                <%= link_to 'Stop Following', f, :method => :delete %>
-                <% end %>
-            <% end %>
-          <% end %>
         <div class="user small-12 medium-6 large-5 columns">
           <h5><%= link_to 'Followers', users_path %>: <%= @user.inverse_friends.length %> </h5>
         </div>
