@@ -1,33 +1,47 @@
 <% content_for :homepage do %>
-  <div class="static-landing">  
-<% end %></div>
-<div class="small-12 medium-7 large-8 columns small-center" id="globe">
-    <div id="container"></div>
-  </div>
 <div class="static-landing">  
-  <div class="sign-in-block small-12 medium-4 large-4 columns">
-    <div>
+  <div class="small-12 medium-6 large-5 columns">
+    <span class="homepage-logo-big">
       <%= image_tag('http://res.cloudinary.com/dljyjkavz/image/upload/v1390069304/Oval_Stamp_ajhs4j.png') %>
-      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-        <div><p>Sign In</p></div>
-        <div><%= f.email_field :email, :autofocus => true, :placeholder => 'Email' %>
-        </div>
-
-        <div><%= f.password_field :password, :placeholder => 'Password' %>
-        </div>
-
-        <% if devise_mapping.rememberable? -%>
-          <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-        <% end -%>
-
-        <div><%= f.submit "Sign in" %></div>
-      <% end %>
-
-      <%= render "devise/shared/links" %>
-    </div>
-  </div>
+    </span>
+    <h3 class="title">POINT B</h3>
+    <h5>For those who have an undying urge to travel and experience the world.</h5>
+    <h4>Tourists need not apply.</h4>
+    <p>Stand in front of the computer screen make muffins. Use lap as chair hide when guests come over chew iPad power cord yet claw drapes. Flop over sun bathe hate dog and hopped up on goofballs. Under the bed stick butt in face but hide when guests come over and destroy couch. Rub face on everything need to chase tail, stare at ceiling intently stare at the same spot sun bathe. Hopped up on goofballs intently sniff hand, intently stare at the same spot. Need to chase tail use lap as chair. Chase imaginary bugs.</p>
+    <p>Stand in front of the computer screen make muffins. Use lap as chair hide when guests come over chew iPad power cord yet claw drapes. Flop over sun bathe hate dog and hopped up on goofballs. Under the bed stick butt in face but hide when guests come over and destroy couch. Rub face on everything need to chase tail, stare at ceiling intently stare at the same spot sun bathe. Hopped up on goofballs intently sniff hand, intently stare at the same spot. Need to chase tail use lap as chair. Chase imaginary bugs.</p>
   
+  </div>
+  <div class="sign-in-block small-12 medium-4 large-4 columns">
+    <div class="small-12 medium-4 large-4 columns" id="globe">
+      <div id="container"></div>
+    </div>
+    
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div><p>Sign In</p></div>
+      <div><%= f.email_field :email, :autofocus => true, :placeholder => 'Email' %>
+      </div>
+
+      <div><%= f.password_field :password, :placeholder => 'Password' %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+
+      <div><%= f.submit "Sign in" %></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+  </div>
 </div>
+<div class="homepage-collage">
+
+</div>
+<div class="homepage-footer">
+  <center><p>&copy2014</p></center>
+</div>
+<% end %>
+
 <% content_for :javascript do %>
   <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r61/three.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
