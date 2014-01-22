@@ -4,6 +4,7 @@ class DestinationsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
+    @user = current_user
     @destinations = Destination.search(params[:search])
   end
 
