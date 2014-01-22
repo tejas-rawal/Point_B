@@ -36,4 +36,8 @@ img {
   max-width: 200px;
   height: auto;
   float: right;
+  padding: 5px 5px 5px 10px;;
+  transform:rotate(7deg);
+  -ms-transform:rotate(7deg); /* IE 9 */
+  -webkit-transform:rotate(7deg); /* Safari and Chrome */
 }
