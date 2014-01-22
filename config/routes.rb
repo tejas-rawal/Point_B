@@ -1,8 +1,5 @@
 PointB::Application.routes.draw do
 
-  resources :friendships
-  resources :comments
-
   devise_scope :user do
     get "/" => "devise/sessions#new"
   end
@@ -12,6 +9,10 @@ PointB::Application.routes.draw do
   resources :users do
     resources :destinations
   end
+
+  resources :friendships
+  resources :comments
+  resources :activities
   
   scope :api do
     post 'destinations/:destination_id/posts' => 'destinations#post', :as => :destination_post_api

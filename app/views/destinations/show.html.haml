@@ -23,27 +23,27 @@
             %dd.accordion Add Post
 
 
-        %form.new-post
-          .row
-            .small-8.columns
-              %label Activity
-              %input.activity{type:"text"}
-          .row
-            .small-8.columns
-              %label Description
-              %textarea.description{rows: "10", cols: "30"}
-          .row
-            .small-8.columns
-              %label External Links
-              %textarea.external_links{rows: "5", cols: "30"}
-          .row
-            .small-8.columns
-              %label Images
-              %input.images{id: "fileInput", type: "file"}
+          %form.new-post
+            .row
+              .small-8.columns
+                %label Activity
+                %input.activity{type:"text"}
+            .row
+              .small-8.columns
+                %label Description
+                %textarea.description{rows: "10", cols: "30"}
+            .row
+              .small-8.columns
+                %label External Links
+                %textarea.external_links{rows: "5", cols: "30"}
+            .row
+              .small-8.columns
+                %label Images
+                %input.images{id: "fileInput", type: "file"}
 
-              %input.id{type: "hidden"}
+                %input.id{type: "hidden"}
 
-              %input{type: "submit", value: "Add Post"}
+                %input{type: "submit", value: "Add Post"}
       .post-wall.large-6.medium-8.small-10.columns
         - @destination.posts.each do |p|
           .row

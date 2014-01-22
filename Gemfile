@@ -9,27 +9,18 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
+gem 'public_activity', github: 'pokonski/public_activity'
 gem 'foundation-rails'
-
 gem 'carrierwave'
-
 # gem 'rmagick'
 gem 'hirb'
-
 gem 'unirest'
-
 gem 'figaro'
-
 gem 'i18n_data'
-
 gem 'haml'
 gem 'haml-rails'
-
 gem 'html2haml'
-
 gem "threejs-rails", "~> 0.0.2"
-
 
 group :development do
   gem "better_errors"

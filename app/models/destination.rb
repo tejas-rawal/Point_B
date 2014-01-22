@@ -1,5 +1,8 @@
 class Destination < ActiveRecord::Base
 
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
+
   mount_uploader :album, ImageUploader
 
   belongs_to :user
