@@ -233,5 +233,3 @@ User.all.each do |f|
 end
  
 puts "Creates a follower and a followed for each user."
-
-
