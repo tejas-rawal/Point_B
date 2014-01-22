@@ -1,27 +1,27 @@
-%h1 Listing destinations
+%h5.search Search for Destinations
+= form_tag users_path, :method => 'get' do
+  .search-field= text_field_tag :search, params[:search]
+  = submit_tag "Search", :name => nil
+
+%br
+%br
+%br
 
 %table
-  %tr
-    %th City
-    %th Country
-    %th Description
-    %th Album
-    %th Category
-    %th
-    %th
-    %th
+  %thead.dests
+    %th.dests City
+    %th.dests Country
+    %th.dests Description
+    %th.dests Category
 
+  %tbody
   - @destinations.each do |destination|
     %tr
       %td= destination.city
       %td= destination.country
       %td= destination.description
-      %td
-        %img{src: destination.album}
       %td= destination.category
-      %td= link_to 'Show', destination
-      %td= link_to 'Edit', '#'
-      %td= link_to 'Destroy', destination, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
+      / %td= link_to 'Show', user_destination_path(@user, @destination)
+      / - if current_user.destinations.include?(destination)
+      /   %td= link_to 'Edit', '#'
+      /   %td= link_to 'Destroy', destination, :method => :delete, :data => { :confirm => 'Are you sure?' }
