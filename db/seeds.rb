@@ -224,9 +224,12 @@ comment24 = merced24.comments.create(
 
 puts "Creates one comment (24 total) for each post."
 
-Friendship.create(user_id: User.last.id, friend_id: User.first.id)
-Friendship.create(user_id: User.first.id, friend_id: User.last.id)
+User.all.each do |f|
+  User.all.each do |fr|
+    unless f == fr 
+      Friendship.create(user_id: f.id, friend_id: fr.id)
+    end
+  end
+end
  
-puts "Creates a follower for first and last user."
-
-
+puts "Creates a follower and a followed for each user."
