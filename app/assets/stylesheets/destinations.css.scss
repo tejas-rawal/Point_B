@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .destination {
   text-align: justify;
-  margin: 5px 20px;
+  margin: 10px;
+  background-color: white;
+  border-left: 1px solid #07599B;
+  border-radius: 5px;
+  box-shadow: 7px 7px 3px #07599B;
 }
 
 .post-wall {
@@ -18,31 +22,53 @@
  margin: 5px 10px;
 }
 
-.post-form {
-  width: 75%;
-  margin-top: 10px;
-  position: relative;
-}
 
 form.new-post {
-border: 2px solid #333333;
-opacity: 0.9;
-display: inline-block;
+  display: none;
 }
 
-form.new-post fieldset legend textarea  {
-display: inline-block;
+.sub-nav dd {
+  margin: 5px;
+  display: inline-block;
+  background-color: #07599B;
 }
 
-.button-bar {
-  margin: 5px 20px;
+.row.main {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 90%;
+}
+
+.navi {
+  width: 80%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+div {
+  display: block;
+}
+
+.row.card {
+  box-sizing: border-box;
+}
+
+.navi p img {
+  vertical-align: middle;
+  width: auto;
+  height: 300px;
+  display: block;
 }
 
 .search {
   margin-left: 10px;
 }
+
 .search-field {
   width: 33%;
   margin-left: 10px;
 }
+
 
