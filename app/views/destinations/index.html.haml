@@ -3,25 +3,20 @@
   .search-field= text_field_tag :search, params[:search]
   = submit_tag "Search", :name => nil
 
-%br
-%br
-%br
-- if @destinations != nil
-  %table
-    %thead.dests
-      %th.dests Traveller
-      %th.dests City
-      %th.dests Country
-      %th.dests Description
-      %th.dests Category
-
-    %tbody
-    - @destinations.each do |destination|
-      %tr
-        %td= link_to destination.user.name,user_path(destination.user_id)
-        %td= link_to destination.city, user_destination_path(destination.user_id, destination)
-        %td= destination.country
-        %td= destination.snippet
-        %td= destination.category
-- else
-  = "Sorry but no destinations matched this search"
+.gridler
+  .row
+    %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
+      - @destinations.reverse_each do |dest|
+        %li.destination-grid
+          %h5= link_to dest.user.name, user_path(dest.user_id)
+          %h5= "#{dest.city}, #{dest.country}"
+          %span.medium= image_tag dest.album_url(:medium)
+          %p
+            = dest.snippet
+            - if dest.posts.first
+              %p
+                Activity: #{dest.posts.first.thing}
+              %p= dest.posts.first.description
+            - else
+              %no{:content => ""}
+            = link_to 'Read More', user_destination_path(dest.user_id, dest)
