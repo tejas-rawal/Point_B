@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-* {
-  border: 1px solid red;
-}
+// * {
+//   border: 1px solid red;
+// }
 
 #globe {
   width: 100%;
@@ -23,4 +23,13 @@
 canvas {
   width: 100%;
   height: auto;
+}
+
+.homepage-footer {
+  background: #303030;
+  color: #fff;
+  padding-top: 15px;
+  height: 45px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
 }
