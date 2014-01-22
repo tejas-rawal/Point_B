@@ -21,4 +21,12 @@ class Destination < ActiveRecord::Base
     @lng = response.body['results'][0]['geometry']['location']['lng']
     {lat: @lat, lng: @lng}
   end
+
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 end
