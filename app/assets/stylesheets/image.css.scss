@@ -41,3 +41,10 @@ img {
   -ms-transform:rotate(7deg); /* IE 9 */
   -webkit-transform:rotate(7deg); /* Safari and Chrome */
 }
+
+.homepage-collage {
+  width: 100%;
+  min-height: 300px;
+  max-height: 500px;
+  opacity: 75%;
+}
