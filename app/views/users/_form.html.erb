@@ -13,24 +13,16 @@
     <% end %>
   
     <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :autofocus => true, :placeholder => 'Name'  %>
     </div>
     <div class="field">
-      <%= f.label :age %><br>
-      <%= f.number_field :age %>
+      <%= f.text_field :location, :placeholder => 'Location'  %>
     </div>
     <div class="field">
-      <%= f.label :location %><br>
-      <%= f.text_field :location %>
+      <p>Profile Picture <%= f.file_field :profile_pic %></p>
     </div>
     <div class="field">
-      <%= f.label :profile_pic %><br>
-      <%= f.file_field :profile_pic %>
-    </div>
-    <div class="field">
-      <%= f.label :bio %><br>
-      <%= f.text_area :bio %>
+      <%= f.text_area :bio, :placeholder => 'About Me'  %>
     </div>
     <div class="actions">
       <%= f.submit %>
