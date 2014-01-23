@@ -11,13 +11,10 @@
   height: auto;
 }
 
-.static-landing {
-  background-color: red;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  overflow: hidden;
+#static-landing {
+  background: url("http://res.cloudinary.com/dljyjkavz/image/upload/v1390496211/blurred_bg_oba6p5.png") 0 0 no-repeat;
+  height: 1000px;
+  width: auto;
 }
 
 canvas {
@@ -25,11 +22,16 @@ canvas {
   height: auto;
 }
 
-// .homepage-footer {
-//   background: #303030;
-//   color: #fff;
-//   padding-top: 15px;
-//   height: 45px;
-//   border-top: 1px solid #000;
-//   border-bottom: 1px solid #000;
-// }
+#home-info {
+  color: #fff;
+  .title {
+    color: #fff;
+  }
+}
+
+.homepage-footer {
+  background: #333333;
+  color: #fff;
+  padding-top: 15px;
+  height: 45px;
+}
