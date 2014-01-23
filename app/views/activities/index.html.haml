@@ -12,4 +12,25 @@
   = render_activity activity
 
 
-   
+- content_for :javascript do
+
+  :javascript
+    (function () { 
+      $(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                url: '<%= activities_url %>',
+                type: 'get',
+                dataType: "json",
+                success: function(data) {
+                    $('.activity').html(data);
+                    alert("hi");
+                },
+                error: function(xhr, status) {
+                    console.log("There was an error");
+                }
+            });
+        }, 2000);
+      });
+
+    })();
