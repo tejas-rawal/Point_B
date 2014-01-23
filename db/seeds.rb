@@ -177,7 +177,7 @@ puts "Created one post (24 total) for each destination."
 #   Comment.create!({post_id: post, text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid."})
 # end
 
-comment = eximerced.comments.create(
+comment = merced.comments.create(
   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
 comment2 = merced2.comments.create(
   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
