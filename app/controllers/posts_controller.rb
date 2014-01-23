@@ -5,3 +5,4 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all
   end
+end

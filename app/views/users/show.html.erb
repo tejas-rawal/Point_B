@@ -31,9 +31,10 @@
 
 <div class="gridler">
   <div class="row">
-    <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
-      <% @user.destinations.reverse_each do |dest| %>
+    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-5">
+      <% @user.destinations.each do |dest| %>
         <li class="destination-grid">
+          <div>
           <h5><%= "#{dest.city}, #{dest.country}" %></h5>
           <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
           <p><%= dest.snippet %>
@@ -44,6 +45,7 @@
             <no content>
           <% end %>
           <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+          </div>
         </li>
       <% end %>
     </ul>
