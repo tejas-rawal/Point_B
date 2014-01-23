@@ -1,6 +1,6 @@
-%h5.search Search for Cities
+%h5.search Search for Destinations
 = form_tag destination_search_path, :method => 'get' do
-  .search-field= text_field_tag :search, params[:search]
+  .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
   = submit_tag "Search", :name => nil
 
 .gridler
