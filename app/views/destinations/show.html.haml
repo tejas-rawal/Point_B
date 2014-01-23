@@ -8,6 +8,7 @@
               = image_tag @destination.album_url(:medium) if @destination.album.url
             %h3
               = "#{@destination.city}, #{@destination.country}"
+              %i.fa.fa-star-o
           .small-12.large-6.columns.description
             %p
               = @destination.description

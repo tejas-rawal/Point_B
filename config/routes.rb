@@ -9,6 +9,8 @@ PointB::Application.routes.draw do
   resources :users do
     resources :destinations
     get "/stars" => "stars#index"
+    post "/stars" => "stars#create", :as => :new_star
+    delete "/stars/:id" => "stars#delete", :as => :star_delete
   end
 
   resources :friendships

@@ -5,7 +5,6 @@
   text-align: justify;
   margin: 10px;
   background-color: white;
-  border-left: 1px solid #07599B;
   border-radius: 5px;
   box-shadow: 7px 7px 3px #07599B;
 }
@@ -64,6 +63,14 @@ div {
 
 .row.content {
   margin-top: 10px;
+}
+
+.image h3 {
+  text-align: left;
+}
+
+.fa.fa-star {
+  background-color: yellow;
 }
 
 
