@@ -1,9 +1,12 @@
 %h2 Activity Feed
 - content_for :sidebar do
-  %h5 Following
-  - @activities.each do |activity| 
-    = image_tag activity.owner.profile_pic, :class => "tiny"
-    = link_to activity.owner.name, activity.owner if activity.owner 
+  %h5= "Following: #{@user.friendships.length}"
+  %table
+    %tbody 
+    - @user.friendships.each do |f| 
+      %tr
+      %td= image_tag f.friend.profile_pic, :class => "tiny"
+      %td= link_to f.friend.name, f
 
 - @activities.each do |activity|
   .activity
@@ -12,4 +15,25 @@
   = render_activity activity
 
 
-   
+- content_for :javascript do
+
+  :javascript
+    (function () { 
+      $(document).ready(function() {
+        setInterval(function() {
+            $.ajax({
+                url: '<%= activities_url %>',
+                type: 'get',
+                dataType: "json",
+                success: function(data) {
+                    $('.activity').html(data);
+                    alert("hi");
+                },
+                error: function(xhr, status) {
+                    console.log("There was an error");
+                }
+            });
+        }, 2000);
+      });
+
+    })();

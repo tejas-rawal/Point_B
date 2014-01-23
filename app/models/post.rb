@@ -21,4 +21,16 @@ class Post < ActiveRecord::Base
       images: self.images
     }
   end
+
+  #one convenient method to pass jq_upload the necessary information
+  # def to_jq_upload
+  #   {
+  #     "name" => read_attribute(:images),
+  #     "size" => images.size,
+  #     "url" => images.url,
+  #     "thumbnail_url" => images.thumb.url,
+  #     "delete_url" => picture_path(:id => id),
+  #     "delete_type" => "DELETE" 
+  #   }
+  # end
 end
