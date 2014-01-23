@@ -6,7 +6,7 @@
 .gridler
   .row
     %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
-      - @destinations.reverse_each do |dest|
+      - @destinations.sample(10).reverse_each do |dest|
         %li.destination-grid
           %h5= link_to dest.user.name, user_path(dest.user_id)
           %h5= "#{dest.city}, #{dest.country}"
