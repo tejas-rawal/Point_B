@@ -24,16 +24,6 @@ $(function(){
   $('dd.accordion').on('click', function(){
     $('form.new-post').slideToggle("slow");
   });
-
-  $('.fa.fa-star-o').on('click', function(e){
-    e.preventDefault();
-    $('i').removeClass('fa fa-star-o').addClass('fa fa-star');
-    $.ajax({
-      url: "user_new_star_path",
-      type: "post",
-      dataType: "json"
-    });
-  });
 });
 
 
