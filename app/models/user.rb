@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+  has_many :stars
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
             email:auth.info.email,
             password:Devise.friendly_token[0,20],
           )
-      end    
+      end
     end
   end
 

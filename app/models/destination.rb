@@ -7,6 +7,7 @@ class Destination < ActiveRecord::Base
 
   belongs_to :user
   has_many :posts
+  has_many :stars
 
   def snippet
     description.truncate 200
