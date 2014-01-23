@@ -1,9 +1,9 @@
 %h2 Activity Feed
 - content_for :sidebar do
   %h5 Following
-  - @activities.each do |activity| 
-    = image_tag activity.owner.profile_pic, :class => "tiny"
-    = link_to activity.owner.name, activity.owner if activity.owner 
+  - @user.friendships.each do |f| 
+    = image_tag f.friend.profile_pic, :class => "tiny"
+    = link_to f.friend.name 
 
 - @activities.each do |activity|
   .activity
