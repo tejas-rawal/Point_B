@@ -3,8 +3,7 @@ Destination.destroy_all
 Post.destroy_all
 Comment.destroy_all
 Friendship.destroy_all
-Activity.destroy_all
-puts "Destroyed all Users, Destinations, Posts, Comments, Friendships and Activities."
+puts "Destroyed all Users, Destinations, Posts, Comments, Friendships."
 
 I18n.enforce_available_locales = false
 
@@ -173,54 +172,61 @@ merced24 = san_francisco5.posts.create(
 
 puts "Created one post (24 total) for each destination."
 
-comment = merced.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.", user_id: 1, post_id: 1)
-comment2 = merced2.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment3 = merced3.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment4 = merced4.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment5 = merced5.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment6 = merced6.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment7 = merced7.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment8 = merced8.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment9 = merced9.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment10 = merced10.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment11 = merced11.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment12 = merced12.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment13 = merced13.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment14 = merced14.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment15 = merced15.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment16 = merced16.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment17 = merced17.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment18 = merced18.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment19 = merced19.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment20 = merced20.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment21 = merced21.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment22 = merced22.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment23 = merced23.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
-comment24 = merced24.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+
+Post.all.each do |post|
+  Comment.create!({post_id: post, text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid."})
+end
+
+
+
+# comment = merced.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment2 = merced2.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment3 = merced3.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment4 = merced4.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment5 = merced5.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment6 = merced6.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment7 = merced7.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment8 = merced8.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment9 = merced9.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment10 = merced10.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment11 = merced11.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment12 = merced12.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment13 = merced13.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment14 = merced14.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment15 = merced15.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment16 = merced16.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment17 = merced17.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment18 = merced18.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment19 = merced19.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment20 = merced20.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment21 = merced21.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment22 = merced22.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment23 = merced23.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+# comment24 = merced24.comments.create(
+#   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
 
 puts "Creates one comment (24 total) for each post."
 
