@@ -8,17 +8,18 @@ PointB::Application.routes.draw do
 
   resources :users do
     resources :destinations
+    get "/stars" => "stars#index"
   end
 
   resources :friendships
   resources :comments
   resources :activities
-  
+
   scope :api do
     post 'destinations/:destination_id/posts' => 'destinations#post', :as => :destination_post_api
   end
 
 
-  
+
 
 end
