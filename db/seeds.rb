@@ -174,7 +174,7 @@ merced24 = san_francisco5.posts.create(
 puts "Created one post (24 total) for each destination."
 
 comment = merced.comments.create(
-  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
+  text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.", user_id: 1, post_id: 1)
 comment2 = merced2.comments.create(
   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")
 comment3 = merced3.comments.create(
