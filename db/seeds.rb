@@ -3,7 +3,8 @@ Destination.destroy_all
 Post.destroy_all
 Comment.destroy_all
 Friendship.destroy_all
-puts "Destroyed all Users, Destinations, Posts, Comments and Friendships."
+Activity.destroy_all
+puts "Destroyed all Users, Destinations, Posts, Comments, Friendships and Activities."
 
 I18n.enforce_available_locales = false
 
@@ -123,7 +124,6 @@ merced8 = cinque_terra.posts.create(
 
 merced9 = quito2.posts.create(
   thing: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
-
 
 merced10 = amsterdam2.posts.create(
   thing: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
