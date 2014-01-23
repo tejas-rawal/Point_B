@@ -10,6 +10,8 @@ PointB::Application.routes.draw do
     resources :destinations
   end
 
+  get "/followers" => "users#followers", :as => :followers_list
+
   resources :friendships
   resources :comments
   resources :activities

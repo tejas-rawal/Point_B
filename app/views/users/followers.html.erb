@@ -1,0 +1,15 @@
+<div class="gridler">
+  <div class="row">
+    <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
+      <% @user.inverse_friends.each do |f| %>
+        <li class="destination-grid">
+          <h5><%= "#{f.name}" %></h5>
+          <h6><%= "#{f.location}" %></h6>
+          <span class="medium"><%= image_tag f.profile_pic %></span>
+          <p><%= f.bio %>
+          <p><%= link_to "#{f.name}'s Profile", f %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
