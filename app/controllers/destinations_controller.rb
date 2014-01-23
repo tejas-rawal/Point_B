@@ -1,8 +1,8 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
-  # GET /trips
-  # GET /trips.json
+  # GET /destinations
+  # GET /destinations.json
   def index
      @destinations = Destination.search(params[:search])
   end
