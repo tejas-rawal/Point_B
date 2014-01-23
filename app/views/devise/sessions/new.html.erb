@@ -38,7 +38,7 @@
 
 </div>
 <div class="homepage-footer">
-  <center><p>&copy2014</p></center>
+  <!-- <center><p>&copy2014</p></center> -->
 </div>
 <% end %>
 
@@ -103,13 +103,13 @@
       gradient.addColorStop( 1, 'rgba(255,255,255,1)' );
 
       context.fillStyle = gradient;
-      context.fillRect( 0, 0, canvas.width, canvas.height );
+      // context.fillRect( 0, 0, canvas.width, canvas.height );
 
       var texture = new THREE.Texture( canvas );
       texture.needsUpdate = true;
 
       var geometry = new THREE.PlaneGeometry( 300, 300, 3, 3 );
-      var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: true } );
+      var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: true, transparent: true} );
 
       var mesh = new THREE.Mesh( geometry, material );
       mesh.position.y = - 250;
