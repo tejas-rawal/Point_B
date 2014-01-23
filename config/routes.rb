@@ -12,6 +12,8 @@ PointB::Application.routes.draw do
 
   get "/destinations" => "destinations#index", :as => :destination_search
 
+  get "/followers" => "users#followers", :as => :followers_list
+
   resources :friendships
   resources :comments
   resources :activities

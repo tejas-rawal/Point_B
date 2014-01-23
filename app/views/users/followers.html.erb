@@ -1,0 +1,16 @@
+<h3><%= "#{@user.name}'s #{@user.inverse_friends.length} Followers" %></h3>
+
+<div class="gridler">
+  <div class="row">
+    <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
+      <% @user.inverse_friends.each do |f| %>
+        <li class="destination-grid">
+          <h5><%= link_to "#{f.name}", f %></h5>
+          <span class="medium"><%= image_tag f.profile_pic %></span>
+          <h6><%= "#{f.location}" %></h6>
+          <p><%= f.bio %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

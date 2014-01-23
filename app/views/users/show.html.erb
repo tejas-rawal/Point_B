@@ -13,12 +13,15 @@
     </div>
     <h4><%= @user.name %></h4>
     <h5>Home Base: <%= @user.location %></h5>
+    <% if @user == current_user %>
+    <%= link_to 'Edit Profile', edit_user_path %>
+    <% end %>
   </div>
   <div class="user small-12 medium-6 large-5 columns">
     <h5>About</h5>
       <p><%= @user.bio %></p>
         <div class="user small-12 medium-6 large-5 columns">
-          <h5><%= link_to 'Followers', users_path %>: <%= @user.inverse_friends.length %> </h5>
+          <h5><%= link_to 'Followers', followers_list_path %>: <%= @user.inverse_friends.length %> </h5>
         </div>
         <div class="user small-12 medium-6 large-5 columns">
           <h5><%= link_to 'Following', activities_path %>: <%= @user.friendships.length %></h5>

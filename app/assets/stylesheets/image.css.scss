@@ -14,9 +14,18 @@ img {
   height: auto;
 }
 
+.entre {
+  width: 155px;
+  height: auto;
+}
+
 .medium {
   width: 300px;
   height: auto;
+}
+
+.medium .right {
+  float: right;
 }
 
 .tiny {
@@ -24,29 +33,14 @@ img {
   height: auto;
 }
 
-.tiny.white {
-  background-color: white;
-  width: 40px;
-  height: auto;
-  border-radius: 45px;
-  margin-bottom: 10px;
-}
-
 .homepage-logo-big {
   max-width: 200px;
   height: auto;
   float: right;
   padding: 5px 5px 5px 10px;;
-  transform:rotate(7deg);
-  -ms-transform:rotate(7deg); /* IE 9 */
-  -webkit-transform:rotate(7deg); /* Safari and Chrome */
+  transform:rotate(10deg);
+  -ms-transform:rotate(10deg); /* IE 9 */
+  -webkit-transform:rotate(10deg); /* Safari and Chrome */
 }
 
-.homepage-collage {
-  height: 300px;
-  width: 100%;
-  margin: 30px 0px 0px;
-  background: url('http://res.cloudinary.com/dljyjkavz/image/upload/v1390417921/collage_small_zaguu6.png');
-  box-shadow: 5px 5px 3px #000;
-}
 
