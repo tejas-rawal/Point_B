@@ -100,11 +100,9 @@
     e.preventDefault();
     var theClass = this.className;
 
-    if(theClass === "fa fa-star-o") {
-    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
-    }
-
     if(typeof stars === "undefined"){
+
+    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
@@ -113,21 +111,24 @@
     });
     }
 
-    else {
+    else if(typeof stars === "object"){
 
     for(var i = 0; i < stars.length; i++){
 
     if(stars[i] !== destination){
+
+    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
+
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
     type: "post",
     dataType: "json"
     });
     }
+    }
+    }
 
     else {
     console.log("You already starred this destination");
-    }
-    }
     }
     });
