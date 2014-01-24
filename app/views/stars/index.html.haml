@@ -1,31 +1,20 @@
-%h1 Destinations Following
-
-%table
-  %tr
-    %th User
-    %th City
-    %th Description
-
-  - @stars.each do |star|
-    %tr
-      %td= link_to star.user.name, user_path(star.user_id)
-      %td= link_to star.destination.city, user_destination_path(star.user_id, star.destination_id)
-      %td= star.destination.snippet
-
+%h1 Destination Wish List
+%br
+%br
 .gridler
   .row
     %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
       - @stars.reverse_each do |star|
         %li.destination-grid
           %h5= link_to star.user.name, user_path(star.user_id)
-          %h5= "#{dest.city}, #{dest.country}"
+          %h5= "#{star.destination.city}, #{star.destination.country}"
           %span.medium= image_tag star.destination.album_url(:medium)
           %p
             = star.destination.snippet
             - if star.destination.posts.first
               %p
-                Activity: #{dest.posts.first.thing}
-              %p= dest.posts.first.description
+                Activity: #{star.destination.posts.first.thing}
+              %p= star.destination.posts.first.description
             - else
               %no{:content => ""}
-            = link_to 'Read More', user_destination_path(dest.user_id, dest)
+            = link_to 'Read More', user_destination_path(star.user_id, star.destination)
