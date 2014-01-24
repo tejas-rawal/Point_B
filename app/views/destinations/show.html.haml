@@ -12,7 +12,7 @@
                 %i.fa.fa-star
               -else
                 %i.fa.fa-star-o
-            - if @user == current_user
+            - if @user.destinations.include?(@destination)
               %ul.side-nav
                 %li
                   = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
