@@ -98,13 +98,11 @@
     var theClass = this.className;
     if(theClass === "fa fa-star-o") {
     $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
+
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
     type: "post",
     dataType: "json"
     });
-    }
-    else if(theClass === "fa fa-star") {
-    $(this).removeClass('fa fa-star').addClass('fa fa-star-o);
     }
     });
