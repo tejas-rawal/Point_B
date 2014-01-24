@@ -99,9 +99,9 @@
     $('i').on('click', function(e){
     e.preventDefault();
 
-    if(typeof stars === "undefined"){
+    if(stars.length < 1){
 
-    $(this).addClass('starred');
+    $('.fa.fa-star-o').addClass('starred');
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
@@ -110,24 +110,25 @@
     });
     }
 
-    else if(typeof stars === "object"){
+    else {
 
     for(var i = 0; i < stars.length; i++){
+    var star_id = stars[i];
 
-    if(stars[i] !== destination){
+    if(star_id !== destination){
 
-    $(this).addClass('starred');
+    $('.fa.fa-star-o').addClass('starred');
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
     type: "post",
     dataType: "json"
     });
-    }
-    }
     }
 
     else {
     return destination;
+    }
+    }
     }
     });
