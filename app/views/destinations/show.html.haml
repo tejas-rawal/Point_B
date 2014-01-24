@@ -18,9 +18,9 @@
         - if @user == current_user
           %dl.sub-nav
             %dd
-              = link_to 'Edit Destination', edit_user_destination_path(@user.id, @destination)
+              = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
             %dd
-              = link_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
+              = button_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
             %dd.accordion Add Post
 
 
@@ -93,16 +93,15 @@
     window.g = {};
     g.destinationPostsUrl = "#{destination_post_api_path(destination_id: @destination)}";
 
-    var stars = #{@stars};
-    var destination = #{@destination.id};
+    var stars = #{raw @stars.to_json};
+    var destination = #{raw @destination.id.to_json};
 
     $('i').on('click', function(e){
     e.preventDefault();
-    var theClass = this.className;
 
     if(typeof stars === "undefined"){
 
-    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
+    $(this).addClass('starred');
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
@@ -117,7 +116,7 @@
 
     if(stars[i] !== destination){
 
-    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
+    $(this).addClass('starred');
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
@@ -129,6 +128,6 @@
     }
 
     else {
-    console.log("You already starred this destination");
+    return destination;
     }
     });

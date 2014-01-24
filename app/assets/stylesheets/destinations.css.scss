@@ -29,7 +29,6 @@ form.new-post {
 .sub-nav dd {
   margin: 5px;
   display: inline-block;
-  background-color: #07599B;
 }
 
 .row.main {
@@ -70,8 +69,8 @@ div {
   text-align: left;
 }
 
-.fa.fa-star {
-  color: yellow;
+.fa.fa-star-o.starred {
+  color: #E1F435;
 }
 
 .search {
