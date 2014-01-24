@@ -6,27 +6,22 @@
 
 <h1>Fellow Travelers</h1>
 
-<table>
-  <thead>
-  </thead>
-
-  <tbody>
+<div id="wrapper">
+  <div id="columns">
     <% @users.each do |user| %>
-      <tr>
-        <td class="user-list"><%= image_tag user.profile_pic %>
-        <td><%= link_to "#{user.name}", user_path(user.id) %></td>
-        <td><%= user.location %></td>
-        <td><%= user.bio %></td>
+      <div class="pin">
+        <%= image_tag user.profile_pic %>
+        <h5><%= link_to "#{user.name}", user_path(user.id) %></h5>
+        <h6><%= user.location %></h6>
+        <p><%= user.bio %></p>
         <% if current_user != nil %>
         <% end %>
           <% if current_user.friendships.find_by_friend_id(user.id) %>
-          <td>Already Following</td>
+          <p>Already Following</p>
           <% elsif user.id != current_user.id %>
-          <td><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></td>
+          <p><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></p>
           <% end %>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  </div>
+</div>
