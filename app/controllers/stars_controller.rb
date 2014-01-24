@@ -45,7 +45,8 @@ class StarsController < ApplicationController
   end
 
   def destroy
-    @star = Star.find(params[:id])
+    @user = current_user
+    @star = @user.stars.find(params[:id])
     respond_to do |format|
       format.html { redirect_to stars_path }
       format.json { head :no_content }
