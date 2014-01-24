@@ -6,7 +6,7 @@
     %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
       - @stars.reverse_each do |star|
         %li.destination-grid
-          %h5= link_to star.user.name, user_path(star.user_id)
+          %h5= link_to star.destination.user.name, user_path(star.destination.user_id)
           %h5= "#{star.destination.city}, #{star.destination.country}"
           %span.medium= image_tag star.destination.album_url(:medium)
           %p

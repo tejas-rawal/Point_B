@@ -93,18 +93,18 @@
     window.g = {};
     g.destinationPostsUrl = "#{destination_post_api_path(destination_id: @destination)}";
 
-    $('i').on('click', function(e){
-    e.preventDefault();
-    var theClass = this.className;
-    if(theClass === "fa fa-star-o") {
-    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
-
     var stars = #{@stars};
     var destination = #{@destination.id};
 
-    for(var i = 0; i < stars.length; i++){
+    $('i').on('click', function(e){
+    e.preventDefault();
+    var theClass = this.className;
 
-    if(stars[i] !== destination){
+    if(theClass === "fa fa-star-o") {
+    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
+    }
+
+    if(typeof stars === "undefined"){
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
@@ -112,6 +112,19 @@
     dataType: "json"
     });
     }
+
+    else {
+
+    for(var i = 0; i < stars.length; i++){
+
+    if(stars[i] !== destination){
+    $.ajax({
+    url: "#{star_post_path(destination_id: @destination)}",
+    type: "post",
+    dataType: "json"
+    });
+    }
+
     else {
     console.log("You already starred this destination");
     }
