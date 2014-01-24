@@ -101,7 +101,7 @@
 
     if(stars.length < 1){
 
-    $('.fa.fa-star-o').addClass('starred');
+    $('i').removeClass('fa fa-star-o').addClass('fa fa-star');
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
@@ -117,7 +117,7 @@
 
     if(star_id !== destination){
 
-    $('.fa.fa-star-o').addClass('starred');
+    $('i').removeClass('fa fa-star-o').addClass('fa fa-star');
 
     $.ajax({
     url: "#{star_post_path(destination_id: @destination)}",
@@ -127,6 +127,7 @@
     }
 
     else {
+    alert('"#{@destination.city}" is already on your wish list');
     return destination;
     }
     }
