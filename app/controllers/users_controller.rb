@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.search(params[:search])
     @user = current_user
   end
 
   def followers
     @user = current_user
-    @users = User.all 
+    @users = User.all
     @friendships = Friendship.all
   end
 
