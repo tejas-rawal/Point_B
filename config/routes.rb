@@ -11,7 +11,8 @@ PointB::Application.routes.draw do
   end
 
 
-  resources :stars, :except => :post
+  resources :stars, :except => [:create, :show]
+  get '/destinations/:destination_id/stars/:id' => 'stars#show', :as => :starry
   post '/destinations/:destination_id/stars' => 'stars#create', :as => :star_post
 
 

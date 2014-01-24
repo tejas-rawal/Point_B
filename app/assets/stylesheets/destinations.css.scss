@@ -31,14 +31,8 @@ form.new-post {
 
 .side-nav li {
   margin: 2px;
+  margin-bottom: 5px;
   display: inline-block;
-}
-
-li.accordion {
-  color: white;
-  border: 1px solid #333333;
-  border-radius: 5px;
-  background-color: #333333;
 }
 
 .row.main {
@@ -46,7 +40,7 @@ li.accordion {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  width: 90%;
+  width: 100%;
 }
 
 .navi {

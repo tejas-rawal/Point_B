@@ -16,7 +16,7 @@
                   = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
                 %li
                   = button_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
-                %li.accordion Add Post
+                %input{type: 'button', value: 'Add Post', class: 'accordion'}
                 %form.new-post
                   .row
                     .small-8.columns
@@ -33,7 +33,7 @@
                   .row
                     .small-8.columns
                       %label Image
-                      %input.images{id: "fileInput", type: "file"}
+                      %input.images{id: "fileInput", type: "file", accept: "image/*"}
 
                       %input.id{type: "hidden"}
 
