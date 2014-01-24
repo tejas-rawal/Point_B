@@ -12,6 +12,8 @@ PointB::Application.routes.draw do
 
   get '/stars' => 'stars#index', :as => :all_stars
   post 'destinations/:destination_id/stars' => 'stars#create', :as => :star_post
+  patch '/stars/:id' => 'stars#update'
+  delete '/stars/:id' => 'stars#delete', :as => :star_delete
 
   resources :friendships
   resources :comments

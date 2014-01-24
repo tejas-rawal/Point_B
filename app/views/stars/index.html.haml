@@ -2,12 +2,12 @@
 
 %table
   %tr
+    %th User
     %th City
-    %th Country
     %th Description
 
   - @stars.each do |star|
     %tr
-      %td= link_to 'Show', comment
-      %td= link_to 'Edit', edit_comment_path(comment)
-      %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to star.user.name, user_path(star.user_id)
+      %td= link_to star.destination.city, user_destination_path(star.user_id, star.destination_id)
+      %td= star.destination.snippet

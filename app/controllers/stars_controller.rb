@@ -2,10 +2,7 @@ class StarsController < ApplicationController
 
   def index
     @user = current_user
-    Star
-  end
 
-  def new
   end
 
   def create
@@ -25,7 +22,28 @@ class StarsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @star = Star.find(params[:id])
+    respond_to do |format|
+      if @star.update(star_params)
+        format.html { redirect_to all_stars_path }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @star.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def delete
+    @star = Star.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to all_stars_path }
+      format.json { head :no_content }
+    end
   end
 
   private
