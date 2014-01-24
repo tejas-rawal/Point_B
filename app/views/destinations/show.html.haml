@@ -8,8 +8,10 @@
               = image_tag @destination.album_url(:medium) if @destination.album.url
             %h3
               = "#{@destination.city}, #{@destination.country}"
-              %i.fa.fa-star-o
-
+              - if current_user.stars.where(destination_id: @destination.id).count > 0
+                %i.fa.fa-star
+              -else
+                %i.fa.fa-star-o
             - if @user == current_user
               %ul.side-nav
                 %li
@@ -129,7 +131,6 @@
 
     else {
     alert('#{@destination.city} is already on your wish list');
-    return destination;
     }
     }
     }
