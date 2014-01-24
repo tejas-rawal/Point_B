@@ -13,7 +13,6 @@ class DestinationsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = @destination.posts(post_params)
     @comment = Comment.new
-    @coord = @destination.lat_lng
   end
 
   def post

@@ -106,10 +106,5 @@
     }
     else if(theClass === "fa fa-star") {
     $(this).removeClass('fa fa-star').addClass('fa fa-star-o);
-    $.ajax({
-    url: "#{star_delete_path(@star)}",
-    type: "delete",
-    dataType: "json"
-    });
     }
     });

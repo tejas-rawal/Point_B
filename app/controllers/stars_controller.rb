@@ -2,7 +2,7 @@ class StarsController < ApplicationController
 
   def index
     @user = current_user
-
+    @stars = @user.stars
   end
 
   def create
