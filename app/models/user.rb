@@ -31,8 +31,15 @@ class User < ActiveRecord::Base
             email:auth.info.email,
             password:Devise.friendly_token[0,20],
           )
-      end    
+      end
     end
   end
 
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search.split.map(&:capitalize).join(' ')}%"])
+    else
+      find(:all)
+    end
+  end
 end
