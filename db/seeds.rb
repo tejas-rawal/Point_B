@@ -3,7 +3,7 @@ Destination.destroy_all
 Post.destroy_all
 Comment.destroy_all
 Friendship.destroy_all
-puts "Destroyed all Users, Destinations, Posts, Comments and Friendships."
+puts "Destroyed all Users, Destinations, Posts, Comments, Friendships."
 
 I18n.enforce_available_locales = false
 
@@ -124,7 +124,6 @@ merced8 = cinque_terra.posts.create(
 merced9 = quito2.posts.create(
   thing: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
-
 merced10 = amsterdam2.posts.create(
   thing: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
@@ -172,6 +171,11 @@ merced24 = san_francisco5.posts.create(
   thing: "Teach youth about the environment.", description: "Helping the environment need not involve such monumental steps as installing solar panels or making room for a 30,000-gallon rainwater cistern. It can be done through simple steps taught to children.", external_links: "http://www.quito-colonial.com/IglesiaLaMercedChurch.html")
 
 puts "Created one post (24 total) for each destination."
+
+
+# Post.all.each do |post|
+#   Comment.create!({post_id: post, text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid."})
+# end
 
 comment = merced.comments.create(
   text: "Put a bird on it shabby chic irony narwhal, occupy Brooklyn actually 3 wolf moon leggings 8-bit polaroid.")

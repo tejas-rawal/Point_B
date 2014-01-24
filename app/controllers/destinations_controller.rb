@@ -4,13 +4,14 @@ class DestinationsController < ApplicationController
   # GET /destinations
   # GET /destinations.json
   def index
-     @destinations = Destination.search(params[:search])
+    @user = current_user
+    @destinations = Destination.search(params[:search])
   end
 
   # GET /destinations/1
   # GET /destinations/1.json
   def show
-    @user = User.find(params[:user_id])
+    @user = current_user
     @post = @destination.posts(post_params)
     @comment = Comment.new
   end
@@ -31,6 +32,7 @@ class DestinationsController < ApplicationController
 
   # GET /destinations/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /destinations
@@ -84,6 +86,6 @@ class DestinationsController < ApplicationController
     end
 
     def post_params
-      params.permit(:activity, :description, :external_links, :images, :destination_id)
+      params.permit(:thing, :description, :external_links, :images, :destination_id)
     end
 end

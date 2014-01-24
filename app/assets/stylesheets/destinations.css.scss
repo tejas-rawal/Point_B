@@ -52,6 +52,7 @@ div {
 
 .row.card {
   box-sizing: border-box;
+  vertical-align: middle;
 }
 
 .navi p img {
@@ -73,7 +74,12 @@ div {
   color: yellow;
 }
 
+.search {
+  margin-left: 10px;
+}
 
-
-
+.search-field {
+  width: 33%;
+  margin-left: 10px;
+}
 

@@ -9,6 +9,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def followers
+    @user = current_user
+    @users = User.all 
+    @friendships = Friendship.all
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show

@@ -1,22 +1,177 @@
-<div class="small-12 medium-8 large-9 columns"><p></p></div>
+<% content_for :homepage do %>
+<div id="static-landing">  
+  <div class="small-12 medium-6 large-5 columns">
+    <span class="homepage-logo-big">
+      <%= image_tag('http://res.cloudinary.com/dljyjkavz/image/upload/v1390496778/barrel_blue_white_back_xwt53t.png') %>
+    </span>
+    <span id="home-info">
+    <h3 class="title">POINT B</h3>
+    <h5 class="title">For those who have an undying urge to to explore the world.</h5>
+    <h4 class="title">Tourists need not apply.</h4>
+    <h6 class="title">Interact with like-minded travelers, share your adventures and learn about unique experiences throughout the world. </h6>
+    <p>Stand in front of the computer screen make muffins. Use lap as chair hide when guests come over chew iPad power cord yet claw drapes. Flop over sun bathe hate dog and hopped up on goofballs. Under the bed stick butt in face but hide when guests come over and destroy couch. Rub face on everything need to chase tail, stare at ceiling intently stare at the same spot sun bathe. Hopped up on goofballs intently sniff hand, intently stare at the same spot. Need to chase tail use lap as chair. Chase imaginary bugs.</p>
+    </span>
+  </div>
+  <div class="sign-in-block small-12 medium-4 large-4 columns">
+    <div class="small-12 medium-4 large-4 columns" id="globe">
+      <div id="container"></div>
+    </div>
+    <h2>Sign up</h2>
 
-<div class="small-12 medium-4 large-3 columns">
-<h2>Sign up</h2>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+      <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+      <div><%= f.submit "Sign up" %></div>
+    <% end %>
 
-  <div><%= f.submit "Sign up" %></div>
+    <%= render "devise/shared/links" %>
+    </div>
+</div>
+
+<div class="homepage-footer">
+  <center><p>&copy2014</p></center>
+</div>
 <% end %>
 
-<%= render "devise/shared/links" %>
-</div>
+<% content_for :javascript do %>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r61/three.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
+
+  <script>
+
+    var container, stats;
+    var camera, scene, renderer;
+    var group;
+    var mouseX = 0, mouseY = 0;
+
+    var windowHalfX = window.innerWidth / 2;
+    var windowHalfY = window.innerHeight / 2;
+
+    init();
+    animate();
+
+    function init() {
+
+      container = document.getElementById( 'container' );
+
+      camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 2000 );
+      camera.position.z = 500;
+
+      scene = new THREE.Scene();
+
+      group = new THREE.Object3D();
+      scene.add( group );
+
+      // earth
+
+      var loader = new THREE.TextureLoader();
+      loader.load( 'http://res.cloudinary.com/dljyjkavz/image/upload/v1389981725/land_ocean_ice_cloud_2048_ktjbpi.jpg', function ( texture ) {
+
+        var geometry = new THREE.SphereGeometry( 200, 20, 20 );
+
+        var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: true } );
+        var mesh = new THREE.Mesh( geometry, material );
+        group.add( mesh );
+
+      } );
+
+      // shadow
+
+      var canvas = document.createElement( 'canvas' );
+      canvas.width = 128;
+      canvas.height = 128;
+
+      var context = canvas.getContext( '2d' );
+      var gradient = context.createRadialGradient(
+        canvas.width / 2,
+        canvas.height / 2,
+        0,
+        canvas.width / 2,
+        canvas.height / 2,
+        canvas.width / 2
+      );
+      gradient.addColorStop( 0.1, 'rgba(210,210,210,1)' );
+      gradient.addColorStop( 1, 'rgba(255,255,255,1)' );
+
+      context.fillStyle = gradient;
+      // context.fillRect( 0, 0, canvas.width, canvas.height );
+
+      var texture = new THREE.Texture( canvas );
+      texture.needsUpdate = true;
+
+      var geometry = new THREE.PlaneGeometry( 300, 300, 3, 3 );
+      var material = new THREE.MeshBasicMaterial( { map: texture, overdraw: true, transparent: true} );
+
+      var mesh = new THREE.Mesh( geometry, material );
+      mesh.position.y = - 250;
+      mesh.rotation.x = - Math.PI / 2;
+      group.add( mesh );
+
+      renderer = new THREE.CanvasRenderer();
+      renderer.setSize( window.innerWidth, window.innerHeight );
+
+      container.appendChild( renderer.domElement );
+
+      stats = new Stats();
+      
+
+      document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+      //
+
+      window.addEventListener( 'resize', onWindowResize, false );
+
+    }
+
+    function onWindowResize() {
+
+      windowHalfX = window.innerWidth / 2;
+      windowHalfY = window.innerHeight / 2;
+
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize( window.innerWidth, window.innerHeight );
+
+    }
+
+    function onDocumentMouseMove( event ) {
+
+      mouseX = ( event.clientX - windowHalfX );
+      mouseY = ( event.clientY - windowHalfY );
+
+    }
+
+    //
+
+    function animate() {
+
+      requestAnimationFrame( animate );
+
+      render();
+      stats.update();
+
+    }
+
+    function render() {
+
+      camera.position.x += ( mouseX - camera.position.x ) * 0.05;
+      camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+      camera.lookAt( scene.position );
+
+      group.rotation.y -= 0.005;
+
+      renderer.render( scene, camera );
+
+    }
+  </script>
+<% end %>

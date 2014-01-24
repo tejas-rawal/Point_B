@@ -10,10 +10,16 @@ PointB::Application.routes.draw do
     resources :destinations
   end
 
+
   get '/stars' => 'stars#index', :as => :all_stars
   post 'destinations/:destination_id/stars' => 'stars#create', :as => :star_post
   patch '/stars/:id' => 'stars#update'
   delete 'stars/:id' => 'stars#delete', :as => :star_delete
+
+  get "/destinations" => "destinations#index", :as => :destination_search
+
+  get "/followers" => "users#followers", :as => :followers_list
+
 
   resources :friendships
   resources :comments

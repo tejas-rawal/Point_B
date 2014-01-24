@@ -13,12 +13,15 @@
     </div>
     <h4><%= @user.name %></h4>
     <h5>Home Base: <%= @user.location %></h5>
+    <% if @user == current_user %>
+    <%= link_to 'Edit Profile', edit_user_path %>
+    <% end %>
   </div>
   <div class="user small-12 medium-6 large-5 columns">
     <h5>About</h5>
       <p><%= @user.bio %></p>
         <div class="user small-12 medium-6 large-5 columns">
-          <h5><%= link_to 'Followers', users_path %>: <%= @user.inverse_friends.length %> </h5>
+          <h5><%= link_to 'Followers', followers_list_path %>: <%= @user.inverse_friends.length %> </h5>
         </div>
         <div class="user small-12 medium-6 large-5 columns">
           <h5><%= link_to 'Following', activities_path %>: <%= @user.friendships.length %></h5>
@@ -28,9 +31,10 @@
 
 <div class="gridler">
   <div class="row">
-    <ul class="small-block-grid-1 medium-block-grid-4 large-block-grid-5">
-      <% @user.destinations.reverse_each do |dest| %>
+    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-5">
+      <% @user.destinations.each do |dest| %>
         <li class="destination-grid">
+          <div>
           <h5><%= "#{dest.city}, #{dest.country}" %></h5>
           <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
           <p><%= dest.snippet %>
@@ -41,6 +45,7 @@
             <no content>
           <% end %>
           <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+          </div>
         </li>
       <% end %>
     </ul>

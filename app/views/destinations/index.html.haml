@@ -1,27 +1,22 @@
-%h1 Listing destinations
+%h5.search Search for Destinations
+= form_tag destination_search_path, :method => 'get' do
+  .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
+  = submit_tag "Search", :name => nil
 
-%table
-  %tr
-    %th City
-    %th Country
-    %th Description
-    %th Album
-    %th Category
-    %th
-    %th
-    %th
-
-  - @destinations.each do |destination|
-    %tr
-      %td= destination.city
-      %td= destination.country
-      %td= destination.description
-      %td
-        %img{src: destination.album}
-      %td= destination.category
-      %td= link_to 'Show', destination
-      %td= link_to 'Edit', '#'
-      %td= link_to 'Destroy', destination, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
+.gridler
+  .row
+    %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
+      - @destinations.sample(10).reverse_each do |dest|
+        %li.destination-grid
+          %h5= link_to dest.user.name, user_path(dest.user_id)
+          %h5= "#{dest.city}, #{dest.country}"
+          %span.medium= image_tag dest.album_url(:medium)
+          %p
+            = dest.snippet
+            - if dest.posts.first
+              %p
+                Activity: #{dest.posts.first.thing}
+              %p= dest.posts.first.description
+            - else
+              %no{:content => ""}
+            = link_to 'Read More', user_destination_path(dest.user_id, dest)
