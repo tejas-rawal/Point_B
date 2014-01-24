@@ -93,12 +93,15 @@
     window.g = {};
     g.destinationPostsUrl = "#{destination_post_api_path(destination_id: @destination)}";
 
-    $('.fa.fa-star-o').on('click', function(e){
+    $('i').on('click', function(e){
     e.preventDefault();
-    $('i').removeClass('fa fa-star-o').addClass('fa fa-star');
+    var theClass = this.className;
+    if(theClass === "fa fa-star-o") {
+    $(this).removeClass('fa fa-star-o').addClass('fa fa-star');
     $.ajax({
-    url: "#{user_new_star_path(current_user.id)}",
+    url: "#{star_post_path(destination_id: @destination)}",
     type: "post",
     dataType: "json"
     });
+    }
     });

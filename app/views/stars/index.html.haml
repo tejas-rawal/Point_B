@@ -1,2 +1,13 @@
-%h1 Stars#index
-%p Find me in app/views/stars/index.html.haml
+%h1 Starred Destination
+
+%table
+  %tr
+    %th City
+    %th Country
+    %th Description
+
+  - @stars.each do |star|
+    %tr
+      %td= link_to 'Show', comment
+      %td= link_to 'Edit', edit_comment_path(comment)
+      %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }

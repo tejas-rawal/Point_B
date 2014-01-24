@@ -8,10 +8,10 @@ PointB::Application.routes.draw do
 
   resources :users do
     resources :destinations
-    get "/stars" => "stars#index"
-    post "/stars" => "stars#create", :as => :new_star
-    delete "/stars/:id" => "stars#delete", :as => :star_delete
   end
+
+  get '/stars' => 'stars#index', :as => :all_stars
+  post 'destinations/:destination_id/stars' => 'stars#create', :as => :star_post
 
   resources :friendships
   resources :comments
@@ -20,8 +20,4 @@ PointB::Application.routes.draw do
   scope :api do
     post 'destinations/:destination_id/posts' => 'destinations#post', :as => :destination_post_api
   end
-
-
-
-
 end
