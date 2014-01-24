@@ -35,7 +35,7 @@ class StarsController < ApplicationController
     @star = Star.find(params[:id])
     respond_to do |format|
       if @star.update(star_params)
-        format.html { redirect_to all_stars_path }
+        format.html { redirect_to stars_path }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -45,9 +45,8 @@ class StarsController < ApplicationController
   end
 
   def destroy
-    current_user
-    @destination = Destination.find(params[:destination_id])
     @star = Star.find(params[:id])
+    @star.destroy
     respond_to do |format|
       format.html { redirect_to stars_path }
       format.json { head :no_content }

@@ -5,7 +5,7 @@
     %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
       - @stars.reverse_each do |star|
         %li.destination-grid
-          = button_to 'Remove', starry_path(destination_id: @destination.id, id: star.id), method: :delete, data: { confirm: 'Are you sure?' }
+          = button_to 'Remove', star_path(star.id), method: :delete, data: { confirm: 'Are you sure?' }
           %h5= link_to star.destination.user.name, user_path(star.destination.user_id)
           %h5= "#{star.destination.city}, #{star.destination.country}"
           %span.medium= image_tag star.destination.album_url(:medium)
