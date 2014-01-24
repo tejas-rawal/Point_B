@@ -14,6 +14,7 @@ class DestinationsController < ApplicationController
     @user = current_user
     @post = @destination.posts(post_params)
     @comment = Comment.new
+    @stars = @user.stars.map {|star| star.destination_id}
   end
 
   def post
