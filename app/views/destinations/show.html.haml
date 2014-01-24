@@ -9,42 +9,43 @@
             %h3
               = "#{@destination.city}, #{@destination.country}"
               %i.fa.fa-star-o
+
+            - if @user == current_user
+              %ul.side-nav
+                %li
+                  = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
+                %li
+                  = button_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
+                %li.accordion Add Post
+                %form.new-post
+                  .row
+                    .small-8.columns
+                      %label Activity
+                      %input.thing{type:"text"}
+                  .row
+                    .small-8.columns
+                      %label Description
+                      %textarea.description{rows: "10", cols: "30"}
+                  .row
+                    .small-8.columns
+                      %label External Links
+                      %textarea.external_links{rows: "5", cols: "30"}
+                  .row
+                    .small-8.columns
+                      %label Image
+                      %input.images{id: "fileInput", type: "file"}
+
+                      %input.id{type: "hidden"}
+
+                      %input{type: "submit", value: "Add Post"}
+
           .small-12.large-6.columns.description
             %p
               = @destination.description
             %p
               %b Tags:
               = @destination.category
-        - if @user == current_user
-          %dl.sub-nav
-            %dd
-              = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
-            %dd
-              = button_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
-            %dd.accordion Add Post
 
-
-          %form.new-post
-            .row
-              .small-8.columns
-                %label Activity
-                %input.thing{type:"text"}
-            .row
-              .small-8.columns
-                %label Description
-                %textarea.description{rows: "10", cols: "30"}
-            .row
-              .small-8.columns
-                %label External Links
-                %textarea.external_links{rows: "5", cols: "30"}
-            .row
-              .small-8.columns
-                %label Image
-                %input.images{id: "fileInput", type: "file"}
-
-                %input.id{type: "hidden"}
-
-                %input{type: "submit", value: "Add Post"}
       .post-wall.large-6.medium-8.small-10.columns
         - @destination.posts.each do |p|
           .row

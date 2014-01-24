@@ -7,6 +7,9 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 7px 7px 3px #07599B;
+  &:hover {
+  box-shadow: 7px 7px 3px #333333;
+  }
 }
 
 .post-wall {
@@ -26,9 +29,16 @@ form.new-post {
   display: none;
 }
 
-.sub-nav dd {
-  margin: 5px;
+.side-nav li {
+  margin: 2px;
   display: inline-block;
+}
+
+li.accordion {
+  color: white;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  background-color: #333333;
 }
 
 .row.main {
