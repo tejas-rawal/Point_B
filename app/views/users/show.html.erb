@@ -32,7 +32,7 @@
 <div id="wrapper">
   <div id="columns">
     <% @user.destinations.each do |dest| %>
-      <div class="pin">
+      <div class="pin" id="destination-<%= dest.id%>" data-destinationurl= "<%= user_destination_path(@user.id, dest) %>">
         <h5><%= "#{dest.city}, #{dest.country}" %></h5>
         <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
         <p><%= dest.snippet %></p>
@@ -77,6 +77,7 @@
         }
       };
       google.maps.event.addDomListener(window, 'load', initialize);
+      
     })();
   </script>
 <% end %>
