@@ -83,6 +83,9 @@
 
 
   :javascript
+    $(document).ready(function(){
+    $('body').css('background-color', '#d8d8d8');
+    });
     (function () {
     var destinationPosts = new Post();
 
@@ -131,7 +134,7 @@
     }
 
     else {
-    alert('#{@destination.city} is already on your wish list');
+    alert('#{@destination.city} is already on your wish list. In order to remove, please visit your starred destinations page.');
     }
     }
     }
