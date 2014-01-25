@@ -9,6 +9,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
         format.html
+        format.js { render layout: false }
         format.json { render :json => @activities.to_json }
       end
   end
