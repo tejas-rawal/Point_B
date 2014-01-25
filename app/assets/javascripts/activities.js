@@ -1,12 +1,12 @@
 (function () {
   var interval = null;
   $(document).on('ready',function(){
-      interval = setInterval(updateFeed,50000);
+      interval = setInterval(updateFeed,500000);
   });
 
   function updateFeed(){
       $.ajax({
-          url: '/activities.json',
+          url: '/activities.json'+decodeURIComponent(JSON.stringify({"json":[{"j":"son"}]})),
           contentType: "application/json; charset=utf-8",
           dataType: "json",
           success: function(data){
