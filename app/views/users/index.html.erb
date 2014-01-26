@@ -11,15 +11,15 @@
     <% @users.each do |user| %>
       <div class="pin" data-url="<%= user_path(user.id) %>">
         <%= image_tag user.profile_pic %>
-        <h5><%= link_to "#{user.name}", user_path(user.id) %></h5>
+        <h5><%= user.name %></h5>
         <h6><%= user.location %></h6>
         <p><%= user.bio %></p>
         <% if current_user != nil %>
         <% end %>
           <% if current_user.friendships.find_by_friend_id(user.id) %>
-          <p>Already Following</p>
+          <h6>Already Following</h6>
           <% elsif user.id != current_user.id %>
-          <p><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></p>
+          <h6><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></h6>
           <% end %>
       </div>
     <% end %>

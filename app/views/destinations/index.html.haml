@@ -10,15 +10,14 @@
     - @destinations.sample(10).each do |dest|
       .pin{:data => {:url => user_destination_path(@user.id, dest) } }
         %h5= link_to dest.user.name, user_path(dest.user_id)
-        %h5= link_to "#{dest.city}, #{dest.country}", user_destination_path(dest.user_id, dest)
+        %h5= "#{dest.city}, #{dest.country}"
         %span.medium= image_tag dest.album_url(:medium)
         %p= dest.snippet
         - if dest.posts.first
-          %p= "Activity: #{dest.posts.first.thing}"
+          %h6= "Activity: #{dest.posts.first.thing}"
           %p= dest.posts.first.description
         - else
           %no{:content => ""}
-        %p= link_to 'Read More', user_destination_path(dest.user_id, dest)
 
 - content_for :javascript do
   
