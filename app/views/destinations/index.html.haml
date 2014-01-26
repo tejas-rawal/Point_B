@@ -8,7 +8,7 @@
 #wrapper
   #columns
     - @destinations.sample(10).each do |dest|
-      .pin
+      .pin{:data => {:url => user_destination_path(@user.id, dest) } }
         %h5= link_to dest.user.name, user_path(dest.user_id)
         %h5= link_to "#{dest.city}, #{dest.country}", user_destination_path(dest.user_id, dest)
         %span.medium= image_tag dest.album_url(:medium)
@@ -19,3 +19,18 @@
         - else
           %no{:content => ""}
         %p= link_to 'Read More', user_destination_path(dest.user_id, dest)
+
+- content_for :javascript do
+  
+  :javascript
+  (function () {
+    var pins = $('.pin');
+    pins.each(function(){
+      $(this).click(function(){
+        var url = $(this).data('url');
+      window.location.href = url;
+      });
+    });
+  })();
+
+
