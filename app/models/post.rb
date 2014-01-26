@@ -7,9 +7,12 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   mount_uploader :images, ImageUploader
+  has_attached_file :images
 
-  validates :thing, :description, 
+  validates :thing, :description,
     presence: true
+
+  include Rails.application.routes.url_helpers
 
   def as_json(options={})
     {
@@ -22,15 +25,12 @@ class Post < ActiveRecord::Base
     }
   end
 
-  #one convenient method to pass jq_upload the necessary information
-  # def to_jq_upload
-  #   {
-  #     "name" => read_attribute(:images),
-  #     "size" => images.size,
-  #     "url" => images.url,
-  #     "thumbnail_url" => images.thumb.url,
-  #     "delete_url" => picture_path(:id => id),
-  #     "delete_type" => "DELETE" 
-  #   }
-  # end
+  def to_jq_upload
+    {
+     "name" => read_attribute(:images),
+     "size" => read_attribute(:images.size),
+     "url" => images.url(:original),
+     "thumbnail_url" => images.thumb.url,
+    }
+  end
 end
