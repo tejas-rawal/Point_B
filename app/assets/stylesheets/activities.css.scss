@@ -3,10 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .activity {
   border-bottom: solid 1px #CCC;
+  border-top: solid 1px #CCC;
   padding: 16px 0;
   em {
     color: #777;
-    font-size: 12px;
     padding-left: 5px;
   }
+  img {
+    border-radius: 3px;
+  }
+  font-size: 1.25em;
+}
+
+aside.panel {
+  background-color: #07599B;
+    h5 {
+      color: white;
+    }
+}
+
+.tiny.radius {
+  border-radius: 3px;
 }
