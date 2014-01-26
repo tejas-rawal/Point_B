@@ -11,7 +11,12 @@
       var newPost = {
         thing: $('.thing', $root).val(),
         description: $('.description', $root).val(),
-        images: $('.images', $root).val()
+        images: $('.images#fileInput', $root).fileupload({
+          dataType: 'json',
+          add: function(e,data){
+            data.submit();
+          }
+        });
       };
       console.log(newPost);
       posts.create(newPost);

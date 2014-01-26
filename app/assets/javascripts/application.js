@@ -16,6 +16,7 @@
 //= require riot
 //= require_tree ./app/models
 //= require_tree ./app/presenters
+//= require jquery-fileupload/basic
 
 $(function(){
   $(document).foundation();

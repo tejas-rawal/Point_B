@@ -27,10 +27,10 @@ class Post < ActiveRecord::Base
 
   def to_jq_upload
     {
-     "name" => read_attribute(:images),
-     "size" => read_attribute(:images.size),
-     "url" => images.url(:original),
-     "thumbnail_url" => images.thumb.url,
+     name: read_attribute(:images),
+     size: read_attribute(:images.size),
+     url: images.url(:original),
+     thumbnail_url: images.thumb.url,
     }
   end
 end

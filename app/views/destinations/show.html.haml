@@ -39,7 +39,7 @@
             .row
               .small-8.columns
                 %label Image
-                %input.images{id: "fileInput", type: "file"}
+                %input.images{id: "fileInput", type: "file", name: "files[]", data-url: "/images/" multiple}
 
                 %input.id{type: "hidden"}
 
