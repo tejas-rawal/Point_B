@@ -13,6 +13,8 @@
     = image_tag activity.owner.profile_pic, :class => "thumb"
     = link_to activity.owner.name, activity.owner if activity.owner
     = render_activity activity
+    .feed-small
+      = activity.created_at.strftime("%B %d, %Y at %l:%M%P")
 
 
 - content_for :javascript do
