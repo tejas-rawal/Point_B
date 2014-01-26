@@ -9,7 +9,7 @@
 <div id="wrapper">
   <div id="columns">
     <% @users.each do |user| %>
-      <div class="pin" value="Redirect">
+      <div class="pin" data-url="<%= user_path(user.id) %>">
         <%= image_tag user.profile_pic %>
         <h5><%= link_to "#{user.name}", user_path(user.id) %></h5>
         <h6><%= user.location %></h6>
@@ -29,11 +29,18 @@
 <% content_for :javascript do %>
   <script>
     (function () {
-      $('.pin').click(function () {
-        alert('You clicked the pin.');
-        var url = "<%= user_path(@user.id) %>"
+      var pins = $('.pin');
+      pins.each(function(){
+        $(this).click(function(){
+          var url = $(this).data('url');
         window.location.href = url;
+        });
       });
+      // $('.pin').click(function () {
+      //   console.log($('.pin').data('url'));
+      //   var url = $('.pin').data('url');
+      //   window.location.href = url;
+      // });
     })();
   </script>
 <% end %>
