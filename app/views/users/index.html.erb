@@ -31,8 +31,8 @@
     (function () {
       $('.pin').click(function () {
         alert('You clicked the pin.');
-        var url = '/';
-        $location.attr('href', url);
+        var url = "<%= user_path(@user.id) %>"
+        window.location.href = url;
       });
     })();
   </script>
