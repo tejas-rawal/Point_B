@@ -9,7 +9,7 @@
 <div id="wrapper">
   <div id="columns">
     <% @users.each do |user| %>
-      <div class="pin">
+      <div class="pin" value="Redirect">
         <%= image_tag user.profile_pic %>
         <h5><%= link_to "#{user.name}", user_path(user.id) %></h5>
         <h6><%= user.location %></h6>
@@ -25,3 +25,15 @@
     <% end %>
   </div>
 </div>
+
+<% content_for :javascript do %>
+  <script>
+    (function () {
+      $('.pin').click(function () {
+        alert('You clicked the pin.');
+        var url = '/';
+        $location.attr('href', url);
+      });
+    })();
+  </script>
+<% end %>
