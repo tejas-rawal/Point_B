@@ -23,10 +23,10 @@ class ImageUploader < CarrierWave::Uploader::Base
 
     # "/images/fallback/" + [version_name, "map.png"].compact.join('_')
     # 'map.png'
-    @images  = ["Sydney.jpg", "Phuket.jpg", "Quito.jpg", "Amsterdam.jpg", "Lesley.jpg", "Tejas.jpg"]
-    @random_no = rand(6)
-    @random_image = @images[@random_no]
-    @random_image
+    # @images  = ["Sydney.jpg", "Phuket.jpg", "Quito.jpg", "Amsterdam.jpg", "Lesley.jpg", "Tejas.jpg"]
+    # @random_no = rand(6)
+    # @random_image = @images[@random_no]
+    # @random_image
   end
 
   # Process files as they are uploaded:

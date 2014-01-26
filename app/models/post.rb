@@ -7,7 +7,6 @@ class Post < ActiveRecord::Base
   has_many :comments
 
   mount_uploader :images, ImageUploader
-  has_attached_file :images
 
   validates :thing, :description,
     presence: true
@@ -27,9 +26,9 @@ class Post < ActiveRecord::Base
 
   def to_jq_upload
     {
-     name: read_attribute(:images),
-     size: read_attribute(:images.size),
-     url: images.url(:original),
+     name: read_attribute(images),
+     size: read_attribute(images.size),
+     url: images.url,
      thumbnail_url: images.thumb.url,
     }
   end

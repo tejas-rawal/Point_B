@@ -22,7 +22,15 @@ class DestinationsController < ApplicationController
     @destination = current_user.destinations.find(params[:destination_id])
     new_post = @destination.posts.create(post_params)
     new_post.destination_id = params[:destination_id]
-    render :json => new_post.to_json, :status => 200
+
+    respond_to do |format|
+      if new_post.save
+        format.html {
+          render :json => new_post.to_json, :status => 200, :layout => false, :content_type => 'text/html'
+        }
+        format.json { render json: {files: [new_post.images.to_jq_upload]}, status: :created, location: new_post }
+      end
+    end
   end
 
   # GET /destinations/new
