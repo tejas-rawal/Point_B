@@ -6,7 +6,7 @@
     - @user.friendships.each do |f| 
       %tr
       %td= image_tag f.friend.profile_pic, :class => "tiny radius"
-      %td= link_to f.friend.name, f
+      %td= link_to f.friend.name, "/users/#{f.friend.id}"
 
 - @activities.each do |activity|
   .activity
