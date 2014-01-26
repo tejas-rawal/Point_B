@@ -1,7 +1,7 @@
 .form-page
-%h1= "Edit Destination: #{@destination.city}" 
+  %h1= "Edit Destination: #{@destination.city}" 
 
-= render 'edit'
+  = render 'edit'
 
-.small-12.medium-3.large-4.columns.medium.right
-  = image_tag @destination.album_url(:medium)
+  .small-12.medium-3.large-4.columns.medium.right
+    = image_tag @destination.album_url(:medium)
