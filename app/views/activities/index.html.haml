@@ -17,48 +17,23 @@
       = activity.created_at.strftime("%B %d, %Y at %l:%M%P")
 
 
-/ - content_for :javascript do
+:javascript
+  (function () { 
+    $(document).ready(function() {
+      setInterval(function() {
+          $.ajax({
+              url: '#{activities_path}',
+              type: 'get',
+              dataType: "json",
+              success: function(data) {
+                  $('.activity').html(data);
+                  alert("hi");
+              },
+              error: function(xhr, status) {
+                  console.log("There was an error");
+              }
+          });
+      }, 2000);
+    });
 
-/   :javascript
-/     (function () { 
-/       $(document).ready(function() {
-/         setInterval(function() {
-/             $.ajax({
-/                 url: '<%= activities_url %>',
-/                 type: 'get',
-/                 dataType: "json",
-/                 success: function(data) {
-/                     $('.activity').html(data);
-/                     alert("hi");
-/                 },
-/                 error: function(xhr, status) {
-/                     console.log("There was an error");
-/                 }
-/             });
-/         }, 2000);
-/       });
-
-/     })();
-
-/ (function () {
-/   var interval = null;
-/   $(document).on('ready',function(){
-/       interval = setInterval(updateFeed,500000);
-/   });
-
-/   function updateFeed(){
-/     $.ajax({
-/         type: 'PATCH',
-/         url: '/activities',
-/         contentType: "application/json; charset=utf-8",
-/         dataType: "json",
-/         success: function(data){
-/             $('.activity').html(data);
-/         },
-/         error: function(){
-/             clearInterval(interval); 
-/             $('.activity').html('<span style="color:red">Connection problems</span>');
-/         }
-/     });
-/   }
-/ })();
+    })();
