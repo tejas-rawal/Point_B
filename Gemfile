@@ -23,6 +23,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'html2haml'
 gem "threejs-rails", "~> 0.0.2"
+gem 'browser'
 
 group :development do
   gem "better_errors"

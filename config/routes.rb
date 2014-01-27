@@ -22,7 +22,7 @@ PointB::Application.routes.draw do
 
   resources :friendships
   resources :comments
-  resources :activities
+  resources :activities, only: :index
 
   scope :api do
     post 'destinations/:destination_id/posts' => 'destinations#post', :as => :destination_post_api

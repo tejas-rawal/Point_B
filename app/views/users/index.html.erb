@@ -1,32 +1,41 @@
+<h1>Fellow Travelers</h1>
+
 <h5 class="search">Search for Users</h5>
   <%= form_tag users_path, :method => 'get' do %>
     <div class="search-field"><%= text_field_tag :search, params[:search], placeholder: "Enter A Name" %></div>
-    <%= submit_tag "Search", :name => nil, :class => "search" %>
+    <%= submit_tag "Search", :name => nil, :class => "search button-styled" %>
   <% end %>
 
-<h1>Fellow Travelers</h1>
-
-<table>
-  <thead>
-  </thead>
-
-  <tbody>
+<div id="wrapper">
+  <div id="columns">
     <% @users.each do |user| %>
-      <tr>
-        <td class="user-list"><%= image_tag user.profile_pic %>
-        <td><%= link_to "#{user.name}", user_path(user.id) %></td>
-        <td><%= user.location %></td>
-        <td><%= user.bio %></td>
+      <div class="pin" data-url="<%= user_path(user.id) %>">
+        <%= image_tag user.profile_pic %>
+        <h5><%= user.name %></h5>
+        <h6><%= user.location %></h6>
+        <p><%= user.bio %></p>
         <% if current_user != nil %>
         <% end %>
           <% if current_user.friendships.find_by_friend_id(user.id) %>
-          <td>Already Following</td>
+          <h6>Already Following</h6>
           <% elsif user.id != current_user.id %>
-          <td><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></td>
+          <h6><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></h6>
           <% end %>
-      </tr>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<br>
+<% content_for :javascript do %>
+  <script>
+    (function () {
+      var pins = $('.pin');
+      pins.each(function(){
+        $(this).click(function(){
+          var url = $(this).data('url');
+        window.location.href = url;
+        });
+      });
+    })();
+  </script>
+<% end %>

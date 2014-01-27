@@ -29,26 +29,22 @@
   </div>
 </div>
 
-<div class="gridler">
-  <div class="row">
-    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-5">
-      <% @user.destinations.each do |dest| %>
-        <li class="destination-grid">
-          <div>
-          <h5><%= "#{dest.city}, #{dest.country}" %></h5>
-          <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
-          <p><%= dest.snippet %>
-          <% if dest.posts.first %>
-          <p>Activity: <%= dest.posts.first.thing %></p>
-            <p><%= dest.posts.first.description %></p>
-          <% else %>
-            <no content>
-          <% end %>
-          <%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
-          </div>
-        </li>
+<div id="wrapper">
+  <div id="columns">
+    <% @user.destinations.each do |dest| %>
+      <div class="pin" id="destination-<%= dest.id%>" data-url= "<%= user_destination_path(@user.id, dest) %>">
+        <h5><%= "#{dest.city}, #{dest.country}" %></h5>
+        <span class="medium"><%= image_tag dest.album_url(:medium) %></span>
+        <p><%= dest.snippet %></p>
+        <% if dest.posts.first %>
+        <h6>Activity: <%= dest.posts.first.thing %></h6>
+          <p><%= dest.posts.first.description %></p>
+        <% else %>
+          <no content>
+        <% end %>
+        <p><%= link_to 'Read More', user_destination_path(@user.id, dest) %></p>
+        </div>
       <% end %>
-    </ul>
   </div>
 </div>
 
@@ -81,6 +77,15 @@
         }
       };
       google.maps.event.addDomListener(window, 'load', initialize);
+
+      var pins = $('.pin');
+      pins.each(function(){
+        $(this).click(function(){
+          var url = $(this).data('url');
+        window.location.href = url;
+        });
+      });
+      
     })();
   </script>
 <% end %>
