@@ -1,26 +1,25 @@
-.form.small-12.medium-6.large-6.columns
-  = form_for [@user, @destination] do |f|
-    - if @destination.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@destination.errors.count, "error")} prohibited this destination from being saved:"
-        %ul
-          - @destination.errors.full_messages.each do |msg|
-            %li= msg
+= form_for [@user, @destination] do |f|
+  - if @destination.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@destination.errors.count, "error")} prohibited this destination from being saved:"
+      %ul
+        - @destination.errors.full_messages.each do |msg|
+          %li= msg
 
-    .field
-      = f.text_field :city, :placeholder => "City"
-    .field
-      = f.text_field :country, :placeholder => "Country (must be exact name for map to work on your profile page)"
-    .field
-      = f.text_area :description, :placeholder => "Description"
-    .field
-      = f.text_field :category, :placeholder => "Category"
-    .field
-      = f.file_field :album, :placeholder => "Destination Image"
-    .field
-      =f.hidden_field :user_id
-    
-    .actions
-      = f.submit 'Save', :class => "button-styled"
-  .link
-  = link_to 'Back', user_path(@user)
+  .field
+    = f.text_field :city, :placeholder => "City"
+  .field
+    = f.text_field :country, :placeholder => "Country (must be exact name for map to work on your profile page)"
+  .field
+    = f.text_area :description, :placeholder => "Description"
+  .field
+    = f.text_field :category, :placeholder => "Category"
+  .field
+    = f.file_field :album, :placeholder => "Destination Image"
+  .field
+    =f.hidden_field :user_id
+  
+  .actions
+    = f.submit 'Save', :class => "button-styled"
+.link
+= link_to 'Back', user_path(@user)
