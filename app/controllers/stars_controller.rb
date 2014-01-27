@@ -3,8 +3,10 @@ class StarsController < ApplicationController
   def index
     @user = current_user
     @stars = @user.stars
-    @destinations = @stars.map {|s| s.destination}
-    @lat_lngs = @destinations.map {|d| d.lat_lng}
+    if @stars
+      @destinations = @stars.map {|s| s.destination}
+      @lat_lngs = @destinations.map {|d| d.lat_lng}
+    end
   end
 
   def show
