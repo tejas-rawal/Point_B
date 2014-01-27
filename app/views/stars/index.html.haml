@@ -1,29 +1,30 @@
 .hero-wrapper.small-12.medium-12.large-12.columns
   .row
-    %h3 Destination Wish List
+    %h3 My Destination Wish List
     #map
-%br
-.gridler
-  .row
-    %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
-      - if @stars
-        - @stars.reverse_each do |star|
-          %li.destination-grid
-            = button_to 'Remove', star_path(star.id), method: :delete, data: { confirm: 'Are you sure?' }
-            %h5= link_to star.destination.user.name, user_path(star.destination.user_id)
-            %h5= "#{star.destination.city}, #{star.destination.country}"
-            %span.medium= image_tag star.destination.album_url(:medium)
-            %p
-              = star.destination.snippet
-              - if star.destination.posts.first
-                %p
-                  Activity: #{star.destination.posts.first.thing}
-                %p= star.destination.posts.first.description
-              - else
-                %no{:content => ""}
-              = link_to 'Read More', user_destination_path(star.user_id, star.destination)
+    .pins 
+
+.row
+  %h3 Future Destinations
+  #wrapper
+    #columns
+      - @stars.reverse_each do |star|
+        .pin{:data => {:url => user_destination_path(star.user_id, star.destination) } }
+          %h5= link_to star.destination.user.name, user_path(star.destination.user_id)
+          %h5= "#{star.destination.city}, #{star.destination.country}"
+          %span.medium= image_tag star.destination.album_url(:medium)
+          %p= star.destination.snippet
+          - if star.destination.posts.first
+            %h6= "Activity: #{star.destination.posts.first.thing}"
+            %p= star.destination.posts.first.description
+          - else
+            %no{:content => ""}
+          = link_to 'Read More', user_destination_path(star.user_id, star.destination)
+          %br= link_to 'Remove', star_path(star.id), method: :delete, data: { confirm: 'Are you sure?' }
+
 - content_for :javascript do
   %script{src: "https://maps.googleapis.com/maps/api/js?key=#{ENV["MAPS_API_KEY"]}&sensor=false", type: "text/javascript"}
+  
   :javascript
     (function () {
     function initialize() {
@@ -50,4 +51,12 @@
     }
     };
     google.maps.event.addDomListener(window, 'load', initialize);
+
+    var pins = $('.pin');
+    pins.each(function(){
+      $(this).click(function(){
+        var url = $(this).data('url');
+      window.location.href = url;
+      });
+    });
     })();
