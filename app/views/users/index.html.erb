@@ -6,23 +6,25 @@
     <%= submit_tag "Search", :name => nil, :class => "search button-styled" %>
   <% end %>
 
-<div id="wrapper">
-  <div id="columns">
-    <% @users.each do |user| %>
-      <div class="pin" data-url="<%= user_path(user.id) %>">
-        <%= image_tag user.profile_pic %>
-        <h5><%= user.name %></h5>
-        <h6><%= user.location %></h6>
-        <p><%= user.bio %></p>
-        <% if current_user != nil %>
-        <% end %>
-          <% if current_user.friendships.find_by_friend_id(user.id) %>
-          <h6>Already Following</h6>
-          <% elsif user.id != current_user.id %>
-          <h6><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></h6>
+<div class="cards-bg">
+  <div id="wrapper">
+    <div id="columns">
+      <% @users.each do |user| %>
+        <div class="pin" data-url="<%= user_path(user.id) %>">
+          <%= image_tag user.profile_pic %>
+          <h5><%= user.name %></h5>
+          <h6><%= user.location %></h6>
+          <p><%= user.bio %></p>
+          <% if current_user != nil %>
           <% end %>
-      </div>
-    <% end %>
+            <% if current_user.friendships.find_by_friend_id(user.id) %>
+            <h6>Already Following</h6>
+            <% elsif user.id != current_user.id %>
+            <h6><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></h6>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
