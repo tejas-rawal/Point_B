@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search.split.map(&:capitalize).join(' ')}%"])
+      find(:all, :conditions => ['name LIKE ?', "%#{search.split(/\s/).map(&:capitalize).join(' ')}%"])
     else
       find(:all)
     end
