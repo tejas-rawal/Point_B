@@ -1,22 +1,35 @@
+%h1 Destinations
+
 %h5.search Search for Destinations
 = form_tag destination_search_path, :method => 'get' do
   .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
-  = submit_tag "Search", :name => nil, :class => 'search'
+  = submit_tag "Search", :name => nil, :class => 'search button-styled'
 
-.gridler
-  .row
-    %ul.small-block-grid-1.medium-block-grid-4.large-block-grid-5
-      - @destinations.sample(10).reverse_each do |dest|
-        %li.destination-grid
-          %h5= link_to dest.user.name, user_path(dest.user_id)
-          %h5= "#{dest.city}, #{dest.country}"
-          %span.medium= image_tag dest.album_url(:medium)
-          %p
-            = dest.snippet
-            - if dest.posts.first
-              %p
-                Activity: #{dest.posts.first.thing}
-              %p= dest.posts.first.description
-            - else
-              %no{:content => ""}
-            = link_to 'Read More', user_destination_path(dest.user_id, dest)
+#wrapper
+  #columns
+    - @destinations.sample(10).each do |dest|
+      .pin{:data => {:url => user_destination_path(@user.id, dest) } }
+        %h5= link_to dest.user.name, user_path(dest.user_id)
+        %h5= "#{dest.city}, #{dest.country}"
+        %span.medium= image_tag dest.album_url(:medium)
+        %p= dest.snippet
+        - if dest.posts.first
+          %h6= "Activity: #{dest.posts.first.thing}"
+          %p= dest.posts.first.description
+        - else
+          %no{:content => ""}
+
+- content_for :javascript do
+  
+  :javascript
+  (function () {
+    var pins = $('.pin');
+    pins.each(function(){
+      $(this).click(function(){
+        var url = $(this).data('url');
+      window.location.href = url;
+      });
+    });
+  })();
+
+

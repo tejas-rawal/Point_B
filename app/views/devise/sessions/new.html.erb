@@ -1,9 +1,6 @@
-<% content_for :homepage do %>
 <div id="static-landing">  
   <div class="small-12 medium-6 large-5 columns">
-    <span class="homepage-logo-big">
-      <%= image_tag('http://res.cloudinary.com/dljyjkavz/image/upload/v1390496778/barrel_blue_white_back_xwt53t.png') %>
-    </span>
+    
     <span id="home-info">
     <h3 class="title">POINT B</h3>
     <h5 class="title">For those who have an undying urge to to explore the world.</h5>
@@ -14,7 +11,12 @@
   </div>
   <div class="sign-in-block small-12 medium-4 large-4 columns">
     <div class="small-12 medium-4 large-4 columns" id="globe">
+      <% if browser.ie? || browser.safari?%>
+        <span class="homepage-logo-big"><%= image_tag('http://res.cloudinary.com/dljyjkavz/image/upload/v1390496778/barrel_blue_white_back_xwt53t.png') %>
+        </span>
+      <% else %>
       <div id="container"></div>
+      <% end %>
     </div>
     
     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -38,7 +40,7 @@
 <div class="homepage-footer">
   <center><p>&copy2014</p></center>
 </div>
-<% end %>
+
 
 <% content_for :javascript do %>
   <script src="//cdnjs.cloudflare.com/ajax/libs/three.js/r61/three.min.js"></script>
