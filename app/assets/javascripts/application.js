@@ -21,7 +21,7 @@ $(function(){
   $(document).foundation();
   $(".static-landing .top-bar").remove();
 
-  $('dd.accordion').on('click', function(){
+  $('input.accordion').on('click', function(){
     $('form.new-post').slideToggle("slow");
   });
 });

@@ -1,8 +1,8 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
-  # GET /trips
-  # GET /trips.json
+  # GET /destinations
+  # GET /destinations.json
   def index
     @user = current_user
     @destinations = Destination.search(params[:search])
@@ -14,7 +14,7 @@ class DestinationsController < ApplicationController
     @user = current_user
     @post = @destination.posts(post_params)
     @comment = Comment.new
-    @coord = @destination.lat_lng
+    @stars = @user.stars.map {|star| star.destination_id}
   end
 
   def post

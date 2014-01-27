@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :friendships
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+  has_many :stars
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
@@ -37,7 +38,7 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search.split.map(&:capitalize).join(' ')}%"])
+      find(:all, :conditions => ['name LIKE ?', "%#{search.split(/\s/).map(&:capitalize).join(' ')}%"])
     else
       find(:all)
     end

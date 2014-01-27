@@ -7,6 +7,7 @@ class Destination < ActiveRecord::Base
 
   belongs_to :user
   has_many :posts
+  has_many :stars
 
   def snippet
     description.truncate 200
@@ -27,7 +28,7 @@ class Destination < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['city LIKE ?', "%#{search.split.map(&:capitalize).join(' ')}%"])
+      find(:all, :conditions => ['city LIKE ?', "%#{search.split(/\s/).map(&:capitalize).join(' ')}%"])
     else
       find(:all)
     end

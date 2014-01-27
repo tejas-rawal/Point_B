@@ -10,9 +10,15 @@ PointB::Application.routes.draw do
     resources :destinations
   end
 
+
+  resources :stars, :except => :create
+  post '/destinations/:destination_id/stars' => 'stars#create', :as => :star_post
+
+
   get "/destinations" => "destinations#index", :as => :destination_search
 
   get "/followers" => "users#followers", :as => :followers_list
+
 
   resources :friendships
   resources :comments
@@ -21,8 +27,4 @@ PointB::Application.routes.draw do
   scope :api do
     post 'destinations/:destination_id/posts' => 'destinations#post', :as => :destination_post_api
   end
-
-
-
-
 end

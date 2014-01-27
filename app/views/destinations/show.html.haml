@@ -8,42 +8,47 @@
               = image_tag @destination.album_url(:medium) if @destination.album.url
             %h3
               = "#{@destination.city}, #{@destination.country}"
+              - if current_user.stars.where(destination_id: @destination.id).count > 0
+                %i.fa.fa-star
+              -else
+                - if !(@user.destinations.include?(@destination))
+                  %i.fa.fa-star-o
+            - if @user.destinations.include?(@destination)
+              %ul.side-nav
+                %li
+                  = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
+                %li
+                  = button_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
+                %input{type: 'button', value: 'Add Post', class: 'accordion'}
+                %form.new-post
+                  .row
+                    .small-8.columns
+                      %label Activity
+                      %input.thing{type:"text"}
+                  .row
+                    .small-8.columns
+                      %label Description
+                      %textarea.description{rows: "10", cols: "30"}
+                  .row
+                    .small-8.columns
+                      %label External Links
+                      %textarea.external_links{rows: "5", cols: "30"}
+                  .row
+                    .small-8.columns
+                      %label Image
+                      %input.images{id: "fileInput", type: "file", accept: "image/*"}
+
+                      %input.id{type: "hidden"}
+
+                      %input{type: "submit", value: "Add Post"}
+
           .small-12.large-6.columns.description
             %p
               = @destination.description
             %p
               %b Tags:
               = @destination.category
-        - if @user == current_user
-          %dl.sub-nav
-            %dd
-              = link_to 'Edit Destination', edit_user_destination_path(@user.id, @destination)
-            %dd
-              = link_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
-            %dd.accordion Add Post
 
-
-          %form.new-post
-            .row
-              .small-8.columns
-                %label Activity
-                %input.thing{type:"text"}
-            .row
-              .small-8.columns
-                %label Description
-                %textarea.description{rows: "10", cols: "30"}
-            .row
-              .small-8.columns
-                %label External Links
-                %textarea.external_links{rows: "5", cols: "30"}
-            .row
-              .small-8.columns
-                %label Image
-                %input.images{id: "fileInput", type: "file"}
-
-                %input.id{type: "hidden"}
-
-                %input{type: "submit", value: "Add Post"}
       .post-wall.large-6.medium-8.small-10.columns
         - @destination.posts.each do |p|
           .row
@@ -78,6 +83,10 @@
 
 
   :javascript
+    $(document).ready(function(){
+    $('body').css('background-color', '#d8d8d8');
+    });
+
     (function () {
     var destinationPosts = new Post();
 
@@ -91,3 +100,43 @@
 
     window.g = {};
     g.destinationPostsUrl = "#{destination_post_api_path(destination_id: @destination)}";
+
+    var stars = #{raw @stars.to_json};
+    var destination = #{raw @destination.id.to_json};
+
+    $('i').on('click', function(e){
+    e.preventDefault();
+
+    if(stars.length < 1){
+
+    $('i').removeClass('fa fa-star-o').addClass('fa fa-star');
+
+    $.ajax({
+    url: "#{star_post_path(destination_id: @destination)}",
+    type: "post",
+    dataType: "json"
+    });
+    }
+
+    else {
+
+    for(var i = 0; i < stars.length; i++){
+    var star_id = stars[i];
+
+    if(star_id !== destination){
+
+    $('i').removeClass('fa fa-star-o').addClass('fa fa-star');
+
+    $.ajax({
+    url: "#{star_post_path(destination_id: @destination)}",
+    type: "post",
+    dataType: "json"
+    });
+    }
+
+    else {
+    alert('#{@destination.city} is already on your wish list. In order to remove, please visit your starred destinations page.');
+    }
+    }
+    }
+    });
