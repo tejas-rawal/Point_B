@@ -11,8 +11,8 @@
         <p><%= @user.bio %></p>
       <% if @user == current_user %>
         <ul class="side-nav">
-        <li><%= button_to 'Edit Profile', edit_user_path %></li>
-        <li><%= button_to 'Add Destination', new_user_destination_path(current_user) %></li>
+        <li><%= button_to 'Edit Profile', edit_user_path, :method => 'get' %></li>
+        <li><%= button_to 'Add Destination', new_user_destination_path(current_user), :method => 'get' %></li>
         <li><%= button_to 'My Starred Destinations', stars_path, :method => 'get' %></li>
         </ul>
       <% end %>
