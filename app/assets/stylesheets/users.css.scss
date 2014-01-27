@@ -46,8 +46,33 @@
   background-repeat:no-repeat;
   background-attachment:fixed;
   background-position:center; 
+  height: 2000px;
 }
 
+.cards-bg-starred {
+  background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390858658/maldives_zpbdnu.jpg);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center; 
+  height: 2000px;
+}
+
+
+.cards-bg-users {
+  background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390857684/bike_evvlpi.jpg);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center; 
+  height: 2000px;
+}
+
+.cards-bg-dests {
+  background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390857760/northwest_xcuoqv.jpg);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center; 
+  height: 2000px;
+}
 .hero-wrapper {
   color: #fff;
   height: 440px;
