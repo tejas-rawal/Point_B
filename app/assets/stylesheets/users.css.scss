@@ -15,9 +15,13 @@
 }
 
 #map {
-  height: 300px;
+  height: 355px;
   width: 100%;
   box-shadow: 5px 5px 3px #333333;
+}
+
+.map-title {
+  text-shadow: 2px 2px 0px #fff;
 }
 
 .pins img {
@@ -46,6 +50,7 @@
 
 .hero-wrapper {
   color: #fff;
+  height: 440px;
   h3 {
     color: #fff;
   }
