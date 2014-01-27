@@ -1,23 +1,26 @@
-%h1 Destinations
+.cards-bg-dests
+  .row
+    .small-12.medium-12.large-12.columns
+      %h1 Destinations
 
-%h5.search Search for Destinations
-= form_tag destination_search_path, :method => 'get' do
-  .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
-  = submit_tag "Search", :name => nil, :class => 'search button-styled'
+      %h5.search Search for Destinations
+      = form_tag destination_search_path, :method => 'get' do
+        .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
+        = submit_tag "Search", :name => nil, :class => 'search button-styled'
 
-#wrapper
-  #columns
-    - @destinations.sample(10).each do |dest|
-      .pin{:data => {:url => user_destination_path(@user.id, dest) } }
-        %h5= link_to dest.user.name, user_path(dest.user_id)
-        %h5= "#{dest.city}, #{dest.country}"
-        %span.medium= image_tag dest.album_url(:medium)
-        %p= dest.snippet
-        - if dest.posts.first
-          %h6= "Activity: #{dest.posts.first.thing}"
-          %p= dest.posts.first.description
-        - else
-          %no{:content => ""}
+  #wrapper
+    #columns
+      - @destinations.sample(10).each do |dest|
+        .pin{:data => {:url => user_destination_path(@user.id, dest) } }
+          %h5= link_to dest.user.name, user_path(dest.user_id)
+          %h5= "#{dest.city}, #{dest.country}"
+          %span.medium= image_tag dest.album_url(:medium)
+          %p= dest.snippet
+          - if dest.posts.first
+            %h6= "Activity: #{dest.posts.first.thing}"
+            %p= dest.posts.first.description
+          - else
+            %no{:content => ""}
 
 - content_for :javascript do
   
