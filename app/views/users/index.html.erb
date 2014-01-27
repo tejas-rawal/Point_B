@@ -1,9 +1,12 @@
-<h1>Fellow Travelers</h1>
-
+<div class="cards-bg-users">
+  <div class="row">
+    <div class="small-12 medium-12 large-12 columns small-centered">
+      <h1>Fellow Travelers</h1>
+    </div>
 <div class="row users">
   <div class="large-3 medium-3 columns"></div>
   <div class="large-6 medium-6 small-12 columns user-search">
-    <h5 class="search">Search for Users</h5>
+    <h4 class="search">Search for Users</h4>
       <%= form_tag users_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:search], :class => "search-bar", placeholder: "Enter A Name" %>
         <div class="form-div"><%= submit_tag "Search", :name => nil, :class => "search button-styled" %></div>
@@ -12,23 +15,24 @@
   <div class="large-3 medium-3 columns"></div>
 </div>
 
-<div id="wrapper">
-  <div id="columns">
-    <% @users.each do |user| %>
-      <div class="pin" data-url="<%= user_path(user.id) %>">
-        <%= image_tag user.profile_pic %>
-        <h5><%= user.name %></h5>
-        <h6><%= user.location %></h6>
-        <p><%= user.bio %></p>
-        <% if current_user != nil %>
-        <% end %>
-          <% if current_user.friendships.find_by_friend_id(user.id) %>
-          <h6>Already Following</h6>
-          <% elsif user.id != current_user.id %>
-          <h6><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></h6>
+  <div id="wrapper">
+    <div id="columns">
+      <% @users.each do |user| %>
+        <div class="pin" data-url="<%= user_path(user.id) %>">
+          <%= image_tag user.profile_pic %>
+          <h5><%= user.name %></h5>
+          <h6><%= user.location %></h6>
+          <p><%= user.bio %></p>
+          <% if current_user != nil %>
           <% end %>
-      </div>
-    <% end %>
+            <% if current_user.friendships.find_by_friend_id(user.id) %>
+            <h6>Already Following</h6>
+            <% elsif user.id != current_user.id %>
+            <h6><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></h6>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

@@ -1,4 +1,9 @@
 /****************IMAGE***************/
+// * {
+//   border: 1px solid red;
+// }
+
+
 img {
   margin-bottom: 5px;
 }
@@ -33,14 +38,6 @@ img {
   height: auto;
 }
 
-.homepage-logo-big {
-  max-width: 200px;
-  height: auto;
-  float: right;
-  padding: 5px 5px 5px 10px;;
-  transform:rotate(10deg);
-  -ms-transform:rotate(10deg); /* IE 9 */
-  -webkit-transform:rotate(10deg); /* Safari and Chrome */
-}
+
 
 

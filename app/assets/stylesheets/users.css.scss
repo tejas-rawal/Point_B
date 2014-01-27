@@ -4,12 +4,24 @@
 /****************USER****************/
 .user {
   text-align: justify;
+  background-color: rgba(#fff, .7);
+  padding-bottom: 7px;
+  border-radius: 3px;
+  margin-top: 20px;
+}
+
+.followers {
+  float: right;
 }
 
 #map {
-  height: 300px;
+  height: 355px;
   width: 100%;
   box-shadow: 5px 5px 3px #333333;
+}
+
+.map-title {
+  text-shadow: 2px 2px 0px #fff;
 }
 
 .pins img {
@@ -18,12 +30,69 @@
   margin-top: 5px;
 }
 
+.pins {
+  color: #fff;
+}
+
 #wrapper {
   width: 90%;
-  max-width: 1100px;
+  max-width: 1260px;
   margin: 50px auto;
   height: auto;
-  background-color: #d8d8d8;
+}
+
+.cards-bg {
+  background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/c_scale,w_2000/v1390851148/rail_yxj3nj.jpg);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  height: 2000px;
+}
+
+.cards-bg-starred {
+  background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390858658/maldives_zpbdnu.jpg);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  height: 2000px;
+}
+
+
+.cards-bg-users {
+  background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390857684/bike_evvlpi.jpg);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  height: 2000px;
+}
+
+.cards-bg-dests {
+  background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390857760/northwest_xcuoqv.jpg);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  height: 2000px;
+}
+
+.hero-wrapper {
+  color: #fff;
+  height: 440px;
+  h3 {
+    color: #fff;
+  }
+}
+
+canvas {
+    display: block;
+}
+
+.user-list {
+  margin-left: 10px;
+  img {
+    max-width: 75px;
+    height: auto;
+    border-radius: 2px;
+  }
 }
 
 #columns {
@@ -43,8 +112,9 @@
 .pin {
   display: inline-block;
   background: #FEFEFE;
-  border: 2px solid #FAFAFA;
-  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  border: 2px solid #6c6c6c;
+  -webkit-box-shadow: 5px 5px 3px #333333;
+  box-shadow: 5px 5px 3px #333333;
   margin: 0 2px 15px;
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
@@ -58,15 +128,18 @@
   -moz-transition: all .2s ease;
   -o-transition: all .2s ease;
   transition: all .2s ease;
+  overflow: hidden;
 }
 
 #columns:hover .pin:not(:hover) {
-  opacity: 0.4;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
 }
 
 .pin img {
   width: 100%;
-  // max-height: 200px;
   border-bottom: 1px solid #ccc;
   padding-bottom: 15px;
   margin-bottom: 5px;
@@ -110,14 +183,6 @@
     -webkit-column-count: 4;
     -moz-column-count: 4;
     column-count: 4;
-  }
-}
-
-.hero-wrapper {
-  background-color: #07599B;
-  color: #fff;
-  h3 {
-    color: #fff;
   }
 }
 
@@ -165,6 +230,6 @@ form .form-div {
   margin-top: 10px;
 }
 
-h5.search {
+h4.search {
   text-align: center;
 }

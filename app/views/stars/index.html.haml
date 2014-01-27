@@ -1,11 +1,10 @@
-.hero-wrapper.small-12.medium-12.large-12.columns
+.cards-bg-starred
   .row
-    %h3 My Destination Wish List
-    #map
-    .pins 
+    .small-12.medium-12.large-12.columns
+      %h3 My Destination Wish List
+      #map
+      .pins 
 
-.row
-  %h3 Future Destinations
   #wrapper
     #columns
       - @stars.reverse_each do |star|

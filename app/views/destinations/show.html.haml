@@ -1,91 +1,89 @@
-.row.main
-  .destination.small-12.large-10.large-offset-1.columns
-    .row.card
-      .navi.large-6.medium-4.small-2.medium-centered.large-centered.small-centered.columns
-        .row.content
-          .small-12.large-6.columns.image
-            %center
-              = image_tag @destination.album_url(:medium) if @destination.album.url
-            %h3
-              = "#{@destination.city}, #{@destination.country}"
-              - if current_user.stars.where(destination_id: @destination.id).count > 0
-                %i.fa.fa-star
-              -else
-                - if !(@user.destinations.include?(@destination))
-                  %i.fa.fa-star-o
-            - if @user.destinations.include?(@destination)
-              %ul.side-nav
-                %li
-                  = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
-                %li
-                  = button_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
-                %input{type: 'button', value: 'Add Post', class: 'accordion'}
-                %form.new-post
-                  .row
-                    .small-8.columns
-                      %label Activity
-                      %input.thing{type:"text"}
-                  .row
-                    .small-8.columns
-                      %label Description
-                      %textarea.description{rows: "10", cols: "30"}
-                  .row
-                    .small-8.columns
-                      %label External Links
-                      %textarea.external_links{rows: "5", cols: "30"}
-                  .row
-                    .small-8.columns
-                      %label Image
-                      %input.images{id: "fileInput", type: "file", accept: "image/*"}
+.cards-bg
+  .row.main
+    .destination.small-12.large-10.large-offset-1.columns
+      .row.card
+        .navi.large-6.medium-4.small-2.medium-centered.large-centered.small-centered.columns
+          .row.content
+            .small-12.large-6.columns.image
+              %center
+                = image_tag @destination.album_url(:medium) if @destination.album.url
+              %h3
+                = "#{@destination.city}, #{@destination.country}"
+                - if current_user.stars.where(destination_id: @destination.id).count > 0
+                  %i.fa.fa-star
+                -else
+                  - if !(@user.destinations.include?(@destination))
+                    %i.fa.fa-star-o
+              - if @user.destinations.include?(@destination)
+                %ul.side-nav
+                  %li
+                    = button_to 'Edit Destination', edit_user_destination_path(@user.id, @destination), method: :get
+                  %li
+                    = button_to 'Delete Destination', user_destination_path(@user.id, @destination.id), method: :delete, data: { confirm: 'Are you sure?' }
+                  %input{type: 'button', value: 'Add Post', class: 'accordion'}
+                  %form.new-post
+                    .row
+                      .small-8.columns
+                        %label Activity
+                        %input.thing{type:"text"}
+                    .row
+                      .small-8.columns
+                        %label Description
+                        %textarea.description{rows: "10", cols: "30"}
+                    .row
+                      .small-8.columns
+                        %label External Links
+                        %textarea.external_links{rows: "5", cols: "30"}
+                    .row
+                      .small-8.columns
+                        %label Image
+                        %input.images{id: "fileInput", type: "file", accept: "image/*"}
 
-                      %input.id{type: "hidden"}
+                        %input.id{type: "hidden"}
 
-                      %input{type: "submit", value: "Add Post"}
+                        %input{type: "submit", value: "Add Post"}
 
-          .small-12.large-6.columns.description
-            %p
-              = @destination.description
-            %p
-              %b Tags:
-              = @destination.category
+            .small-12.large-6.columns.description
+              %p
+                = @destination.description
+              %p
+                %b Tags:
+                = @destination.category
 
-      .post-wall.large-6.medium-8.small-10.columns
-        - @destination.posts.each do |p|
-          .row
-            .album.small-3.medium-4.large-3.columns.entre
-              = image_tag 'http://res.cloudinary.com/dljyjkavz/image/upload/v1390069304/Oval_Stamp_ajhs4j.png'
-            .small-9.medium-8.large-9.columns
-              %h5= p.thing
-              %p= p.description
-              - if p.external_links
-                = link_to p.external_links, p.external_links
-              = render partial: 'comments/comment', locals: { p: p }
-      #templates
-        %script{type: "text/template", class: "post"}
-          .row.post-template
-            .album.small-3.medium-4.large-3.columns.entre
-              = image_tag 'http://res.cloudinary.com/dljyjkavz/image/upload/v1390069304/Oval_Stamp_ajhs4j.png'
-            .small-9.medium-8.large-9.columns
-              %h5 {thing}
-              %p {description}
-              = link_to "{external_links}", "{external_links}"
-              = form_for Comment.new, remote: true do |f|
+        .post-wall.large-6.medium-8.small-10.columns
+          - @destination.posts.each do |p|
+            .row
+              .album.small-3.medium-4.large-3.columns.entre
+                = image_tag 'http://res.cloudinary.com/dljyjkavz/image/upload/v1390069304/Oval_Stamp_ajhs4j.png'
+              .small-9.medium-8.large-9.columns
+                %h5= p.thing
+                %p= p.description
+                - if p.external_links
+                  = link_to p.external_links, p.external_links
+                = render partial: 'comments/comment', locals: { p: p }
+        #templates
+          %script{type: "text/template", class: "post"}
+            .row.post-template
+              .album.small-3.medium-4.large-3.columns.entre
+                = image_tag 'http://res.cloudinary.com/dljyjkavz/image/upload/v1390069304/Oval_Stamp_ajhs4j.png'
+              .small-9.medium-8.large-9.columns
+                %h5 {thing}
+                %p {description}
+                = link_to "{external_links}", "{external_links}"
+                = form_for Comment.new, remote: true do |f|
 
-                .field
-                  = f.text_field :text, :placeholder => "Add a Comment"
+                  .field
+                    = f.text_field :text, :placeholder => "Add a Comment"
 
-                  = hidden_field_tag 'comment[post_id]', '{ id }'
+                    = hidden_field_tag 'comment[post_id]', '{ id }'
 
-                .actions
-                  = f.submit 'Save'
+                  .actions
+                    = f.submit 'Save'
 
 - content_for :javascript do
 
 
   :javascript
-    $(document).ready(function(){
-    $('body').css('background-color', '#d8d8d8');
-    });
 
     (function () {
     var destinationPosts = new Post();

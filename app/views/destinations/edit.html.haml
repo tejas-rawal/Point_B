@@ -1,7 +1,5 @@
-.form-page
-  %h1= "Edit Destination: #{@destination.city}" 
+.cards-bg-dests
+  .small-12.medium-6.large-6.columns.small-centered.form
+    %h1= "Edit Destination: #{@destination.city}" 
 
-  = render 'edit'
-
-  .small-12.medium-3.large-4.columns.medium.right
-    = image_tag @destination.album_url(:medium)
+    = render 'edit'
