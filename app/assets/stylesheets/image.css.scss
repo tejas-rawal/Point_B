@@ -34,13 +34,12 @@ img {
 }
 
 .homepage-logo-big {
-  max-width: 200px;
-  height: auto;
-  float: right;
+  width: auto;
+  max-height: 250px;
   padding: 5px 5px 5px 10px;;
-  transform:rotate(10deg);
-  -ms-transform:rotate(10deg); /* IE 9 */
-  -webkit-transform:rotate(10deg); /* Safari and Chrome */
+  // transform:rotate(5deg);
+  // -ms-transform:rotate(5deg); /* IE 9 */
+  // -webkit-transform:rotate(5deg); /* Safari and Chrome */
 }
 
 
