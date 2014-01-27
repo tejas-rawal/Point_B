@@ -12,7 +12,7 @@
 }
 
 #static-landing {
-  background: url("http://res.cloudinary.com/dljyjkavz/image/upload/v1390496211/blurred_bg_oba6p5.png") 0 0 repeat;
+  background: url("http://res.cloudinary.com/dljyjkavz/image/upload/v1390856906/homepage1400x1019_g0rca9.png");
   height: 1000px;
   width: auto;
 }
@@ -23,12 +23,13 @@ canvas {
 }
 
 #home-info {
-  color: #fff;
-  margin-top: -50px;
+  // margin-top: -50px;
   text-align: center;
-  .title {
-    color: #fff;
-  }
+  padding-top: 20px;
+}
+
+.home-space {
+  height: 50px;
 }
 
 .homepage-footer {
@@ -36,4 +37,20 @@ canvas {
   color: #fff;
   padding-top: 15px;
   height: 45px;
+}
+
+.homepage-logo-big {
+  width: auto;
+  max-height: 150px;
+  float: right;
+  margin-right: 40px;
+  margin-top: -40px;
+  padding: 5px 5px 5px 10px;;
+  transform:rotate(20deg);
+  -ms-transform:rotate(20deg); /* IE 9 */
+  -webkit-transform:rotate(20deg); /* Safari and Chrome */
+}
+
+.title {
+  color: #292cf4;
 }
