@@ -1,11 +1,13 @@
-%h1 Destinations
-
-%h5.search Search for Destinations
-= form_tag destination_search_path, :method => 'get' do
-  .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
-  = submit_tag "Search", :name => nil, :class => 'search button-styled'
-
 .cards-bg
+  .row
+    .small-12.medium-12.large-12.columns
+      %h1 Destinations
+
+      %h5.search Search for Destinations
+      = form_tag destination_search_path, :method => 'get' do
+        .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
+        = submit_tag "Search", :name => nil, :class => 'search button-styled'
+
   #wrapper
     #columns
       - @destinations.sample(10).each do |dest|

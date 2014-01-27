@@ -1,12 +1,15 @@
-<h1>Fellow Travelers</h1>
-
-<h5 class="search">Search for Users</h5>
-  <%= form_tag users_path, :method => 'get' do %>
-    <div class="search-field"><%= text_field_tag :search, params[:search], placeholder: "Enter A Name" %></div>
-    <%= submit_tag "Search", :name => nil, :class => "search button-styled" %>
-  <% end %>
-
 <div class="cards-bg">
+  <div class="row">
+    <div class="small-12 medium-12 large-12 columns small-centered">
+      <h1>Fellow Travelers</h1>
+    </div>
+    <h5 class="search">Search for Users</h5>
+    <%= form_tag users_path, :method => 'get' do %>
+      <div class="search-field"><%= text_field_tag :search, params[:search], placeholder: "Enter A Name" %></div>
+      <%= submit_tag "Search", :name => nil, :class => "search button-styled" %>
+    <% end %>
+  </div>
+
   <div id="wrapper">
     <div id="columns">
       <% @users.each do |user| %>
