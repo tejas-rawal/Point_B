@@ -11,7 +11,7 @@
 }
 
 .followers {
-  float: right; 
+  float: right;
 }
 
 #map {
@@ -45,7 +45,7 @@
   background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/c_scale,w_2000/v1390851148/rail_yxj3nj.jpg);
   background-repeat:no-repeat;
   background-attachment:fixed;
-  background-position:center; 
+  background-position:center;
   height: 2000px;
 }
 
@@ -53,7 +53,7 @@
   background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390858658/maldives_zpbdnu.jpg);
   background-repeat:no-repeat;
   background-attachment:fixed;
-  background-position:center; 
+  background-position:center;
   height: 2000px;
 }
 
@@ -62,7 +62,7 @@
   background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390857684/bike_evvlpi.jpg);
   background-repeat:no-repeat;
   background-attachment:fixed;
-  background-position:center; 
+  background-position:center;
   height: 2000px;
 }
 
@@ -70,7 +70,7 @@
   background-image: url(http://res.cloudinary.com/dljyjkavz/image/upload/v1390857760/northwest_xcuoqv.jpg);
   background-repeat:no-repeat;
   background-attachment:fixed;
-  background-position:center; 
+  background-position:center;
   height: 2000px;
 }
 
@@ -123,7 +123,7 @@ canvas {
   padding-bottom: 5px;
   background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
   opacity: 1;
-  
+
   -webkit-transition: all .2s ease;
   -moz-transition: all .2s ease;
   -o-transition: all .2s ease;
@@ -186,4 +186,50 @@ canvas {
   }
 }
 
+canvas {
+    display: block;
+}
 
+.user-list {
+  margin-left: 10px;
+  img {
+    max-width: 75px;
+    height: auto;
+    border-radius: 2px;
+  }
+}
+
+.row.users {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.user-search {
+  margin-right: auto;
+  margin-left: auto;
+  vertical-align: middle;
+}
+
+.large-3.medium-3.columns {
+  width: 25%;
+  height: 100px;
+}
+
+form .search-bar {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+form .form-div {
+  margin-right: auto;
+  margin-left: 37%;
+  margin-top: 10px;
+}
+
+h4.search {
+  text-align: center;
+}

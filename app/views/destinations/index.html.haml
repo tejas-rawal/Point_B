@@ -3,10 +3,15 @@
     .small-12.medium-12.large-12.columns
       %h1 Destinations
 
-      %h5.search Search for Destinations
+  .row.users
+    .large-3.medium-3.columns
+    .large-6.medium-6.small-12.columns.user-search
+      %h4.search Search for Destinations
       = form_tag destination_search_path, :method => 'get' do
-        .search-field= text_field_tag :search, params[:search], placeholder: 'Enter a City'
-        = submit_tag "Search", :name => nil, :class => 'search button-styled'
+        = text_field_tag :search, params[:search], :class => 'search-bar', placeholder: 'Enter a City'
+        .form-div
+          = submit_tag "Search", :name => nil, :class => 'search button-styled'
+    .large-3.medium-3.columns
 
   #wrapper
     #columns
@@ -23,7 +28,7 @@
             %no{:content => ""}
 
 - content_for :javascript do
-  
+
   :javascript
   (function () {
     var pins = $('.pin');
