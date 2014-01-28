@@ -9,9 +9,9 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.build(:friend_id => params[:friend_id])
 
     if @friendship.save
-      redirect_to @user, :notice => "You have a new Friend!"
+      redirect_to activities_path, :notice => "You have a new Friend!"
     else
-      redirect_to @user, :error => "Friendship FAIL!"
+      redirect_to users_path, :error => "Friendship FAIL!"
     end
   end
 
