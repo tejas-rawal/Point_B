@@ -1,15 +1,16 @@
 <h3><%= "#{@user.name}'s #{@user.inverse_friends.length} Followers" %></h3>
-
-<div id="wrapper">
-  <div id="columns">
-    <% @user.inverse_friends.each do |f| %>
-      <div class="pin" data-url="/users/<%= f.id %>">
-        <h5><%= f.name %></h5>
-        <span class="medium"><%= image_tag f.profile_pic_url(:medium) %></span>
-        <h6><%= "#{f.location}" %></h6>
-        <p><%= f.bio %></p>
-      </div>
-    <% end %>
+<div class="cards-bg-users">
+  <div id="wrapper">
+    <div id="columns">
+      <% @user.inverse_friends.each do |f| %>
+        <div class="pin" data-url="/users/<%= f.id %>">
+          <h5><%= f.name %></h5>
+          <span class="medium"><%= image_tag f.profile_pic_url(:medium) %></span>
+          <h6><%= "#{f.location}" %></h6>
+          <p><%= f.bio %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
