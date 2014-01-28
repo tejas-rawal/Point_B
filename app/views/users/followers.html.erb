@@ -1,5 +1,5 @@
-<h3><%= "#{@user.name}'s #{@user.inverse_friends.length} Followers" %></h3>
 <div class="cards-bg-users">
+  <h2 class ="search"><%= "#{@user.name}'s #{@user.inverse_friends.length} Followers" %></h2>
   <div id="wrapper">
     <div id="columns">
       <% @user.inverse_friends.each do |f| %>
