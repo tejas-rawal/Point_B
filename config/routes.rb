@@ -23,6 +23,9 @@ PointB::Application.routes.draw do
   resources :friendships
   resources :comments
   resources :activities, only: :index
+  resources :posts, only: [:show, :update]
+
+  delete "/destinations/:destination_id/posts/:post_id" => "posts#destroy", :as => :delete_post
 
   scope :api do
     post 'destinations/:destination_id/posts' => 'destinations#post', :as => :destination_post_api

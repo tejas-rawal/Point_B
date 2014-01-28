@@ -55,6 +55,7 @@
             .row
               .album.small-3.medium-4.large-3.columns.entre
                 = image_tag 'http://res.cloudinary.com/dljyjkavz/image/upload/v1390069304/Oval_Stamp_ajhs4j.png'
+                %input{type: 'button', :class => 'delete', value: 'Delete Post'}
               .small-9.medium-8.large-9.columns
                 %h5= p.thing
                 %p= p.description
@@ -137,4 +138,14 @@
     }
     }
     }
+    });
+
+    $('.delete').on('click', function(e){
+    e.preventDefault();
+
+    $.ajax({
+    url: "#{post_path(post_id: @destination.posts.find_by_destination_id(params[:destination_id]))}",
+    type: "delete",
+    dataType: "json"
+    });
     });

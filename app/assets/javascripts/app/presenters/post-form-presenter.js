@@ -13,7 +13,12 @@
         description: $('.description', $root).val(),
         images: $('.images', $root).val()
       };
-      console.log(newPost);
+
+      $(this).slideUp('slow');
+
+      $('.thing', $root).val("");
+      $('.description', $root).val("");
+
       posts.create(newPost);
     });
   };

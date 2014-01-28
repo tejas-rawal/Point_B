@@ -49,6 +49,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @post = Post.find_by_destination_id(params[:destination_id])
     @post.destroy
     respond_to do |format|
       format.html { redirect_to destination_url }

@@ -12,7 +12,7 @@ class DestinationsController < ApplicationController
   # GET /destinations/1.json
   def show
     @user = current_user
-    @post = @destination.posts(post_params)
+    @post = Post.find_by_destination_id(params[:destination_id])
     @comment = Comment.new
     @stars = @user.stars.map {|star| star.destination_id}
   end
