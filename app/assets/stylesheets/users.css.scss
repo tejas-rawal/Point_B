@@ -131,7 +131,7 @@ canvas {
   overflow: hidden;
 }
 
-#columns:hover .pin:not(:hover) {
+.pin:not(:hover) {
   -webkit-filter: grayscale(100%);
   -moz-filter: grayscale(100%);
   -o-filter: grayscale(100%);
