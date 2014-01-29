@@ -131,11 +131,11 @@ canvas {
   overflow: hidden;
 }
 
-.pin:not(:hover) {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
+.pin:hover {
+  -webkit-filter: sepia(100%);
+  -moz-filter: sepia(100%);
+  -o-filter: sepia(100%);
+  -ms-filter: sepia(100%);
 }
 
 .pin img {
