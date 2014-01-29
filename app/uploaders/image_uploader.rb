@@ -3,7 +3,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -23,8 +23,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
     # "/images/fallback/" + [version_name, "map.png"].compact.join('_')
     # 'map.png'
-    @images  = ["Sydney.jpg", "Phuket.jpg", "Quito.jpg", "Amsterdam.jpg", "Lesley.jpg", "Tejas.jpg"]
-    @random_no = rand(6)
+    @images  = ["Sydney.jpg", "Phuket.jpg", "Quito.jpg", "Amsterdam.jpg"]
+    @random_no = rand(4)
     @random_image = @images[@random_no]
     @random_image
   end
