@@ -21,6 +21,7 @@
   <div id="wrapper">
     <div id="columns">
       <% @users.each do |user| %>
+      <% if user.name %>
         <div class="pin" data-url="<%= user_path(user.id) %>">
           <%= image_tag user.profile_pic %>
           <h5><%= user.name %></h5>
@@ -34,6 +35,7 @@
             <h6><%= link_to 'Follow', friendships_path(:friend_id => user), :method => :post %></h6>
             <% end %>
         </div>
+      <% end %>
       <% end %>
     </div>
   </div>
