@@ -18,11 +18,12 @@ describe Destination do
 
   describe '#country_code' do
     context'when provided with the country of a specific destination' do
-      it 'returns the international country code for that country'
-      expect(destination.country_code).to eq 'us'
+      it 'returns the international country code for that country' do
+        expect(destination.country_code).to eq 'us'
 
-      destination3 = Destination.create(city: 'Madrid', country: 'Spain')
-      expect(destination3.country_code).to eq ''
+        destination3 = Destination.create(city: 'Madrid', country: 'Spain')
+        expect(destination3.country_code).to eq 'es'
+      end
     end
   end
 
@@ -31,6 +32,24 @@ describe Destination do
       it 'gives back latitude and longitude coordinates' do
         expect(destination.lat_lng).to eq({lat: 40.7143528, lng: -74.00597309999999})
         expect(destination2.lat_lng).to eq({lat: 30.267153, lng: -97.7430608})
+      end
+    end
+  end
+
+  describe '.search' do
+    context 'when provided search criteria for a destination' do
+      it 'returns an array of destinations that match the search criteria' do
+        Destination.create(city: 'New York', country: 'United States')
+        Destination.create(city: 'New York', country: 'United States')
+        Destination.create(city: 'Austin', country: 'United States')
+
+        result1 = Destination.search('New York')
+        result2 = Destination.search('Austin')
+
+        expect(result1.class).to eq Array
+        expect(result2.class).to eq Array
+        expect(result1.length).to eq 2
+        expect(result2.length).to eq 1
       end
     end
   end
